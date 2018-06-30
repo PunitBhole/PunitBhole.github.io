@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url("grey1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    
+    overflow-y: auto;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<h2 align="center">SPOS CODES</h2><br>
+
+<center>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Assembler Pass 1</button><br>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Assembler Pass 2</button><br>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Macro Pass 1</button><br>
+<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Macro Pass 2</button><br>
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;">LEX</button><br>
+<button onclick="document.getElementById('id06').style.display='block'" style="width:auto;">LEX Program to Count</button><br>
+<button onclick="document.getElementById('id07').style.display='block'" style="width:auto;">Yacc</button><br>
+<button onclick="document.getElementById('id08').style.display='block'" style="width:auto;">Yacc Syntax Analysis</button><br>
+<button onclick="document.getElementById('id09').style.display='block'" style="width:auto;">Scheduling : FCFS</button><br>
+<button onclick="document.getElementById('id10').style.display='block'" style="width:auto;">Scheduling : SRTF / SJF(Premptive)</button><br>
+<button onclick="document.getElementById('id11').style.display='block'" style="width:auto;">Scheduling : Priority</button><br>
+<button onclick="document.getElementById('id12').style.display='block'" style="width:auto;">Scheduling : Round Robin</button><br>
+<button onclick="document.getElementById('id13').style.display='block'" style="width:auto;">Paging : Least Recently Used</button><br>
+<button onclick="document.getElementById('id14').style.display='block'" style="width:auto;">Paging : Optimal</button><br>
+</center>
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+    <pre>
+        Input for Pass 1
+        Input.txt
+ 
+         START 200                             
+         MOVER AREG,='4'
+         MOVEM AREG,A
+         MOVER BREG,='1'
+        LOOP MOVER CREG,B
+         LTORG
+         ADD CREG,='6'
+         STOP
+        A DS 1
+        B DS 1
+          END
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+    import java.io.BufferedReader;
+import java.io.*;
+import java.io.IOException;
+import java.util.*;
+
+public class Test2 {
+    public static void main(String[] args) {
+
+        BufferedReader br = null;
+        FileReader fr = null;
+
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+
+        try {
+            String filename = "Input.txt";
+            fr = new FileReader(filename);
+            br = new BufferedReader(fr);
+
+            String FILENAME = "IntermediateCode.txt";
+            fw = new FileWriter(FILENAME);
+            bw = new BufferedWriter(fw);
+
+            Hashtable<String, String> is = new Hashtable<String, String>();
+            is.put("STOP", "00");
+            is.put("ADD", "01");
+            is.put("SUB", "02");
+            is.put("MULT", "03");
+            is.put("MOVER", "04");
+            is.put("MOVEM", "05");
+            is.put("COMP", "06");
+            is.put("BC", "07");
+            is.put("DIV", "08");
+            is.put("READ", "09");
+            is.put("PRINT", "10");
+
+            Hashtable<String, String> dl = new Hashtable<String, String>();
+            dl.put("DC", "01");
+            dl.put("DS", "02");
+
+            Hashtable<String, String> ad = new Hashtable<String, String>();
+
+            ad.put("START", "01");
+            ad.put("END", "02");
+            ad.put("ORIGIN", "03");
+            ad.put("EQU", "04");
+            ad.put("LTORG", "05");
+
+            Hashtable<String, String> symtab = new Hashtable<String, String>();
+            Hashtable<String, String> littab = new Hashtable<String, String>();
+            ArrayList<Integer> pooltab=new ArrayList<Integer>();
+
+            String sCurrentLine;
+            int locptr = 0;
+            int litptr = 1;
+            int symptr = 1;
+            int pooltabptr = 1;
+
+            sCurrentLine = br.readLine();
+
+            //Input is space seperated... 
+            //    START 200
+            //[0] [1]   [2]
+
+            String s1 = sCurrentLine.split(" ")[1];     // 1 will select 1st word after space.. inshort word at index 1
+            if (s1.equals("START")) {
+                bw.write("AD\t01\t");                     // AD 01
+                String s2 = sCurrentLine.split(" ")[2];
+                bw.write("C\t" + s2 + "\n");
+                locptr = Integer.parseInt(s2);             // ex: c,200  locptr ie address of Const
+            }
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                int flag = 0;
+                String type = null;
+
+                int flag2 = 0;
+                String s = sCurrentLine.split(" |\\,")[0];    // \\ is for white spaces.. word at 0th loc will always be a symbol
+                for (Map.Entry m : symtab.entrySet()) 
+                 {
+                    if (s.equals(m.getKey())) {
+                        m.setValue(locptr);
+                        flag2 = 1;
+                    }
+                }
+                if (s.length() != 0 && flag2 == 0)     // if current sym is not "" or adr is not assigned 
+                { 
+                    symtab.put(s, String.valueOf(locptr));   //then curr string must be new symbol
+                    symptr++;
+                }
+
+
+                //    MOVEM AREG,A
+                //[0]  [1]   [2] [3]
+                int flag1 = 0;
+                s = sCurrentLine.split(" |\\,")[1];
+                for (Map.Entry m : is.entrySet())      //check all entries in Imperative Statement Table
+                {
+                    if (s.equals(m.getKey())) {
+                        bw.write("IS\t" + m.getValue() + "\t");
+                        type = "is";
+                        flag1 = 1;
+                    }
+                }
+                for (Map.Entry m : ad.entrySet())     //check all entries in Assembler Directive Table
+                 {
+                    if (s.equals(m.getKey())) {
+                        bw.write("AD\t" + m.getValue() + "\t");
+                        type = "ad";
+                        flag1 = 1;
+                    }
+                }
+                for (Map.Entry m : dl.entrySet())  //check all entries in Declarative Table
+                 {
+                    if (s.equals(m.getKey())) {
+                        bw.write("DL\t" + m.getValue() + "\t");
+                        type = "dl";
+                        flag1 = 1;
+                    }
+                }
+                if (s.equals("LTORG")) {
+                    pooltab.add(pooltabptr);
+                    for (Map.Entry m : littab.entrySet()) {
+                        if (m.getValue() == "") {
+                            m.setValue(locptr);
+                            locptr++;
+                            pooltabptr++;
+                            flag = 1;
+                            flag1 = 1;
+                        }
+                    }
+                }
+                if (s.equals("END")) {
+                    pooltab.add(pooltabptr);
+                    for (Map.Entry m : littab.entrySet()) {
+                        if (m.getValue() == "") {
+                            m.setValue(locptr);
+                            locptr++;
+                            flag = 1;
+                        }
+                    }
+                }
+                if(s.equals("EQU")){
+                    symtab.put("equ", String.valueOf(locptr));
+                }
+                
+
+
+                //    MOVEM AREG,A
+                //[0]  [1]  [2]
+
+
+                if (sCurrentLine.split(" |\\,").length > 2) {
+                    s = sCurrentLine.split(" |\\,")[2];
+                    if (s.equals("AREG")) {
+                        bw.write("1\t");
+                        flag1 = 1;
+                    } else if (s.equals("BREG")) {
+                        bw.write("2\t");
+                        flag1 = 1;
+                    } else if (s.equals("CREG")) {
+                        bw.write("3\t");
+                        flag1 = 1;
+                    } else if (s.equals("DREG")) {
+                        bw.write("4\t");
+                        flag1 = 1;
+                    } else if (type == "dl") {
+                        bw.write("C\t" + s + "\t");
+                    } else {
+                        symtab.put(s, "");
+                    }
+                }
+                
+
+                //   MOVER BREG, = '1'
+                //[0] [1]  [2]  [3]
+                if (sCurrentLine.split(" |\\,").length > 3) {
+                    s = sCurrentLine.split(" |\\,")[3];
+                    if (s.contains("=")) {
+                        littab.put(s, "");
+                        bw.write("L\t" + litptr + "\t");
+                        flag1 = 1;
+                        litptr++;
+                    } else {
+                        symtab.put(s, "");
+                        bw.write("S\t" + symptr + "\t");
+                        symptr++;
+                    }
+                } 
+
+                bw.write("\n");
+
+                if (flag == 0)
+                    locptr++;
+            }
+
+            String f1 = "SYMTAB.txt";
+            FileWriter fw1 = new FileWriter(f1);
+            BufferedWriter bw1 = new BufferedWriter(fw1);
+            for (Map.Entry m : symtab.entrySet()) {
+                bw1.write(m.getKey() + "\t" + m.getValue()+"\n");               
+                System.out.println(m.getKey() + " " + m.getValue());
+            }
+
+            String f2 = "LITTAB.txt";
+            FileWriter fw2 = new FileWriter(f2);
+            BufferedWriter bw2 = new BufferedWriter(fw2);
+            for (Map.Entry m : littab.entrySet()) {
+                bw2.write(m.getKey() + "\t" + m.getValue()+"\n");
+                System.out.println(m.getKey() + " " + m.getValue());
+            }
+            
+            String f3 = "POOLTAB.txt";
+            FileWriter fw3 = new FileWriter(f3);
+            BufferedWriter bw3 = new BufferedWriter(fw3);
+            for (Integer item : pooltab) {  
+                bw3.write(item+"\n");
+                System.out.println(item);
+            }
+
+            bw.close();
+            bw1.close();
+            bw2.close();
+            bw3.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+}
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+   Input For Pass 2 will be Intermediate Code.. Symbol Table And Literal Table
+
+   Intermediate .txt               symtab.txt                                littab.txt
+    (AD,01)(C,200)                 A            211         1               5       206
+    (IS,04)(1)(L,1)                LOOP         202         1               1       207
+    (IS,05)(1)(S,1)                B            212         1               1       213
+    (IS,04)(1)(S,1)                NEXT         208         1
+    (IS,04)(3)(S,3)                BACK         202         1
+    (IS,01)(3)(L,2)                LAST         210         1
+    (IS,07)(6)(S,4)
+    (DL,01)(C,5)
+    (DL,01)(C,1)
+    (IS,02)(1)(L,3)
+    (IS,07)(1)(S,5)
+    (IS,00)
+    (AD,03)(S,2)+2
+    (IS,03)(3)(S,3)
+    (AD,03)(S,6)+1
+    (DL,02)(C,1)
+    (DL,02)(C,1)
+    (AD,02)
+    (DL,01)(C,1)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+public class Pass2 {
+    public static void main(String[] Args) throws IOException{
+         BufferedReader b1 = new BufferedReader(new FileReader("F:/java prog/Assembler/src/pass2/intermediate.txt"));
+         BufferedReader b2 = new BufferedReader(new FileReader("F:/java prog/Assembler/src/pass2/symtab.txt"));
+         BufferedReader b3 = new BufferedReader(new FileReader("F:/java prog/Assembler/src/pass2/littab.txt"));
+         FileWriter f1 = new FileWriter("F:/java prog/Assembler/src/pass2/Pass2.txt");
+         HashMap<Integer, String> symSymbol = new HashMap<Integer, String>();
+         HashMap<Integer, String> litSymbol = new HashMap<Integer, String>();
+         HashMap<Integer, String> litAddr = new HashMap<Integer, String>();
+         String s;
+         int symtabPointer=1,littabPointer=1,offset;
+
+         //Read data from symtab.txt and put in symSymbol
+         while((s=b2.readLine())!=null){
+             String word[]=s.split("\t\t\t");
+             symSymbol.put(symtabPointer++,word[1]);
+             System.out.println(symSymbol);
+         }
+
+         //Read data from littab.txt and put in LitSymbol and LitAddr
+         while((s=b3.readLine())!=null){
+             String word[]=s.split("\t\t");
+             litSymbol.put(littabPointer,word[0]);
+             litAddr.put(littabPointer++,word[1]);
+             System.out.println("LitSymnol"+litSymbol);
+             System.out.println("Litptr"+litAddr);
+         }
+
+         // ( I S , 0 4 ) ( 1 ) (  S  ,  1  )
+        //  0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 
+         while((s=b1.readLine())!=null){
+             if(s.substring(1,6).compareToIgnoreCase("IS,00")==0){
+                 f1.write("+ 00 0 000\n");
+             }
+             else if(s.substring(1,3).compareToIgnoreCase("IS")==0){
+                 f1.write("+ "+s.substring(4,6)+" ");
+                 if(s.charAt(9)==')'){
+                     f1.write(s.charAt(8)+" ");
+                     offset=3;
+                 }
+                 else{
+                     f1.write("0 ");
+                     offset=0;
+                 }
+                 if(s.charAt(8+offset)=='S')
+                     f1.write(symSymbol.get(Integer.parseInt(s.substring(10+offset,s.length()-1)))+"\n");
+                 else
+                     f1.write(litAddr.get(Integer.parseInt(s.substring(10+offset,s.length()-1)))+"\n");
+            } 
+             else if(s.substring(1,6).compareToIgnoreCase("DL,01")==0){
+                 String s1=s.substring(10,s.length()-1),s2="";
+                 for(int i=0;i<3-s1.length();i++)
+                     s2+="0";
+                 s2+=s1;
+                 f1.write("+ 00 0 "+s2+"\n");
+             }
+             else{
+                 f1.write("\n");
+             }
+         }
+         f1.close();
+         b1.close();
+         b2.close();
+         b3.close();
+    }
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('102').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!-- 3rd code. -->
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        Problem Statement:
+
+        Design suitable data structures and implement pass-I of a two-pass macro-processor using
+        OOP features in Java
+
+        INPUT
+        input.txt
+        MACRO M1 &x,&y,&a=AREG,&b=
+        MOVE &a,&x
+        ADD &a,='1'
+        MOVER &a,&y
+        M2 69,169
+        ADD &a,='5'
+        MEND
+        MACRO M2 &p,&q,&u=CREG,&v=DREG
+        MOVER &u,&p
+        MOVER &v,&q
+        M3 73,173
+        ADD &u,='15'
+        ADD &v,='10'
+        MEND
+        MACRO M3 &a,&b
+        ADD &a,&b
+        MEND
+        M1 10,20,&b=CREG
+        M2 100,200,&u=AREG,&v=BREG
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+
+public class macroPass1 {
+    public static void main(String[] Args) throws IOException{
+        BufferedReader b1 = new BufferedReader(new FileReader("input.txt"));
+        FileWriter f1 = new FileWriter("intermediate.txt");
+        FileWriter f2 = new FileWriter("mnt.txt");
+        FileWriter f3 = new FileWriter("mdt.txt");
+        FileWriter f4 = new FileWriter("kpdt.txt");
+        HashMap< String,Integer> pntab=new HashMap< String,Integer>();
+        String s;
+        int paramNo=1,mdtp=1,flag=0,pp=0,kp=0,kpdtp=0;
+        while((s=b1.readLine())!=null){
+            String word[]=s.split("\\s");
+            if(word[0].compareToIgnoreCase("MACRO")==0){
+                flag=1;
+                if(word.length<=2){
+                    f2.write(word[1]+"\t"+pp+"\t"+kp+"\t"+mdtp+"\t"+(kp==0?kpdtp:(kpdtp+1))+"\n");
+                    continue;
+                }
+                String params[]=word[2].split(",");
+                for(int i=0;i< params.length;i++){
+                    if(params[i].contains("=")){
+                        kp++;
+                        String keywordParam[]=params[i].split("=");
+                        pntab.put(keywordParam[0].substring(1,keywordParam[0].length()),paramNo++);
+                        if(keywordParam.length==2)
+                            f4.write(keywordParam[0].substring(1,keywordParam[0].length())+"\t"+keywordParam[1]+"\n");
+                        else
+                            f4.write(keywordParam[0].substring(1,keywordParam[0].length())+"\t"+"-"+"\n");
+                            
+                    }
+                    else{
+                        pntab.put(params[i].substring(1,params[i].length()),paramNo++);
+                        pp++;
+                    }
+                }
+                f2.write(word[1]+"\t"+pp+"\t"+kp+"\t"+mdtp+"\t"+(kp==0?kpdtp:(kpdtp+1))+"\n");
+                kpdtp+=kp;
+            }
+            else if(word[0].compareToIgnoreCase("MEND")==0){
+                f3.write(s+'\n');
+                flag=pp=kp=0;
+                mdtp++;
+                paramNo=1;
+                pntab.clear();
+            }
+            else if(flag==1){
+                for(int i=0;i< s.length();i++){
+                    if(s.charAt(i)=='&'){
+                        i++;
+                        String temp="";
+                        while(!(s.charAt(i)==' '||s.charAt(i)==',')){
+                            temp+=s.charAt(i++);
+                            if(i==s.length())
+                                break;
+                            
+                        }
+                        i--;
+                        f3.write("#"+pntab.get(temp));
+                    }
+                    else
+                        f3.write(s.charAt(i));
+                }
+                f3.write("\n");
+                mdtp++;
+            }
+            else{
+                f1.write(s+'\n');
+            }
+        }
+        b1.close();
+        f1.close();
+        f2.close();
+        f3.close();
+        f4.close();
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+                                            OUTPUT
+intermediate.txt                mnt.txt                   mdt.txt                       kpdt.txt
+M1 10,20,&b=CREG                M1  2   2   1   1         MOVE #3,#1                    a   AREG
+M2 100,200,&u=AREG,&v=BREG      M2  2   2   7   3         ADD #3,='1'                   b   -
+                                M3  2   0   13  4         MOVER #3,#2                   u   CREG
+                                                          M2 69,169                     v   DREG
+                                                          ADD #3,='5'
+                                                          MEND
+                                                          MOVER #3,#1
+                                                          MOVER #4,#2
+                                                          M3 73,173
+                                                          ADD #3,='15'
+                                                          ADD #4,='10'
+                                                          MEND
+                                                          ADD #1,#2
+                                                          MEND
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+ </p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<div id="id04" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+  
+  Problem Statement:
+
+    Design suitable data structures and implement pass-II of a two-pass macro-processor using
+    OOP features in Java
+-------------------------------------------------------------------------------------------------------------------------------------------------
+                                            INPUT
+intermediate.txt                mnt.txt                   mdt.txt                       kpdt.txt
+M1 10,20,&b=CREG                M1  2   2   1   1         MOVE #3,#1                    a   AREG
+M2 100,200,&u=AREG,&v=BREG      M2  2   2   7   3         ADD #3,='1'                   b   -
+                                M3  2   0   13  4         MOVER #3,#2                   u   CREG
+                                                          M2 69,169                     v   DREG
+                                                          ADD #3,='5'
+                                                          MEND
+                                                          MOVER #3,#1
+                                                          MOVER #4,#2
+                                                          M3 73,173
+                                                          ADD #3,='15'
+                                                          ADD #4,='10'
+                                                          MEND
+                                                          ADD #1,#2
+                                                          MEND
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+import java.io.*;
+import java.util.HashMap;
+import java.util.Vector;
+
+public class macroPass2 {
+    public static void main(String[] Args) throws IOException{
+        BufferedReader b1 = new BufferedReader(new FileReader("intermediate.txt"));
+        BufferedReader b2 = new BufferedReader(new FileReader("mnt.txt"));
+        BufferedReader b3 = new BufferedReader(new FileReader("mdt.txt"));
+        BufferedReader b4 = new BufferedReader(new FileReader("kpdt.txt"));
+        FileWriter f1 = new FileWriter("Pass2.txt");
+        HashMap<Integer,String> aptab=new HashMap<Integer,String>();
+        HashMap<String,Integer> aptabInverse=new HashMap<String,Integer>();
+        HashMap<String,Integer> mdtpHash=new HashMap<String,Integer>();
+        HashMap<String,Integer> kpdtpHash=new HashMap<String,Integer>();
+        HashMap<String,Integer> kpHash=new HashMap<String,Integer>();
+        HashMap<String,Integer> macroNameHash=new HashMap<String,Integer>();
+        Vector<String>mdt=new Vector<String>();
+        Vector<String>kpdt=new Vector<String>();
+        String s,s1;
+        int i,pp,kp,kpdtp,mdtp,paramNo;
+        while((s=b3.readLine())!=null)
+            mdt.addElement(s);
+        while((s=b4.readLine())!=null)
+            kpdt.addElement(s);
+        while((s=b2.readLine())!=null){
+            String word[]=s.split("\t");
+            s1=word[0]+word[1];
+            macroNameHash.put(word[0],1);
+            kpHash.put(s1,Integer.parseInt(word[2]));
+            mdtpHash.put(s1,Integer.parseInt(word[3]));
+            kpdtpHash.put(s1,Integer.parseInt(word[4]));
+        }
+        while((s=b1.readLine())!=null){
+            String b1Split[]=s.split("\\s");
+            if(macroNameHash.containsKey(b1Split[0])){
+                pp= b1Split[1].split(",").length-b1Split[1].split("=").length+1;
+                kp=kpHash.get(b1Split[0]+Integer.toString(pp));
+                mdtp=mdtpHash.get(b1Split[0]+Integer.toString(pp));
+                kpdtp=kpdtpHash.get(b1Split[0]+Integer.toString(pp));
+                String actualParams[]=b1Split[1].split(",");
+                paramNo=1;
+                for(int j=0;j< pp;j++){
+                    aptab.put(paramNo, actualParams[paramNo-1]);
+                    aptabInverse.put(actualParams[paramNo-1],paramNo);
+                    paramNo++;
+                }
+                i=kpdtp-1;
+                for(int j=0;j< kp;j++){
+                    String temp[]=kpdt.get(i).split("\t");
+                    aptab.put(paramNo,temp[1]);
+                    aptabInverse.put(temp[0],paramNo);
+                    i++;
+                    paramNo++;
+                }
+                i=pp+1;
+                while(i<=actualParams.length){
+                    String initializedParams[]=actualParams[i-1].split("=");
+                    aptab.put(aptabInverse.get(initializedParams[0].substring(1,initializedParams[0].length())),initializedParams[1].substring(0,initializedParams[1].length()));
+                    i++;
+                }
+                i=mdtp-1;
+                while(mdt.get(i).compareToIgnoreCase("MEND")!=0){
+                    f1.write("+ ");
+                    for(int j=0;j< mdt.get(i).length();j++){
+                        if(mdt.get(i).charAt(j)=='#')
+                            f1.write(aptab.get(Integer.parseInt("" + mdt.get(i).charAt(++j))));
+                        else
+                            f1.write(mdt.get(i).charAt(j));
+                    }
+                    f1.write("\n");
+                    i++;
+                }
+                aptab.clear();
+                aptabInverse.clear();
+            }
+            else
+                f1.write("+ "+s+"\n");
+        }
+        b1.close();
+        b2.close();
+        b3.close();
+        b4.close();
+        f1.close();
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------
+                        OUTPUT
+
+
+            Pass2.txt
+            + MOVE AREG,10
+            + ADD AREG,='1'
+            + MOVER AREG,20
+            + ADD AREG,='5'
+            + MOVER &AREG,100
+            + MOVER &BREG,200
+            + ADD &AREG,='15'
+            + ADD &BREG,='10'
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-------- CODE 5----------> 
+<div id="id05" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        PROBLEM STATEMENT
+        Write a program using Lex specifications to implement lexical analysis phase of compiler to
+        generate tokens of subset of Java program.
+
+        <h1>token.l</h1>
+
+        %{
+    #include < stdio.h>
+    int kw=0, iden=0, num=0,w=0;
+    %}
+
+    DIGIT [0-9]
+    NUMBER {DIGIT}+
+    REAL {DIGIT}*"."{DIGIT}+
+    TEXT [a-zA-Z]+
+    TEXT_NUMBERS [a-zA-Z0-9]
+    CONDITIONALS "if"|"else"|"else if"|"switch"|"case"
+    KEYWORD "break"|"class"|"args"|"nextInt"|"continue"|"goto"|"print"|"Scanner"|"System"|"out"|"println"|"new"|"try"|"catch"|"Exception"|"public"|"close"|"return"|"int"|"float"|"char"|"unsigned"|"signed"|"String"|"long"|"double"|"static"|"void"|"main"
+    ITERATORS "for"|"while"|"do"
+    PREPROCESSOR "import"|"java.util.Scanner"|"package"
+    DELIMITER [; :\t\n()"]
+    IDENTIFIER [a-zA-Z]{TEXT_NUMBERS}*|[a-zA-Z]{TEXT_NUMBERS}*[[{NUMBER}+]]
+    NON_IDENTIFIER {NUMBER}+[A-Za-z]+
+    COMMENT "/*"[a-zA-Z0-9 \t\n;.~!@#$%^&*()_+=<>?:"{}]*"*/"
+    OPERATOR "+"|"-"|"*"|"/"|"="
+    BLOCK_BEGINS "{"
+    BLOCK_ENDS "}"
+    UNARY "++"|"--"
+    LOPERATOR "&"|"|"|"&&"|"~"|"||"|">"|"<"|">="|"<="|"=="
+    FUNCTION {IDENTIFIER}+"("{DELIMITER}*{TEXT}{TEXT_NUMBERS}*{DELIMITER}*")"
+
+    %%
+
+    {CONDITIONALS} { printf("%s is a conditional\n", yytext); } {kw++;}
+    {ITERATORS} { printf("%s is an iterator\n", yytext); } {kw++;}
+    {DIGIT} { printf("%s is a digit\n", yytext); } {num++;}
+    {NUMBER} { printf("%s is a number\n", yytext); } {num++;}
+    {REAL} { printf("%s is a real number\n", yytext); } {num++;}
+    {PREPROCESSOR} { printf("%s is a preprocessor directive\n",yytext); } {kw++;}
+    {DELIMITER} { /*printf("%s is a delimiter\n", yytext);*/ }
+    {KEYWORD} { printf("%s is a keyword\n", yytext); } {kw++;}
+    {NON_IDENTIFIER} {printf("Could not process %s", yytext); }{w++;}
+    {IDENTIFIER} { printf("%s is an identifier\n", yytext); } {w++;}
+    {COMMENT} { printf("%s is a comment\n", yytext); } {w++;}
+    {OPERATOR} { printf("%s is a mathematical operator\n", yytext); }
+    {LOPERATOR} { printf("%s is a logical operator\n", yytext); }
+    {BLOCK_BEGINS} { printf("Block begins\n", yytext); }
+    {BLOCK_ENDS} { printf("Block ends\n", yytext); }
+    {UNARY} { printf("%s is a unary operator\n", yytext); }
+    {FUNCTION} { printf("%s is a function\n", yytext); } {kw++;}
+
+    %%
+
+    int main(int argc, char *argv[]) {
+    yyin= fopen("add.java","r");
+    yylex();
+    printf("\nNumber of words: %d\nNumber of keywords: %d\nNumber of numbers: %d\n",w,kw,num);
+    return 0;
+    }
+
+    int yywrap(){
+        return 1;
+    }
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!---- 6------------>
+
+
+
+<div id="id06" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <h1>Problem Statement</h1>
+        Write a program using Lex specifications to implement lexical analysis phase of compiler to
+        count no. of words, lines and characters of given input file.
+
+           %{
+                #include< stdio.h>
+                int lines=0, words=0,s_letters=0,c_letters=0, num=0, spl_char=0,total=0;
+            %}
+            %%
+                \n { lines++; words++;}
+                [\t ' '] words++;
+                [A-Z] c_letters++;
+                [a-z] s_letters++;
+                [0-9] num++;
+                . spl_char++;
+            %%
+            main(void)
+            {
+            yyin= fopen("input.txt","r");
+            yylex();
+            total=s_letters+c_letters+num+spl_char;
+            printf(" This File contains ...");
+            printf("\n\t%d lines", lines);
+            printf("\n\t%d words",words);
+            printf("\n\t%d small letters", s_letters);
+            printf("\n\t%d capital letters",c_letters);
+            printf("\n\t%d digits", num);
+            printf("\n\t%d special characters",spl_char);
+            printf("\n\tIn total %d characters.\n",total);
+            }
+            int yywrap()
+            {
+            return(1);
+            }
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!------- 7---------- >
+
+<div id="id07" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+      <h1>Problem Statement</h1>
+
+        Write a program using YACC specifications to implement syntax analysis phase of compiler
+        to validate type and syntax of variable declaration in Java.
+       <b>var.l</b> 
+            %{
+            #include< stdio.h>
+            #include "y.tab.h"
+            %}
+            %%
+            int|float|char return BUILTIN;
+            "," return COMMA;
+            ";" return SC;
+            [a-zA-Z]+[a-zA-Z0-9]* return ID;
+            "\n" return NL;
+            %%
+
+           <b>var.y</b>
+            %{
+            #include< stdio.h>
+            %}
+            %token ID BUILTIN SC NL COMMA
+            %%
+            start:BUILTIN varlist SC NL {printf("valid");}
+            |
+            varlist:varlist COMMA ID|ID;
+            %%
+            void yyerror(const char *str){printf("error");}
+            int yywrap(){return 0;}
+            main(){yyparse();}
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id07').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!---- 8------>
+    <div id="id08" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+       <b>Problem Statement</b> 
+
+           Write a program using YACC specifications to implement syntax analysis phase of compiler
+            to recognize simple and compound sentences given in input file.
+
+
+            <b>nlp.l</b>
+            %{
+                /* NLP lexer */
+                #include< stdio.h>
+                #include"y.tab.h"
+            %}
+            %%
+                [\t ]+ ;
+                is|am|are|was { return(VERB); }
+                very|simply|gently|softly { return(ADVERB); }
+                to|from|behind|in|up|after|across { return(PREPOSITION);}
+                if|then|and|as|because|neither|nor|yet|but|or { return(CONJUNCTION);}
+                their|my|your { return(ADJECTIVE); }
+                I|you|he|she|they|it { return(PRONOUN); }
+                [a-zA-Z]+ { return(NOUN); }
+                .|\n { ECHO; }
+            %%
+
+            int yywrap()
+            {
+            return(1);
+            }
+
+
+
+            <b>nlp.y</b>
+            %{
+                /* nlp parser*/
+                #include< stdio.h>
+                int ans = 0;
+            %}
+            %token NOUN PRONOUN VERB ADVERB ADJECTIVE PREPOSITION CONJUNCTION
+            %%
+            sentence : compound_sentence { ans = 1; } | simple_sentence {ans = 3;} 
+            ;
+            compound_sentence : subject VERB object CONJUNCTION object | subject VERB ADVERB object CONJUNCTION object | CONJUNCTION subject VERB object CONJUNCTION subject VERB object 
+            ;
+            simple_sentence : subject VERB ADVERB object | subject VERB object  
+            ;
+            subject: NOUN | PRONOUN
+            ;
+            object: NOUN
+            ;
+            %%
+            extern FILE *yyin;
+            main()
+            {
+            yyin = fopen("ip.txt","r");
+
+            yyparse();
+            if(ans == 1){ printf("This is compund sentence\n");}
+            if(ans == 3){ printf("This is simple sentence\n");}
+            return 0;
+            }
+            yyerror(char *s)
+            {
+            //fprintf(stderr,"%s\n","Error");
+            }
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id08').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 9 FCFS -->
+<div id="id09" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id09').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write a Java program (using OOP features) to implement following  FCFS scheduling algorithm.
+        import java.util.*;
+ 
+            public class Fcfs 
+            {
+            public static void main(String args[])
+            {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("enter no of process: ");
+                int n = sc.nextInt();
+                int pid[] = new int[n];   // process ids
+                int ar[] = new int[n];     // arrival times
+                int bt[] = new int[n];     // burst or execution times
+                int ct[] = new int[n];     // completion times
+                int ta[] = new int[n];     // turn around times
+                int wt[] = new int[n];     // waiting times
+                int temp;
+                float avgwt=0,avgta=0;
+                 
+                for(int i = 0; i < n; i++)
+                {
+                System.out.println("enter process " + (i+1) + " arrival time: ");
+                ar[i] = sc.nextInt();
+                System.out.println("enter process " + (i+1) + " brust time: ");
+                bt[i] = sc.nextInt();
+                pid[i] = i+1;
+                }
+                 
+                //sorting according to arrival times
+                for(int i = 0 ; i < n; i++)
+                {
+                for(int  j=0;  j < n-(i+1) ; j++)
+                {
+                if( ar[j] > ar[j+1] )
+                {
+                temp = ar[j];
+                ar[j] = ar[j+1];
+                ar[j+1] = temp;
+                temp = bt[j];
+                bt[j] = bt[j+1];
+                bt[j+1] = temp;
+                temp = pid[j];
+                pid[j] = pid[j+1];
+                pid[j+1] = temp;
+                }
+                }
+                }
+                // finding completion times
+                for(int  i = 0 ; i < n; i++)
+                {
+                if( i == 0)
+                {   
+                ct[i] = ar[i] + bt[i];
+                }
+                else
+                {
+                if( ar[i] > ct[i-1])
+                {
+                ct[i] = ar[i] + bt[i];
+                }
+                else
+                ct[i] = ct[i-1] + bt[i];
+                }
+                ta[i] = ct[i] - ar[i] ;          // turnaround time= completion time- arrival time
+                wt[i] = ta[i] - bt[i] ;          // waiting time= turnaround time- burst time
+                avgwt += wt[i] ;               // total waiting time
+                avgta += ta[i] ;               // total turnaround time
+                }
+                System.out.println("\npid  arrival  brust  complete turn waiting");
+                for(int  i = 0 ; i< n;  i++)
+                {
+                System.out.println(pid[i] + "  \t " + ar[i] + "\t" + bt[i] + "\t" + ct[i] + "\t" + ta[i] + "\t"  + wt[i] ) ;
+                }
+                sc.close();
+                System.out.println("\naverage waiting time: "+ (avgwt/n));     // printing average waiting time.
+                System.out.println("average turnaround time:"+(avgta/n));    // printing average turnaround time.
+                }
+            }
+
+
+            /* OUTPUT-----------------
+            enter no of process: 
+            5
+            enter process 1 arrival time: 
+            0
+            enter process 1 brust time: 
+            3
+            enter process 2 arrival time: 
+            2
+            enter process 2 brust time: 
+            6
+            enter process 3 arrival time: 
+            4
+            enter process 3 brust time: 
+            4
+            enter process 4 arrival time: 
+            6
+            enter process 4 brust time: 
+            5
+            enter process 5 arrival time: 
+            8
+            enter process 5 brust time: 
+            2
+
+            pid  arrival  brust  complete turn waiting
+            1    0  3   3   3   0
+            2    2  6   9   7   1
+            3    4  4   13  9   5
+            4    6  5   18  12  7
+            5    8  2   20  12  10
+
+            average waiting time: 4.6
+            average turnaround time:8.6
+            */
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id09').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!----- 10 SRTF -->
+<div id="id10" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        //SJF PREEMPTIVE CODE
+import java.util.*;
+
+        <b>Problem Statement</b>
+        Write a Java program (using OOP features) to implement following  SRTF (SJF Premptive) scheduling algorithm.
+ 
+public class SRTF {
+    public static void main (String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.println ("enter no of process:");
+        int n= sc.nextInt();
+        int pid[] = new int[n]; // it takes pid of process
+        int at[] = new int[n]; // at means arrival time
+        int bt[] = new int[n]; // bt means burst time
+        int ct[] = new int[n]; // ct means complete time
+        int ta[] = new int[n];// ta means turn around time
+        int wt[] = new int[n];  // wt means waiting time
+        int f[] = new int[n];  // f means it is flag it checks process is completed or not
+        int k[]= new int[n];   // it is also stores brust time
+        int i, st=0, tot=0;
+        float avgwt=0, avgta=0;
+ 
+        for (i=0;i< n;i++)
+        {
+            pid[i]= i+1;
+            System.out.println ("enter process " +(i+1)+ " arrival time:");
+            at[i]= sc.nextInt();
+            System.out.println("enter process " +(i+1)+ " burst time:");
+            bt[i]= sc.nextInt();
+            k[i]= bt[i];
+            f[i]= 0;
+        }
+        
+        while(true)
+        {
+            int min=99,c=n;
+            if (tot==n)     //if all  process  get executed completely then break
+                break;
+            
+            for ( i=0;i< n;i++)
+            {
+                if ((at[i]<=st) && (f[i]==0) && (bt[i]< min))       //if arrival less than system time.. & process not yet finished ..
+                {   
+                    min=bt[i];
+                    c=i;          //process no
+                }
+            }
+            
+            if (c==n)
+                st++;
+            else
+            {
+                bt[c]--;
+                st++;
+                if (bt[c]==0)
+                {
+                    ct[c]= st;    //COMPLETION TIME= CURRENT SYS TIME
+                    f[c]=1;        //PROCESS FINSIHED
+                    tot++;         //INCREMENT .... I.E 1 PROCESS FINISHED OUT OF 5 
+                }
+            }
+        }
+        
+        for(i=0;i< n;i++)
+        {
+            ta[i] = ct[i] - at[i];
+            wt[i] = ta[i] - k[i];
+            avgwt+= wt[i];
+            avgta+= ta[i];
+        }
+        
+        System.out.println("pid  arrival  burst  complete turn waiting");
+        for(i=0;i< n;i++)
+        {
+            System.out.println(pid[i] +"\t"+ at[i]+"\t"+ k[i] +"\t"+ ct[i] +"\t"+ ta[i] +"\t"+ wt[i]);
+        }
+        
+        System.out.println("\naverage tat is "+ (float)(avgta/n));
+        System.out.println("average wt is "+ (float)(avgwt/n));
+        sc.close();
+    }
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- PRIORITY -->
+<div id="id11" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id11').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write a Java program (using OOP features) to implement following  Priority scheduling algorithm.
+
+
+    import java.util.Scanner;
+    public class Priority {
+
+        public static void main(String[] args) {
+            // TODO code application logic here
+            Scanner sc= new Scanner(System.in);
+            System.out.println("Enter no. of processes:");
+            int n=sc.nextInt();
+            int process_id[]=new int[n];
+            int arrival[]=new int[n];
+            int burst[]=new int[n];
+            int priority[]=new int[n];
+            int finished[]=new int[n];
+            int completion[]=new int[n];
+            int turn_around[]=new int[n];
+            int waiting[]=new int[n];
+            int total=0,systime=0,avgwt=0,avgta=0;
+            for(int i=0;i< n;i++)
+            {
+                finished[i]=0;
+                process_id[i]=i+1;
+            }
+            System.out.println("Enter arrival of all processes:");
+            for(int i=0;i< n;i++)
+            {
+                arrival[i]=sc.nextInt();
+                
+            }
+            
+            System.out.println("Enter busrt of all processes:");
+            for(int i=0;i< n;i++)
+            {
+                burst[i]=sc.nextInt();
+            }
+            System.out.println("Enter priority of all processes:");
+            for(int i=0;i< n;i++)
+            {
+                priority[i]=sc.nextInt();
+            }
+            
+            while(true)
+            {
+                int min=99,c=n;
+                if(total==n)
+                    break;
+                for(int i=0;i< n;i++)
+                {
+                    if((arrival[i]<=systime)&&(finished[i]==0)&&(priority[i]< min))
+                    {
+                        min=priority[i];
+                        c=i;
+                    }
+                }
+                if(c==n)
+                    systime++;
+                else
+                {
+                     completion[c]=systime+burst[c];
+                    systime=systime+burst[c];
+                    turn_around[c]=completion[c]-arrival[c];
+                    waiting[c]=turn_around[c]-burst[c];
+                    finished[c]=1;
+                    total++;
+                }
+            }
+            System.out.println("Process\tArrival\tBurst\tCompletion\tTurn_Around\tWaiting");
+            for(int i=0;i< n;i++)
+            {
+                avgwt+=waiting[i];
+                avgta+=turn_around[i];
+                
+                System.out.println(process_id[i]+"\t"+arrival[i]+"\t"+burst[i]+"\t"+completion[i]+"\t\t"+turn_around[i]+"\t\t"+waiting[i]);
+            }
+            System.out.println("Avg. waiting time:"+(float)avgwt/n);
+            System.out.println("Avg. turn around time:"+(float)avgta/n);
+        }
+        
+    }
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id11').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- Round Robin -->
+<div id="id12" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id12').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+       <b>Problem Statement</b>
+        Write a Java program (using OOP features) to implement following  Round Robin scheduling algorithm.
+
+import java.util.Scanner;
+public class round_robin {
+    public static void main(String args[]) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter the number of processes :");
+        int n=input.nextInt();
+        System.out.println("Enter the time quantum");
+        int tq=input.nextInt();
+        
+        int at[]=new int[n];
+        int bt[]=new int[n];
+        int ct[]=new int[n];
+        int wt[]=new int[n];
+        int ta[]=new int[n];
+        int k[]=new int[n];
+        int f[]=new int[n];
+        int pid[]=new int[n];
+        
+        for(int i=0;i< n;i++) {
+            System.out.println("Enter the arrival time for process "+i+" : ");
+            at[i]=input.nextInt();
+            System.out.println("Enter the burst time for process "+i+" : ");
+            bt[i]=input.nextInt();
+            k[i]=bt[i];
+            f[i]=0;
+            pid[i]=i+1;
+        }
+        
+        int st=0,tot=0;
+        while(true) {
+            if(tot==n)
+                break;
+            
+            for(int i=0;i< n;i++) {
+                if(at[i]<=st && f[i]==0 && bt[i]!=0) {
+                    if(bt[i]>=tq) {
+                        bt[i]-=tq;
+                        System.out.print("P"+(i+1)+"  ");
+                        st+=tq;
+                        if(bt[i]==0) {
+                            tot++;
+                            f[i]=1;
+                            ct[i]=st;
+                        }
+                    }
+                    else if(bt[i]< tq && bt[i]>0) {
+                        st+=bt[i];
+                        tot++;
+                        f[i]=1;
+                        bt[i]=0;
+                        ct[i]=st;
+                        System.out.print("P"+(i+1)+"  ");
+
+                    }
+                        
+                }
+            }
+        }
+        float avgwt=0,avgta=0;
+        for(int i=0;i< n;i++) {
+            ta[i]=ct[i]-at[i];
+            wt[i]=ta[i]-k[i];
+            avgwt+=wt[i];
+            avgta+=ta[i];
+        }
+        
+        System.out.println("pid  arrival  burst  complete turn waiting");
+        for(int i=0;i< n;i++)
+        {
+            System.out.println(pid[i] +"\t"+ at[i]+"\t"+ k[i] +"\t"+ ct[i] +"\t"+ ta[i] +"\t"+ wt[i]);
+        }
+        
+        System.out.println("\naverage tat is "+ (float)(avgta/n));
+        System.out.println("average wt is "+ (float)(avgwt/n));
+    }
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id12').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 13 LRU -->
+<div id="id13" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id13').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write a Java Program (using OOP features) to implement paging simulation using Least Recently Used(LRU) Algorithm
+
+        import java.util.Scanner;
+ 
+public class LRU {
+ 
+    public static int min(int counter[],int nFrames)
+{
+    int minimum = counter[0];
+    int pos = 0;
+    for(int i=0;i<nFrames;i++)
+    { if(minimum > counter[i])
+          pos = i;
+    }
+ return pos;   
+}
+     
+    public static void main(String[] args) {
+       
+        Scanner s = new Scanner(System.in);
+    int n,recent = 0,pageFault = 0,nFrames;
+    int flag2=0;
+        
+    System.out.print("Enter the number of pages: ");
+      n = s.nextInt();
+    int pageString[] = new int[n];
+    System.out.print("Enter the page reference string: ");
+    for(int i=0;i< n;i++)
+        pageString[i]=s.nextInt();
+       
+     System.out.print("\nEnter the number of frames: "); 
+         nFrames = s.nextInt();
+     int frames[] = new int[nFrames];
+     int counter[] = new int[nFrames];
+    
+     for(int i=0;i< nFrames;i++)
+     {        frames[i] = 999; 
+        counter[i] = 999;//here 999 referes an empty space in frame
+    }
+     
+    for(int i=0;i< n;i++)
+    {int flag =0;
+    flag2=0;
+        for(int j=0;j< nFrames;j++)
+        {
+         if(frames[j] == pageString[i])        //if value in frame matches with pagestring
+           {flag=1;
+            counter[j] = recent++; //counter holds which frame is recently used,
+                                  //recently used page in frame will have a bigger number
+                                  //and least recently used page in frame will have a lower number
+           break;
+           }
+        }
+         
+        if(flag == 0)             //new entry
+        {
+            
+            for(int j=0;j< nFrames;j++)
+            {if(frames[j] == 999)               //initial entry when frame is empty
+                {   frames[j] = pageString[i];
+                    counter[j] = recent++;
+                    flag=1;
+                    flag2=1;
+                    pageFault++;
+                    break;
+                }
+                 
+            }
+        }
+          
+        if(flag == 0)                          //when frame is not empty find out position
+        {
+            int PositionToreplace = min(counter,nFrames);
+            frames[PositionToreplace] = pageString[i];
+            counter[PositionToreplace] = recent++;
+            pageFault++;
+            flag2=1;
+        }
+         
+        //print frames
+       System.out.println();
+      for(int j=0;j< nFrames;j++)
+      {
+           System.out.print(frames[j]+" ");
+          
+      }
+      if(flag2==1)
+          System.out.print(" * " );
+       
+    }
+      
+      System.out.print("\nPage Fault: "+pageFault);
+      
+    }
+     
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id13').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 14 Optimal-->
+<div id="id14" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id14').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Problem Statement</b>
+        Write a Java Program (using OOP features) to implement paging simulation using Least Recently Used(LRU) Algorithm
+
+
+import java.util.*;
+public class Optimal {
+
+    
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the total no.of pages to enter:");
+        int pgsize=sc.nextInt();
+        System.out.println("Enter the pages:");
+        int pg[]=new int[pgsize];
+        for(int i=0; i< pgsize; i++)
+        {
+              pg[i]=sc.nextInt();
+        }
+        System.out.println("Enter frame size:");
+        int size=sc.nextInt();
+        int frame[]=new int[size];
+        //int fm[]=new int[size];
+        for(int i=0; i< size; i++)
+        {
+              frame[i]=-1;
+        }
+        int count=0;
+            for(int i=0; i< pgsize; i++)
+            {
+                if(i< size)           //new page.. directly insert
+                {
+                    frame[i]=pg[i];
+                     System.out.print("Pagefault:  "+pg[i]);
+                      count++;
+                     // fm[i]=flag++;
+                      System.out.print("         ");
+                     
+                      for(int j=0; j< size; j++)
+                      {
+                          System.out.print(" "+frame[j]);
+                      }
+                }
+                else
+                {
+                    int flag=0;
+                    for(int j=0; j< size; j++)     //size is frame size
+                    {
+                        if(frame[j]==pg[i])
+                        {
+                        flag=1; 
+                        }
+                    }
+                    if(flag==1)    //display pg fault and corresponding frame
+                    {
+                        System.out.print("NoPagefault:  "+pg[i]);
+                          System.out.print("          ");
+                        for(int j=0; j< size; j++)
+                          {
+                              System.out.print(" "+frame[j]);
+                          }
+                    }
+                    else         //if page is not already present  new comes in.... page fault occurs
+                    {
+                        //int x=0,y=0,z=0;
+                        int x[]=new int[size];
+                       //int flag1=0;
+                        for(int j=0; j< size; j++)
+                        {
+                            int flag2=0;
+                            for(int k=i; k< pgsize; k++)      //check pages
+                            {
+                                if(frame[j]==pg[k])
+                                {
+                                    x[j]=k;                  //enter absolute loc in x[j]
+                                    flag2=1;
+                                    break;
+                                }
+                            }
+                            if(flag2==0)                     //if value not found in page enter infinite amount or (99)
+                            {
+                                x[j]=99;
+                            }
+                        }
+                        int max=x[0];
+                        int y=0;
+
+
+                        for(int j=0; j< size; j++)
+                        {
+                            if(x[j]>max)
+                            {
+                                max=x[j];
+                                y=j;
+                            }
+                        }
+                        frame[y]=pg[i];
+                        count++;
+                       System.out.print("Pagefault:  "+pg[i]);
+                       System.out.print("            ");
+                       for(int j=0; j< size; j++)
+                       {
+                           System.out.print(" "+frame[j]);
+                       }
+                       //System.out.println(" ");
+                    }
+                }
+                System.out.println("");
+                
+            }
+                    System.out.println("total pagefault:"+count);
+            
+            sc.close();
+            }
+
+}
+/*OUTPUT=============>
+student@B4L0106:~$ javac Optimal.java
+student@B4L0106:~$ java Optimal
+Enter the total no.of pages to enter:
+20
+Enter the pages:
+7
+0
+1
+2
+0
+3
+0
+4
+2
+3
+0
+3`
+2
+1
+2
+0
+1
+7
+0
+1
+Enter frame size:
+1    
+Pagefault:  7          7
+Pagefault:  0             0
+Pagefault:  1             1
+Pagefault:  2             2
+Pagefault:  0             0
+Pagefault:  3             3
+Pagefault:  0             0
+Pagefault:  4             4
+Pagefault:  2             2
+Pagefault:  3             3
+Pagefault:  0             0
+Pagefault:  3             3
+Pagefault:  2             2
+Pagefault:  1             1
+Pagefault:  2             2
+Pagefault:  0             0
+Pagefault:  1             1
+Pagefault:  7             7
+Pagefault:  0             0
+Pagefault:  1             1
+total pagefault:20
+student@B4L0106:~$ javac Optimal.java
+student@B4L0106:~$ java Optimal
+Enter the total no.of pages to enter:
+20
+Enter the pages:
+7
+0
+1
+2
+0
+3
+0
+4
+2
+3
+0
+3
+2
+1
+2
+0
+1
+7
+0
+1
+Enter frame size:
+3
+Pagefault:  7          7 -1 -1
+Pagefault:  0          7 0 -1
+Pagefault:  1          7 0 1
+Pagefault:  2             2 0 1
+NoPagefault:  0           2 0 1
+Pagefault:  3             2 0 3
+NoPagefault:  0           2 0 3
+Pagefault:  4             2 4 3
+NoPagefault:  2           2 4 3
+NoPagefault:  3           2 4 3
+Pagefault:  0             2 0 3
+NoPagefault:  3           2 0 3
+NoPagefault:  2           2 0 3
+Pagefault:  1             2 0 1
+NoPagefault:  2           2 0 1
+NoPagefault:  0           2 0 1
+NoPagefault:  1           2 0 1
+Pagefault:  7             7 0 1
+NoPagefault:  0           7 0 1
+NoPagefault:  1           7 0 1
+total pagefault:9
+student@B4L0106:~$ 
+*/
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id14').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>

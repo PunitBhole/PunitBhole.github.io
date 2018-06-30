@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+body, html {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.65;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+
+}
+.bgimg-1 {
+  background-image: url("grey.jpg");
+  height: 100%;
+   color: white;
+}
+
+/* For Header */
+
+ .head{
+  text-align: center;
+  align-content: center;
+
+  font: verdana;
+  color: white;
+ }
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 40px;
+  font-size: 20px;
+  letter-spacing: 8px;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #111;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav a {
+    padding: 10px 10px 10px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; /* 0.5 second transition effect to change color to white */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.top-left {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+
+.center{
+  position: absolute;
+  top: 100px;
+  left: 600px;
+
+}
+
+.down{
+  position: relative;
+  top: 20px;
+  left:-8px;
+  text-align: center;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 0px solid black;
+  opacity: 0.5;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+p{
+  text-align: center;
+  padding-top: 65px;
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+
+
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <!--<a href="dsa.html" target="_blank">DSA</a> -->
+  <a href="oop.html" target="_blank">OOP</a>
+  <a href="mp.html" target="_blank">MICROPROCESSOR</a>
+  <a href="cg.html" target="_blank">COMPUTER GRAPHICS</a>
+  <a href="ads.html" target="_blank">ADVANCE DATA STRUCTURES</a>
+  <!--<a href="cn.html" target="_blank">COMPUTER NETWORKS</a> -->
+  <a href="dbms.html" target="_blank">DBMS</a>
+  <a href="spos.html" target="_blank">SYSTEM PROGRAMMING AND OPERATING SYSTEMS</a>
+  <a href="wt.html" target="_blank">WEB TECHNOLOGY</a>
+
+  
+
+</div>
+
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "300px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+<div class="bgimg-1">
+  <div class="caption">
+    
+    <p><font size="20">CodeDictionary</font><br><br>
+
+    
+     <u>Created by</u>:<br>
+
+    Punit Bhole (punit.bhole@gmail.com)<br>
+    Abhishek Dabhade (adabhade44@gmail.com)<br>
+    Rahul Nikumbhe (nrahuln.6@gmail.com)</p>
+    
+
+    </p>
+  
+</div>
+
+    
+   
+
+
+  </div>
+
+   
+   
+   <div class="top-left"> <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url("grey1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    
+    overflow-y: auto;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+  <center>
+
+<h2 align="center">OOP CODES</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Complex Number</button><br>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Calculator</button><br>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Employee Information</button><br>
+<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Exception Handling</button><br>
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;">Telephone Record</button><br>
+<button onclick="document.getElementById('id06').style.display='block'" style="width:auto;">Publishing Company</button><br>
+<button onclick="document.getElementById('id07').style.display='block'" style="width:auto;">Rational Number</button><br>
+<button onclick="document.getElementById('id08').style.display='block'" style="width:auto;">Polynomial</button><br>
+<button onclick="document.getElementById('id09').style.display='block'" style="width:auto;">Linked List using Standard Template Library</button><br>
+<button onclick="document.getElementById('id10').style.display='block'" style="width:auto;">Queue using Standard Template Library</button><br>
+<button onclick="document.getElementById('id11').style.display='block'" style="width:auto;">Deque using Standard Template Library</button><br>
+<button onclick="document.getElementById('id12').style.display='block'" style="width:auto;">Stack using Standard Template Library</button><br>
+<button onclick="document.getElementById('id13').style.display='block'" style="width:auto;">Sorting using Standard Template Library</button><br>
+<button onclick="document.getElementById('id14').style.display='block'" style="width:auto;">Template Class to represent Generic Vector</button><br>
+
+</center>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    	<b>Problem Statement</b>
+        Implement a class Complex which represents the Complex Number data type. 
+        Implement the following operations:
+         1. Constructor (including a default constructor which creates 
+             the complex number 0+0i).
+         2. Overloaded operator+ to add two complex numbers.
+         3. Overloaded operator* to multiply two complex numbers. 
+        4. Overloaded << and >> to print and read Complex Numbers.
+*/
+
+#include &lt;iostream&gt;
+using namespace std;
+class complex
+{
+   int real,img;
+   public:
+   complex()
+   { real=0;
+     img=0;
+   }
+   complex(int x, int y)
+   {
+     real=x;
+     img=y;
+   }
+   complex operator +(complex);
+   complex operator *(complex);
+   void display();
+   friend ostream &operator <<(ostream& out, complex& r)
+  {
+     out<< r.real<<"+i"<< r.img<<"\n";
+  }
+  friend istream &operator >>(istream& inp,complex& k)
+  {
+     inp>>k.real;
+
+     inp>>k.img;
+  }
+};
+  complex complex :: operator *(complex q)
+  {
+     complex temp2; 
+     temp2.real=(real * q.real) -(img * q.img);
+     temp2.img=(real * q.img) + (img * q.real);
+     return temp2;
+  }
+
+  complex complex :: operator +(complex p)
+  {
+     complex temp;
+     temp.real = real + p.real;
+     temp.img = img + p.img;
+     return temp;
+  }
+  void complex :: display()
+  {
+     cout<< real<<"+i"<< img<<"\n";
+  }
+
+
+int main()
+{
+   complex A1,A2,A3,A4;
+   cout<<"enter first number:";
+   cin>>A1;
+   cout<<"enter second number:";
+   cin>>A2;
+ A3=A1+A2;
+   A4=A1*A2;
+   cout<<"addition is:";
+   cout<< A3;
+   cout<<"multiplication is:";
+   cout<< A4;
+
+  return 0;
+}
+
+ /*
+ ccompl04-26@ccompl04-26:~/Desktop$ g++ oop1.cpp
+ccompl04-26@ccompl04-26:~/Desktop$ ./a.out
+enter first number:3
+5
+enter second number:2
+7
+addition is:5+i12
+multiplication is:-29+i31
+ccompl04-26@ccompl04-26:~/Desktop$
+
+*/
+</pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 2nd code. -->
+
+
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+ #include &lt;iostream&gt;
+using namespace std;
+class Calculator
+{
+   float n1, n2;
+   char op;
+   public:
+      Calculator()
+      {
+         n1=0.0;
+         n2=0.0;
+         op='\0';
+      }
+      void input()
+      {
+         cin>>n1>>op>>n2;
+      }
+      void calculate()
+      {
+         switch(op)
+         {
+            case '+' : cout<< n1<< op<< n2<<"="<<(n1+n2); break;
+            case '-' : cout<< n1<< op<< n2<<"="<<(n1-n2); break;
+            case '*' : cout<< n1<< op<< n2<<"="<<(n1*n2); break;
+            case '/' : if(n2!=0)
+                           cout<< n1<< op<< n2<<"="<<(n1/n2);
+                       else
+                           cout<<"\nDIVIDE BY ZERO ERROR(CORE DUMPED)";
+                       break;
+            default : cout<<"\nOPERATOR NOT FOUND";
+         }
+         cout<< endl;
+      }
+};
+int main()
+{
+   Calculator c;
+   char ch;
+   do
+   {
+      c.input();
+      c.calculate();
+      cout<<"Enter 'y' to continue.";
+      cin>>ch;
+   }while(ch=='y');
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 3rd code. -->
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+Create employee bio-data using following classes i) Personal record ii))Professional record
+iii) Academic record Assume appropriate data members and member function to accept
+required data & print bio-data. Create bio-data using multiple inheritance using C++. */
+
+#include &lt;iostream&gt
+#include &lt;string&gt
+using namespace std;
+
+class personal
+{
+protected:
+string N,A,b;
+int age;
+
+long phone_number;      
+
+public:
+void getdata1()
+{
+cout<<"Enter the name of the employee = "<< endl;
+getline(cin,N);
+cout<<"Enter the address of the employee = "<< endl;
+getline(cin,A);
+cout<<"Enter the age of the employee = "<< endl;
+cin>>age;
+cout<<"Enter the blood group of the employee = "<< endl;
+cin>>b;
+cout<<"Enter the phone number of the employee = "<< endl;
+cin>>phone_number;
+}
+};
+
+class professional
+{
+protected:
+string X;
+int E;
+        
+
+public:
+void getdata2()
+{
+cout<<"Enter the previous company of the employee = "<< endl;
+cin.ignore();
+getline(cin,X);
+
+cout<<"Enter the experience  of the employee = "<< endl;
+cin>>E;
+
+}
+};
+
+class academic
+{
+protected:
+float m,n;
+string Y;
+
+public:
+void getdata3()
+{
+cout<<"Enter the university of the employee = "<< endl;
+cin.ignore();
+getline(cin,Y);
+cout<<"Enter the cgpa of the employee in 12th class = "<< endl;
+cin>>m;
+cout<<"Enter the cgpa of the employee after engineering = "<< endl;
+cin>>n;
+
+}
+
+};
+
+
+class bio_data:public personal,public professional,public academic
+{
+public:
+void getdata()
+{
+getdata1();
+getdata2();
+getdata3();
+}
+void display1()
+{
+cout<<" the name of the employee = "<< N<<"\n";
+cout<<" the address of the employee = "<< A<<"\n";
+cout<<" the age of the employee = "<< age<< endl;
+cout<<" the blood group of the employee = "<< b<< endl;
+cout<<" the phone number of the employee = "<< phone_number<< endl;
+
+
+cout<<" the previous company of the employee = "<< X<< endl;
+cout<<" the experience  of the employee = "<< E<< endl;
+
+cout<<" the university of the employee = "<< Y<< endl;
+cout<<" the cgpa of the employee in 12th class = "<< m<< endl;
+cout<<" the cgpa of the employee after engineering = "<< n<< endl;
+
+}
+
+};
+
+int main()
+{
+
+
+bio_data B;
+B.getdata();
+B.display1();
+
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 4th Code -->
+<div id="id04" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        /*
+Crete User defined exception to check the following conditions and throw the exception if the
+criterion does not met.
+a. User has age between 18 and 55
+b. User stays has income between Rs. 50,000 â€“ Rs. 1,00,000 per month
+c. User stays in Pune/ Mumbai/ Bangalore / Chennai
+d. User has 4-wheeler
+Accept age, Income, City, Vehicle from the user and check for the conditions mentioned
+above. If any of the condition not met then throw the exception.
+*/
+
+#include &lt;iostream&gt
+#include &lt;string&gt
+using namespace std;
+
+class Exception
+{
+  int age;
+  double income;
+  string city;
+  char c;
+  public:
+  void getdata();
+  void display();
+  
+};
+
+void Exception :: getdata()
+{
+   cout<<"Enter Age : ";
+   cin>>age;
+   cout<<"\nEnter Income : ";
+   cin>>income;
+   cout<<"Enter Your City";
+   cin>>city;
+   cout<<"Do you Have 4 Wheeler?? (y/n)\n";
+   cin>>c;
+   
+}
+
+
+void Exception :: display()
+{
+  try
+  {
+    if(age>18 && age<55)
+     {
+      cout<<"\n Age is : "<<age;
+       //cout<<"income is :"<<income<<"\n"<<"City"<< city;
+     }
+    else
+    {
+     throw age;
+    } 
+     
+   
+  
+   if(income>50000 && income< 100000)
+   {
+    cout<<"\nIncome is :"<< income; 
+   }
+   
+   else 
+   {
+   throw income;
+   }
+  
+  
+  
+  
+ 
+   if(city=="Pune"||"pune"||"Mumbai"||"mumbai"||"Banglore"||"banglore"||"Chennai"||"chennai")//&&"Mumbai"&&"Chennai"&&"Banglore")
+   {
+    cout<<"City is : "<< city; 
+   }
+   
+   else 
+   {
+   throw city;
+   }
+  
+  
+  
+ 
+   if(income>50000 && income< 100000)
+   {
+    cout<<"\nIncome is :"<< income; 
+   }
+   
+   else 
+   {
+   throw income;
+   }
+   
+   if(c=='y')
+   {
+     cout<<"\ngr8 u have 4 wheeler U may get the Job";
+     
+   }
+   
+   else
+   {
+     throw c;
+   }
+   
+   
+  }
+  
+ catch(int age)
+  {
+    cout<<"Invalid " ;
+  }
+  
+  catch(double income)
+   {
+    cout<<"\nunfortunately income is less !!!!!!!!! ";
+   }
+  catch(string city)
+  {
+   cout<<"\nsorry we dont take ppl of  that city ";
+  }
+
+
+   catch(char c)
+   {
+    cout<<"\nNo 4 Wheeler NO Job!! ";
+   }  
+  
+}
+  
+int main()
+{
+  Exception e;
+  e.getdata();
+  e.display();
+}
+
+
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- CODE 5 -->
+
+
+<div id="id05" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+#include &lt;iostream&gt
+#include &lt;string&gt
+#include &lt;fstream&gt
+using namespace std;
+class telephone
+{
+   char name[15];
+   long number;
+   public :
+     void getdata();
+     void display();
+     long rno()
+      { return number; }
+     char* rname()
+      { return name; }
+};
+void telephone :: getdata()
+{
+  cout<<"Enter the name : ";
+  cin.ignore();
+  cin.getline(name,15);
+  cout<<"Enter the number : ";
+  cin>>number;
+}
+void telephone :: display()
+{
+  cout<<"1. Name   : "<< name<< endl;
+  cout<<"2. Number : "<< number<< endl;
+}
+void write_to_file()
+{
+  char ch='n';
+  telephone p;
+  ofstream fout;
+  fout.open("tele.txt",ios::app);
+  do
+    {
+      p.getdata();
+      fout.write((char *)&p,sizeof(p));
+      cout<<"Any more numbers(y/n) : ";
+      cin>>ch; 
+    }while(ch=='y');
+  fout.close();
+}
+void search_number()
+{
+  telephone p;
+  int flag=0;
+  long no;
+  cout<<"Enter phone number to search : ";
+  cin>>no;
+  ifstream fin;
+  fin.open("tele.txt");
+  while(fin.read((char *)&p,sizeof(p)))
+    {   
+      if(no==p.rno())
+        {
+          cout<<"Details : \n"; 
+          p.display();
+          flag=1;
+          break;
+        }
+    }
+   if(flag==0)
+      cout<<"Number does not exist.";
+ fin.close(); 
+}
+void search_name()
+{
+  telephone p;
+  int flag=0;
+  char tname[15];
+  cout<<"Enter the name to search : ";
+  cin.ignore();
+  cin.getline(tname,15);
+  ifstream fin;
+  fin.open("tele.txt");
+  while(fin.read((char *)&p,sizeof(p)))
+    {   
+      if(!strcmp(tname,p.rname()))
+        {
+          cout<<"Details : \n\t";   
+          p.display();
+          flag=1;
+          break;
+        }
+    }
+   if(flag==0)
+      cout<<"Record does not exist.";
+ fin.close(); 
+}
+void display_record()
+{
+  int count=1;
+  telephone p;
+  ifstream fin;
+  fin.open("tele.txt");
+  if(!fin)
+     cout<<"Error opening the file.";
+  else
+  {
+   cout<<"-------Record file------------\n";
+   while(fin.read((char *)&p,sizeof(p)))
+    {       
+        cout<<" Record "<< count<<" : \n";
+        p.display();
+        count++;
+    }
+  }
+  fin.close(); 
+}
+int main()
+{
+  char c;
+  int i,flag=0,ch;
+  double n;
+  ofstream fout;
+  telephone p;
+  do{
+  cout<<"-----------MENU------------\n";
+  cout<<"1 : Display all record.\n2 : Add a new number.\n3 : Search by name.\n4 : Search by number.\n-----------------------\n";
+  cout<<"Enter your choice : ";
+  cin>>ch;
+  switch(ch)
+   {
+      case 1 : display_record();
+               break;
+      case 2 : write_to_file();
+               break;
+      case 3 : search_name();
+               break;
+      case 4 : search_number();
+               break;
+      default : cout<<"Wrong choice ! "; 
+   }
+   cout<<"Do you want to continue (y/n) : ";
+   cin>>c;
+  }while(c=='y');
+  return 0;
+}        
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 6th code -->
+
+<div id="id06" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+Imagine a publishing company which does marketing for book and audiocassette versions. 
+Create a class publication that stores the title (a string) and price (type float) of a publication. 
+From this class derive two classes: book, which adds a page count (type int), and tape, 
+which adds a playing time in minutes (type float).
+*/
+#include &lt;iostream&gt
+#include &lt;string&gt
+using namespace std;
+class Publication
+{
+   protected:  
+  string title;
+  float price;
+  public:
+  void getpub()
+  {
+    cout<<"\nEnter Title : ";
+    cin.ignore();
+    getline(cin,title);
+    cout<<"\nEnter Price :";
+    cin>>price;
+  }
+   
+};
+
+
+class book:public Publication
+{
+  int page;
+  public:
+  void getpages()
+  {
+   cout<<"\nEnter No. of Pages : ";
+   cin>>page; 
+  }
+  
+  
+  void Display()
+   {
+    cout<<"\nTitle : "<< title;
+    cout<<"\nPrice : "<< price;
+    cout<<"\nPage Count : "<< page;
+     
+   }
+  
+};
+
+
+class tape:public Publication
+{
+ int min;
+ public:
+ void gettime()
+ {
+   cout<<"Enter the time : ";
+   cin>>min;
+ }
+ void displaytime()
+ {
+ cout<<"\nTile : "<< title;
+ cout<<"\nPrice : "<< price;
+ cout<<"\nPlaying Time : "<< min;
+ 
+ }
+};
+
+int main()
+{
+int i;
+book b[10];
+ tape t[10];
+int numbook,numtape;
+cout<<"\nEnter total No of Books : ";
+cin>>numbook;
+cout<<"\nEnter No of Tapes : ";
+cin>>numtape;
+
+for(i=0;i< numbook;i++)
+{
+  cout<<"For Enter book : "<< endl;
+  b[i].getpub();
+  b[i].getpages();
+}
+
+for(i=0;i<&lt;numtape;i++)
+{
+  cout<<" For Tape Entry : "<<&l;tendl;
+  t[i].getpub();
+  t[i].gettime();
+}
+
+cout<<"\n----------------------------------------------------------------\n";
+cout<<"---Books---\n";
+  for(i=0;i<&lt;numbook;i++)
+    {
+      cout<<"Book "<<&lt;i+1<<" : \n";
+      b[i].Display(); 
+      cout<<"\n";   
+    }  
+
+
+cout<<"---Tapes---\n";
+  for(i=0;i<&lt;numtape;i++)
+    {
+      cout<<"Tape "<<&lt;i+1<<" : \n";
+      t[i].displaytime(); 
+      cout<<"\n";   
+    } 
+return 0;
+
+
+}
+
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 7th CODE -->
+
+
+
+<div id="id07" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+Create a class Rational Number (fractions) with the following capabilities: 
+a) Create a constructor that prevents a 0 denominator in a fraction, reduces or simplifies fractions that are not in reduced form and avoids negative denominators. 
+b) Overload the addition, subtraction, multiplication and division operators for this class. 
+c) Overload the relational and equality operators for this class.
+*/
+
+
+#include<&lt;iostream>
+using namespace std;
+class Rational
+{
+   int num, den;
+public:
+   Rational()
+   {
+      num=0; den=0;
+   }
+   void reduce()
+   {
+      if(num==den)
+      {
+         num=1;
+         den=1;
+      }
+      else if(num%den==0)
+      {
+         num = num/den;
+         den = 1;
+      }
+      else if(den%num==0)
+      {
+         den = den/num;
+         num=1;
+      }
+      else if(num>den)
+      {
+         int i,t=den;
+         for(i=1 ; num%t>0 ; i++)
+         {
+            t = den*i;
+            if(num%i==0 && den%i==0)
+            {
+               num = num/i;
+               den = den/i;
+            }
+            else
+            {
+               break;
+            }
+         }
+      }
+      else if(num<&lt;den)
+      {
+         int i, t=num;
+         for(i=1 ; den%t>0 ; i++)
+         {
+            t = num*i;
+            if(num%i==0 && den%i==0)
+            {
+               num=num/i;
+               den=den/i;
+            }
+            else
+            {
+            break;
+            }
+         }
+      }
+   }
+   friend Rational operator+(Rational f1, Rational f2)
+   {
+      Rational sum;
+      sum.den = f1.den*f2.den;
+      sum.num = (f1.num*f2.den) + (f1.den*f2.num);
+      sum.reduce();
+      return sum;
+   }
+   friend Rational operator-(Rational f1, Rational f2)
+   {
+      Rational diff;
+      diff.den = f1.den*f2.den;
+      diff.num = (f1.num*f2.den) - (f2.num*f1.num);
+      diff.reduce();
+      return diff;
+   }
+   friend Rational operator*(Rational f1, Rational f2)
+   {
+      Rational prod;
+      prod.num = f1.num*f1.den;
+      prod.den = f1.den*f2.den;
+      prod.reduce();
+      return prod;
+   }
+   friend Rational operator/(Rational f1, Rational f2)
+   {
+      Rational q;
+      q.num = f1.num*f2.den;
+      q.den = f1.den*f2.num;
+      q.reduce();
+      return q;
+   }
+   friend ostream &operator<<(ostream &out , Rational &f)
+   {
+      out<<&lt;f.num<<"/"<<&lt;f.den<<&lt;endl;
+   }  
+   friend istream &operator>>(istream &in , Rational &f)
+   {
+      char ch;
+      in>>f.num>>ch>>f.den;
+      cout<<&lt;endl;
+      //delete(&ch);
+   }
+};
+
+int main()
+{
+   Rational f;
+   cin>>f;
+   cout<<&lt;f;
+   Rational f2;
+   cin>>f2;
+   cout<<&lt;f2;
+   Rational f3;
+   f3 = f+f2;
+   cout<<&lt;f3;
+   f3 = f-f2;
+   cout<<&lt;f3;
+   f3 = f*f2;
+   cout<<&lt;f3;
+   f3 = f/f2;
+   cout<<&lt;f3;
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id07').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 8th Code-->
+
+
+<div id="id08" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+Implement a class Quadratic that represents degree two polynomials i.e., polynomials of type ax2+bx+c. 
+The class will require three data members corresponding to a, b and c. 
+Implement the following operations: 1. 
+A constructor (including a default constructor which creates the 0 polynomial). 
+2. Overloaded operator+ to add two polynomials of degree 2. 
+3. Overloaded << and >> to print and read polynomials. 
+To do this, you will need to decide what you want your input and output format to look like. 
+4. A function eval that computes the value of a polynomial for a given value of x. 
+5. A function that computes the two solutions of the equation ax2+bx+c=0.
+*/
+
+#include<&lt;iostream>
+#include<&lt;math.h>
+using namespace std;
+class Quadratic
+{
+    int a,b,c;
+    public:
+    
+    Quadratic()
+    {   
+        a=0;
+        b=0;
+        c=0;
+    }
+    
+    friend istream &operator >>(istream &inp,Quadratic &q)          //function for overloading >> operator
+    {
+        
+        inp>>q.a;
+        inp>>q.b;
+        inp>>q.c;
+    }
+    
+    friend ostream &operator <<(ostream &out,Quadratic p)          //function for overloading << operator 
+    {
+        cout<<&lt;endl;
+        out<<&lt;p.a<<"x^2"<<"+"<<&lt;p.b<<"x"<<"+"<<&lt;p.c;
+    }
+    
+    Quadratic operator +(Quadratic m)                             //function for overloading + operator
+    {
+        Quadratic p1;
+        p1.a=a+m.a;
+        p1.b=b+m.b;
+        p1.c=c+m.c;
+        return p1;
+    }
+    
+    void evaluate(Quadratic t)                                   //finds the value of polynomial on substitution for x
+    {
+        int r,eval;
+        cout<<"\nEnter the value for x which needs to be substituted :";
+        cin>>r;
+        eval=((t.a)*r*r)+((t.b)*r)+(t.c);
+        cout<<"\nOn substituting x="<<&lt;r<<"the value of the polynomial is :"<<&lt;eval;
+    }
+    
+    void root(Quadratic l)                                      //finds the roots of the polynomial
+    {
+        float x1,x2,m,n;
+        
+        m=((l.b*l.b)-(4*l.a*l.c));
+        if(m>=0)
+        {
+            n=sqrt(m);
+            x1=(-l.b+n)/(2*l.a);
+            x2=(-l.b-n)/(2*l.a);
+            cout<<"\nThe first root is :"<<&lt;x1;
+            cout<<"\nThe second root is :"<<&lt;x2;
+        }
+        else
+        
+            cout<<"\nThe roots are imaginary";
+        
+    }
+};
+
+int main()                                                     //main function
+{
+    Quadratic q1,q2;                                           //objects created
+    cout<<"\nThe default polynomial is :";
+    cout<<&lt;q1<<&lt;endl<<&lt;q2;                                        //prints the value of default constructor
+    cout<<"\nEnter the values of coefficients of first polynomial :";
+    cin>>q1;
+    cout<<"\nEnter the values of the coefficients of the second polynomial :";           //accepts the data
+    cin>>q2;
+    
+    cout<<"\nThe first polynomial is :";
+    cout<<&lt;q1;
+    cout<<"\nThe second polynomial is :";                                                //prints the equations
+    cout<<&lt;q2;
+    cout<<&lt;endl;
+    
+    Quadratic q3;
+    q3=q1+q2;
+    cout<<"\nThe addition of the two polynomials is :"<<&lt;q3;                              //addition of two eq.
+    cout<<&lt;endl;
+    
+    cout<<"\nThe value of the polynomial 1st on substition is :";
+    q1.evaluate(q1);
+    cout<<&lt;endl;
+    cout<<"\nThe value of the 2nd polynomial on substitution is :";                     //substituting root value
+    q2.evaluate(q2);
+    cout<<&lt;endl;
+    
+    q1.root(q1);
+    cout<<&lt;endl;
+    q1.root(q2);                                                                        //finding roots
+    cout<<&lt;endl;
+    return 0;
+}
+
+/*
+******************OUTPUT*****************
+
+The default polynomial is :
+0x^2+0x+0
+
+0x^2+0x+0
+Enter the values of coefficients of first polynomial :1 3 2
+
+Enter the values of the coefficients of the second polynomial :2 8 1
+
+The first polynomial is :
+1x^2+3x+2
+The second polynomial is :
+2x^2+8x+1
+
+The addition of the two polynomials is :
+3x^2+11x+3
+
+The value of the polynomial 1st on substition is :
+Enter the value for x which needs to be substituted :2
+
+On substituting x=2the value of the polynomial is :12
+
+The value of the 2nd polynomial on substitution is :
+Enter the value for x which needs to be substituted :3
+
+On substituting x=3the value of the polynomial is :43
+
+The first root is :-1
+The second root is :-2
+
+The first root is :-0.129171
+The second root is :-3.87083
+
+*/
+    
+    
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id08').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- CODE 9 -->
+<div id="id09" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id09').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+ Write C++ program using STL for implementation of LINKED LIST USING STL
+ */
+#include<&lt;iostream>
+#include<&lt;list>
+using namespace std;
+class stlist
+{
+    list<&lt;int>mylist,mylist2;
+    list<&lt;int>::iterator it;
+public:
+    void checkempty();
+    void insertele();
+    void makelist();
+    void mergerlist();
+    void reverselist();
+    void sortlist();
+    void uniquelist();
+    void display();
+};
+void stlist::checkempty()
+{
+    if(mylist.empty())
+        cout<<"List is empty\n";
+    else
+        cout<<"List not empty"<<&lt;endl;
+}
+void stlist::makelist()
+{
+    int count;
+    int a;
+    cout<<"Enter the number of elements in your list"<<&lt;endl;
+    cin>>count;
+    cout<<"Enter the elements:"<<&lt;endl;
+    for(int i=0;i<&lt;count;i++)
+    {
+        cin>>a;
+        mylist.push_back(a);
+    }
+}
+void stlist::insertele()
+{
+    int pos,num;
+    cout<<"Enter the position at which you want to enter element:"<<&lt;endl;
+    cin>>pos;
+    cout<<"Enter the element you want to enter:"<<&lt;endl;
+    cin>>num;
+    it=mylist.begin();
+    for(int i=0;i<&lt;&lt;&lt;&lt;pos;i++)
+        ++it;
+    mylist.insert(it,num);
+}
+void stlist::display()
+{
+    cout<<"List:"<<&lt;&lt;&lt;endl;
+    for(it=mylist.begin();it!=mylist.end();it++)
+        cout<<*it<<&lt;&lt;endl;
+}
+void stlist::sortlist()
+{
+    cout<<"Sorted list:"<<&lt;endl;
+    mylist.sort();
+}
+void stlist::reverselist()
+{
+    cout<<"Reversed list:"<<&lt;endl;
+    mylist.reverse();
+}
+void stlist::uniquelist()
+{
+    mylist.unique();
+}
+void stlist::mergerlist()
+{
+    int count;
+        int a;
+        cout<<"Enter the number of elements in your second list"<<&lt;endl;
+        cin>>count;
+        cout<<"Enter the elements:"<<&lt;endl;
+        for(int i=0;i<&lt;count;i++)
+        {
+            cin>>a;
+            mylist2.push_back(a);
+        }
+        mylist.merge(mylist2);
+}
+int main()
+{
+    stlist obj;
+    int choice;
+    char c='y';
+    do
+    {
+    cout<<"1. Enter elements of list\n2. Check if list is empty\n3. Insert element in list\n4. Sort list\n5. Print list in reverse order\n6. Delete repeated elements in list\n7. Merge 2 lists\nEnter choice:"<<&lt;endl;
+    cin>>choice;
+    switch(choice)
+    {
+    case 1:
+        obj.makelist();
+        break;
+    case 2:
+        obj.checkempty();
+        break;
+    case 3:
+        obj.insertele();
+        obj.display();
+        break;
+    case 4:
+        obj.sortlist();
+        obj.display();
+        break;
+    case 5:
+        obj.reverselist();
+        obj.display();
+        break;
+    case 6:
+        obj.uniquelist();
+        obj.display();
+        break;
+    case 7:
+        obj.mergerlist();
+        obj.display();
+        break;
+    default:
+        cout<<"Wrong choice"<<&lt;endl;
+    }
+    cout<<"Do you wish to continue? Y or N\n";
+    cin>>c;
+    }while(c=='y'||c=='Y');
+    return 0;
+}
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id09').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!--CODE 10 -->
+
+<div id="id10" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+// Write C++ program using STL for implementation of queue using SLL
+
+#include<&lt;iostream>
+#include<&lt;string.h>
+#include<&lt;list>
+using namespace std;
+
+class Queue
+{
+    public :
+        int a;
+        list <&lt;int> s;
+        list <&lt;int> :: iterator itr;
+
+
+        void push()
+        {
+            cout<<"\n Enter a number : ";
+                cin>>a;
+                s.push_back(a);
+        }
+
+        void displaystack()
+        {
+            cout<<"\n The elements in the queue are : "<<"\n";
+            for(itr=s.begin() ; itr!=s.end() ; itr++)
+            {
+                cout<<*itr<<"\t";
+            }
+        }
+
+        void pop()
+        {
+            itr=s.begin();
+            s.pop_front();
+            cout<<"\n The element popped out of the queue is "<<*itr;
+        }
+
+};
+
+int main()
+{
+    Queue p;
+    int choice;
+    char ans;
+    do
+    {
+        cout<<"\n 1. Add element \n 2. Delete element \n 3. Display queue elements";
+        cout<<"\n Enter the operation you want to perform : ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1 : p.push();
+            break;
+            case 2 : p.pop();
+            break;
+            case 3 : p.displaystack();
+            break;
+        }
+        cout<<"\n Do you want to perform any other operation ?";
+        cin>>ans;
+    }while(ans=='Y' || ans=='y');
+}
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- CODE 11 -->
+
+
+<div id="id11" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id11').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+//  Write C++ program using STL for Dqueue (Double ended queue)
+
+#include<&lt;iostream>
+#include<&lt;string.h>
+#include<&lt;deque>
+using namespace std;
+
+class Dequeue
+{
+    public :
+        int a;
+        deque <&lt;int> s;
+        deque <&lt;int> :: iterator itr;
+
+
+        void push_front()
+        {
+            cout<<"\n Enter a number : ";
+                cin>>a;
+                s.push_front(a);
+        }
+
+        void push_back()
+        {
+             cout<<"\n Enter a number : ";
+             cin>>a;
+             s.push_back(a);
+        }
+
+        void pop_back()
+        {
+            itr=s.end();
+            itr--;
+            s.pop_back();
+            cout<<"\n The element popped out of the queue is "<<*itr;
+        }
+
+        void pop_front()
+        {
+            itr=s.begin();
+            s.pop_front();
+            cout<<"\n The element popped out of the queue is "<<*itr;
+        }
+
+        void displayqueue()
+        {
+                cout<<"\n The elements in the queue are : "<<"\n";
+                for(itr=s.begin() ; itr!=s.end() ; itr++)
+            {
+                cout<<*itr<<"\t";
+            }
+        }
+
+};
+
+int main()
+{
+    Dequeue p;
+    int choice;
+    char ans;
+    do
+    {
+        cout<<"\n 1. Add element from front \n 2. Add element from behind \n 3. Delete element front front \n 4. Delete element from behind \n 5. Display queue elements";
+        cout<<"\n Enter the operation you want to perform : ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1 : p.push_front();
+            break;
+            case 2 : p.push_back();
+            break;
+            case 3 : p.pop_front();
+            break;
+            case 4 : p.pop_back();
+            break;
+            case 5 : p.displayqueue();
+            break;
+        }
+        cout<<"\n Do you want to perform any other operation ?";
+        cin>>ans;
+    }while(ans=='Y' || ans=='y');
+}
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id11').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+
+<!-- CODE 12 -->
+
+
+<div id="id12" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id12').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+//  Write C++ program using STL for implementation of stack using SLL
+
+#include<&lt;iostream>
+#include<&lt;string.h>
+#include<&lt;list>
+using namespace std;
+
+class Stack
+{
+    public :
+        int a;
+        list <&lt;int> s;
+        list <&lt;int> :: iterator itr;
+
+
+        void push()
+        {
+            cout<<"\n Enter a number : ";
+                cin>>a;
+                s.push_back(a);
+        }
+
+        void displaystack()
+        {
+            cout<<"\n The elements in the stack are : "<<"\n";
+            for(itr=s.begin() ; itr!=s.end() ; itr++)
+            {
+                cout<<*itr<<"\t";
+            }
+        }
+
+        void pop()
+        {
+            itr=s.end();
+            itr--;
+            s.pop_back();
+            cout<<"\n The element popped out of the stack is "<<*itr;
+        }
+
+};
+
+int main()
+{
+    Stack p;
+    int choice;
+    char ans;
+    do
+    {
+        cout<<"\n 1. Add element \n 2. Delete element \n 3. Display stack elements";
+        cout<<"\n Enter the operation you want to perform : ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1 : p.push();
+            break;
+            case 2 : p.pop();
+            break;
+            case 3 : p.displaystack();
+            break;
+        }
+        cout<<"\n Do you want to perform any other operation ?";
+        cin>>ans;
+    }while(ans=='Y' || ans=='y');
+}
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id12').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- CODE 13 -->
+
+<div id="id13" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id13').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+/*
+Write a function template selection Sort. 
+Write a program that inputs, sorts and outputs an int array and a float array
+*/
+
+#include <&lt;iostream>
+using namespace std;
+
+template <&lt;class T>
+void sort()
+{
+    int i, j;
+    T temp;
+    T n[5];
+    cout<<"\n Enter five numbers : ";
+    for(i=0;i<&lt;5;i++)
+    {
+        cin>>n[i];
+    }
+    for(i=0;i<&lt;4;i++)
+    {
+        for(j=i;j<&lt;5;j++)
+        {
+            if(n[i]>n[j])
+            {
+                temp=n[i];
+                n[i]=n[j];
+                n[j]=temp;
+            }
+        }
+    }
+    cout<<"\n The array in the sorted order is : "<<&lt;endl;
+    for(i=0;i<&lt;5;i++)
+    {
+        cout<<"\t"<<&lt;n[i];
+    }
+}
+
+
+int main()
+{
+    int choice;
+    char ans;
+    do
+    {
+        cout<<"\n 1. Integer  sort. \n 2. Float sort.";
+        cout<<"\n Enter the input you want to sort : ";
+        cin>>choice;
+        switch(choice)
+        {
+            case 1 : sort<&lt;int>();
+                     break;
+            case 2 : sort<&lt;float>();
+                     break;
+            case 3 : cout<<"\n Invalid choice.";
+                     break;
+        }
+        cout<<"\n Do u wish to continue (Y/N)?";
+        cin>>ans;
+    }while(ans=='Y' || ans=='y');
+    return 0;
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id13').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- CODE 14 -->
+
+<div id="id14" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id14').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+/*Create a class template to represent a generic vector. Include following member functions: 
+1. To create the vector. 
+2. To modify the value of a given element 
+3. To multiply by a scalar value 
+4. To display the vector in the form (10,20,30,....)*/
+
+#include<&lt;iostream>
+using namespace std;
+template<&lt;class T>
+class vector
+{
+   T a[5];
+   public : 
+     vector()
+       {
+         int i;
+         for(i=0;i<&lt;5;i++)
+            a[i]=0;
+       }
+     vector(T *z)
+       {
+         int i;
+         for(i=0;i<&lt;5;i++)
+            a[i]=z[i];
+       }
+     void display()
+       {
+          int i;
+          cout<<"(";
+          for(i=0;i<&lt;4;i++)
+            {
+              cout<<&lt;a[i]<<",";
+            }
+          cout<<&lt;a[i]<<")\n";
+       }
+     void multiply(int x)
+       {
+         int i;
+          for(i=0;i<&lt;5;i++)
+             a[i]=a[i]*x;  
+       }
+     void modify(T element,T val)
+       {
+         int i,flag=0;
+         for(i=0;i<&lt;5;i++)
+          {
+             if(a[i]==element)
+               {
+                  a[i]=val;
+                  flag=1;
+                  break;
+               }
+          }
+         if(flag==0)
+           cout<<"Element not found.\n";
+       }
+};
+int main()
+{
+  int v,ch,data1,ele1;
+  float data2,ele2;
+  int x[5]={10,20,30,40,50};
+  float y[5]={1.1,2.2,3.3,4.4,5.5};
+  vector <&lt;int>v1;
+  vector <&lt;float>v2;
+  v1=x;
+  v2=y;
+  cout<<"Vector 1 : ";
+  v1.display();
+  cout<<"Vector 2 : ";
+  v2.display();
+  cout<<"\n-----------MENU---------\n";
+  cout<<"1 : Modify an element.\n2 : Multiply by a scalar.\n------------\n";
+  cout<<"Enter vector number and your choice : ";
+  cin>>v>>ch;
+  switch(v)
+   {
+      case 1 : switch(ch)
+                {
+                  case 1 : cout<<"Enter the element to modify : ";
+                           cin>>ele1;
+                           cout<<"Modify it with : ";
+                           cin>>data1;
+                           v1.modify(ele1,data1);
+                           cout<<"Modified vector : ";
+                           v1.display();
+                           break;
+                  case 2 : cout<<"Enter the number to multiply with : ";
+                           cin>>data1;
+                           v1.multiply(data1);
+                           cout<<"New vector : ";
+                           v1.display();
+                           break;
+                  default : cout<<"Wrong choice!";
+                }
+               break;
+      case 2 : switch(ch)
+                {
+                  case 1 : cout<<"Enter the element to modify : ";
+                           cin>>ele2;
+                           cout<<"Modify it with : ";
+                           cin>>data2;
+                           v2.modify(ele2,data2);
+                           cout<<"Modified vector : ";
+                           v2.display();
+                           break;
+                  case 2 : cout<<"Enter the number to multiply with : ";
+                           cin>>data2;
+                           v2.multiply(data2);
+                           cout<<"New vector : ";
+                           v2.display();
+                           break;
+                  default : cout<<"Wrong choice !";
+                }
+               break;
+      default : cout<<"Wrong choice !";
+   } 
+  return 0;
+}
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id14').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

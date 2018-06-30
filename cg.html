@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url("grey1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    
+    overflow-y: auto;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+ 
+</style>
+</head>
+<body>
+    <h2 align="center">Computer Graphics Codes</h2><br>
+<center>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Line Drawing</button><br>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Line Shapes</button><br>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Line Circle</button><br>
+<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Translation</button><br>
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Bresenhams line & Circle</button><br>
+<button onclick="document.getElementById('id06').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">DDA</button><br>
+<button onclick="document.getElementById('id08').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman";">Matrix Operations</button><br>
+<button onclick="document.getElementById('id09').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman"">Hilbert</button><br>
+<button onclick="document.getElementById('id10').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman"">Koch Curve</button><br>
+<button onclick="document.getElementById('id11').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman"">Kouch Curve With Step By Step</button><br>
+<button onclick="document.getElementById('id12').style.display='block'" style="width:auto;font-weight: bold;font-family: "Times New Roman"">Ani1</button><br>
+    </center>
+
+<!-- 1nd code. -->
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+    
+<pre>
+
+<h1>Program to draw line using DDA and Bresenham
+using Qt Creator</h1>
+        
+<h3>//main.cpp</h3>
+#include &lt;QtGui/QApplication>
+#include "pixel.h"
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    pixel w;
+    w.show();
+    
+    return a.exec();
+}
+
+
+<h3>//pixel.cpp</h3>
+#include "pixel.h"
+#include "ui_pixel.h"
+
+#include<QLabel>
+#include<math.h>
+
+pixel::pixel(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::pixel)
+{
+    ui->setupUi(this);
+
+}
+
+pixel::~pixel()
+{
+    delete ui;
+}
+void pixel :: dda()
+{
+    update();
+}
+void pixel :: bresenham()
+{
+    update();
+}
+
+void pixel::on_pushButton_clicked()
+{
+    ch=1;
+    dda();
+}
+
+void pixel::on_pushButton_2_clicked()
+{
+    ch=2;
+    bresenham();
+}
+void pixel::paintEvent(QPaintEvent *q)
+{
+    Q_UNUSED(q);
+    QPainter z(this);
+    QPen p(Qt::black,1,Qt::SolidLine);
+    z.setPen(p);
+    QString a,b,c,d;
+    a=this->ui->lineEdit->text();
+    b=this->ui->lineEdit_2->text();
+    c=this->ui->lineEdit_3->text();
+    d=this->ui->lineEdit_4->text();
+
+
+     x1=a.toInt();
+     y1=b.toInt();
+     x2=c.toInt();
+     y2=d.toInt();
+
+     if(ch==1)
+     {
+         float len,dx,dy,xf,yf;
+         int s1,s2,i;
+         if(abs(x2-x1)>=abs(y2-y1))
+         len=abs(x2-x1);
+         else
+         len=abs(y2-y1);
+         dx=(x2-x1)/len;
+         dy=(y2-y1)/len;
+         if(dx<0)
+             s1=-1;
+         else if(dx==0)
+             s1=0;
+         else
+             s1=1;
+         if(dy<0)
+             s2=-1;
+         else if(dy==0)
+             s2=0;
+         else
+             s2=1;
+         xf=x1+(0.5)*s1;
+         yf=y1+(0.5)*s2;
+
+       z.drawPoint(xf+320,yf+240);
+         i=1;
+         while(i<=len)
+         {
+             xf=xf+dx;
+             yf=yf+dy;
+             z.drawPoint(xf+320,yf+240);
+             i=i+1;
+         }
+     }
+     else
+     {
+         int x,y,dx1,dy1,p,s1,s2,temp,inter;
+
+         x=x1;
+         y=y1;
+         dx1=abs(x2-x1);
+         dy1=abs(y2-y1);
+         if(dx1<0)
+             s1=-1;
+         else if(dx1==0)
+             s1=0;
+         else
+             s1=1;
+         if(dy1<0)
+             s2=-1;
+         else if(dy1==0)
+             s2=0;
+         else
+             s2=1;
+
+         if(dy1>dx1)
+         {
+             temp=dx1;
+             dx1=dy1;
+             dy1=temp;
+             inter=1;
+         }
+         else
+         inter=0;
+         p=(2*dy1)-dx1;
+         for(int i=1;i<=dx1;i++)
+         {
+             z.drawPoint(x+320,y+240);
+             while(p>0)
+             {
+                 if(inter==1)
+                 x=x+s1;
+                 else
+                 y=y+s2;
+                 p=p-(2*dx1);
+             }
+             if(inter==1)
+             y=y+s2;
+             else
+             x=x+s1;
+             p=p+(2*dy1);
+         }
+     }
+
+}
+
+
+<h3>//pixel.h</h3>
+#ifndef PIXEL_H
+#define PIXEL_H
+
+#include &lt;QMainWindow>
+#include &lt;QWidget>
+#include &lt;QImage>
+#include &lt;QPainter>
+namespace Ui {
+class pixel;
+}
+
+class pixel : public QMainWindow
+{
+    Q_OBJECT
+    int x1,y1,x2,y2,ch;
+
+public:
+    explicit pixel(QWidget *parent = 0);
+    ~pixel();
+    void paintEvent(QPaintEvent *);
+
+
+private:
+    Ui::pixel *ui;
+public slots:
+    void bresenham();
+    void dda();
+
+
+ private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+};
+
+#endif // PIXEL_H
+
+
+</pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 2nd code. -->
+
+
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+<pre>
+<h1>Program to draw line with different shapes</h1>
+
+<h3>//main.cpp</h3>
+<xmp>
+#include "pixel.h"
+#include &lt;QApplication>
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    pixel w;
+    w.show();
+
+    return a.exec();
+}
+
+</xmp>
+<h3>//pixel.cpp</h3>
+<xmp>
+#include "pixel.h"
+#include "ui_pixel.h"
+#include <math.h>
+pixel::pixel(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::pixel)
+{
+    ui->setupUi(this);
+    connect(this->ui->pushButton,SIGNAL(clicked()),this,SLOT(drawLine()));
+    this->ui->radioButton->setChecked(true);
+}
+
+pixel::~pixel()
+{
+    delete ui;
+}
+
+void pixel::drawLine(){
+    update();
+}
+
+int sign(double a){
+    if(a>0)
+        return 1;
+    if(a<0)
+        return -1;
+    return 0;
+}
+
+void pixel::paintEvent(QPaintEvent *q){
+    Q_UNUSED(q);
+    QPainter z(this);
+    QPen p(Qt::black,1,Qt::SolidLine);
+    z.setPen(p);
+
+    QString a,b,c,d;
+    a=this->ui->lineEdit->text();
+    b=this->ui->lineEdit_2->text();
+    c=this->ui->lineEdit_3->text();
+    d=this->ui->lineEdit_4->text();
+
+    x1=a.toInt();
+    y1=b.toInt();
+    x2=c.toInt();
+    y2=d.toInt();
+    int type;
+    if(this->ui->radioButton->isChecked()){
+        type = 1;
+    }else{
+        if(this->ui->radioButton_2->isChecked()){
+            type = 2;
+        }else{
+            if(this->ui->radioButton_3->isChecked()){
+               type = 3;
+            }else{
+                if(this->ui->radioButton_4->isChecked()){
+                  type = 4;
+                }else{
+                   type = 5;
+                }
+            }
+        }
+    }
+
+               // Bresenham's Line Drawing Algorithm
+
+            int w=5;
+        int wy = ((w-1)/2)*(sqrt(((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1)))/abs(x2-x1));
+        x = x1;
+        y = y1;
+        z.drawPoint(x,y);
+        int dx = abs(x2-x1);
+        int dy = abs(y2-y1);
+        int s1 = sign(x2-x1);
+        int s2 = sign(y2-y1);
+        int interchange = 0;
+        if(dx > dy){
+        int temp = dx;
+        dx = dy;
+        dy = temp;
+        interchange = 1;
+        }else interchange = 0;
+
+        int e = (2*dx)-dy;
+
+        for(int i=1 ; i<dx;i++){
+            if(type==1)
+            z.drawPoint(x,y);
+            if(i%15==0 && type == 2)
+            z.drawPoint(x,y);
+            if(i%15>0 && i%20<20 && type ==3)
+            z.drawPoint(x,y);
+            if((i%20<5 ||i%10==0)&&type == 4){
+            z.drawPoint(x,y);}
+        if(type == 5){
+        for(int j=-wy ; j<=wy;j++){
+            z.drawPoint(x,y+j);
+            }
+        }
+            while(e>=0){
+                if(interchange == 1)
+                    x +=s1;
+                else
+                    y +=s2;
+                e-=2*dx;
+            }
+
+            if(interchange == 1)
+                y+=s2;
+            else
+                x+=s1;
+            e+=2*dy;
+        }
+
+
+}
+
+</xmp>
+<h3>//pixel.h</h3>
+<xmp>
+#ifndef PIXEL_H
+#define PIXEL_H
+
+#include &lt;QMainWindow>
+#include &lt;QWidget>
+#include &lt;QPainter>
+#include &lt;QImage>
+
+namespace Ui {
+class pixel;
+}
+
+class pixel : public QMainWindow
+{
+    Q_OBJECT
+    int x,y,x1,y1,x2,y2;
+
+public:
+    explicit pixel(QWidget *parent = 0);
+    ~pixel();
+    void paintEvent(QPaintEvent *);
+
+private:
+    Ui::pixel *ui;
+
+public slots:
+    void drawLine();
+};
+
+#endif // PIXEL_H
+</xmp>
+
+</pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 3rd code. -->
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+<pre>
+<h1>Program for Circle Drawing</h1>
+
+<h3>//main.cpp</h3>
+<xmp>
+#include &lt;QtGui/QApplication>
+#include "pixcel.h"
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    pixcel w;
+    w.show();
+    
+    return a.exec();
+}
+</xmp>
+<h3>pixcle.cpp</h3>
+<xmp>
+#include "pixcel.h"
+#include "ui_pixcel.h"
+#include &lt;math.h>
+#include &lt;QLabel>
+
+pixcel::pixcel(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::pixcel)
+{
+    ui->setupUi(this);
+    connect(this->ui->pushButton,SIGNAL(clicked()),this,SLOT(DrawCircle()));
+    x=y=x1=y1=x2=y2=length=0;
+}
+
+pixcel::~pixcel()
+{
+    delete ui;
+}
+void pixcel::DrawCircle()
+{
+    update();
+}
+int pixcel::getlength()
+{
+    return(sqrt(pow((x2-x1),2)+ pow((y2-y1),2)));
+}
+void pixcel::paintEvent(QPaintEvent *q)
+{
+    Q_UNUSED(q);
+    QPainter z(this);
+    QPen p(Qt::black,1, Qt::SolidLine);
+    z.setPen(p);
+
+    QString a,b,c,d;
+    a=this->ui->lineEdit->text();
+    b=this->ui->lineEdit_2->text();
+    c=this->ui->lineEdit_3->text();
+    d=this->ui->lineEdit_4->text();
+
+    x1=a.toInt();
+    y1=b.toInt();
+    x2=c.toInt();
+    y2=d.toInt();
+
+    length=getlength();
+    x=0;
+    y=length;
+    e=3-(2*length);
+do{
+    z.drawPoint(x+320,y+240);
+    z.drawPoint(y+320,x+240);
+    z.drawPoint(-x+320,y+240);
+    z.drawPoint(x+320,-y+240);
+    z.drawPoint(-y+320,x+240);
+    z.drawPoint(y+320,-x+240);
+    z.drawPoint(-y+320,-x+240);
+    z.drawPoint(-x+320,-y+240);
+
+    if(e<0)
+    {
+        e=(e+(4*x)+6);
+    }
+    else
+    {
+        e=(e+(4*(x-y))+10);
+        y=y-1;
+    }
+    x=x+1;
+    }while(x&lt;y);
+  }
+
+<h3>pixcle.h</h3>
+#ifndef PIXCEL_H
+#define PIXCEL_H
+
+#include &lt;QMainWindow>
+#include &lt;QWidget>
+#include &lt;QImage>
+#include &lt;QPainter>
+
+namespace Ui {
+class pixcel;
+}
+
+class pixcel : public QMainWindow
+{
+    Q_OBJECT
+    int x,y,x1,y1,x2,y2,length;
+    double e;
+    
+public:
+    explicit pixcel(QWidget *parent = 0);
+    ~pixcel();
+    void paintEvent(QPaintEvent *);
+    int getlength();
+
+private:
+    Ui::pixcel *ui;
+
+public slots:
+    void DrawCircle();
+};
+
+#endif // PIXCEL_H
+</xmp>
+</pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 4th Code -->
+<div id="id04" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div clas s="container">
+      <pre>
+<h1>Translation Program</h1>
+
+<h3>//ass.cpp</h3>
+<xmp>
+#include &lt;liostream>
+#include &lt;graphics.h>
+using namespace std;
+class trans
+{
+public:
+int x1,y1,x2,y2,x3,y3,x4,y4,arr[10],tx,ty,new_arr[10],thita,resultr[4][2],rotate[4][2],resr[10];
+int a[4][3];
+int b[3][3],c[4][3],i,j,k;
+int sx,sy;
+int p[4][2];
+int s[2][2],d[4][2],new_arr1[10];
+float rad;
+float rot[3][3];
+void get()
+{
+cout<<"\nenter the coordinates of the quadrilateral:";
+cout<<"\nx1:";
+cin>>x1;
+cout<<"\ny1:";
+cin>>y1;
+cout<<"\nx2:";
+cin>>x2;
+cout<<"\ny2:";
+cin>>y2;
+cout<<"\nx3:";
+cin>>x3;
+cout<<"\ny3:";
+cin>>y3;
+cout<<"\nx4:";
+cin>>x4;
+cout<<"\ny4:";
+cin>>y4;
+
+arr[0]=x1;
+arr[1]=y1;
+arr[2]=x2;
+arr[3]=y2;
+arr[4]=x3;
+arr[5]=y3;
+arr[6]=x4;
+arr[7]=y4;
+arr[8]=arr[0];
+arr[9]=arr[1];
+}
+void draw()
+{
+drawpoly(5,arr);
+}
+
+void translate();
+void scaling();
+void rotation();
+};
+
+void trans::translate()
+{
+cout<<"\nenter the translation factor tx=";
+cin>>tx;
+cout<<"\nenter the translation factor ty=";
+cin>>ty;
+//c[4][3]=0;
+a[0][0]=x1;
+a[0][1]=y1;
+a[0][2]=1;
+a[1][0]=x2;
+a[1][1]=y2;
+a[1][2]=1;
+a[2][0]=x3;
+a[2][1]=y3;
+a[2][2]=1;
+a[3][0]=x4;
+a[3][1]=y4;
+a[3][2]=1;
+
+b[0][0]=1;
+b[0][1]=0;
+b[0][2]=0;
+b[1][0]=0;
+b[1][1]=1;
+b[1][2]=0;
+b[2][0]=tx;
+b[2][1]=ty;
+b[2][2]=1;
+for(i=0;i<4;i++)
+{
+for(j=0;j<3;j++)
+{
+c[i][j]=0;
+for(k=0;k<3;k++)
+{
+c[i][j]=c[i][j]+a[i][k]*b[k][j];
+}
+}
+}
+/*int k=0;
+for(i=0;i<4;i++)
+{
+for(j=0;j<2;j++)
+{
+new_arr[k]=c[i][j];
+k++;
+}
+}*/
+new_arr[0]=c[0][0];
+new_arr[1]=c[0][1];
+new_arr[2]=c[1][0];
+new_arr[3]=c[1][1];
+new_arr[4]=c[2][0];
+new_arr[5]=c[2][1];
+new_arr[6]=c[3][0];
+new_arr[7]=c[3][1];
+new_arr[8]=c[0][0];
+new_arr[9]=c[0][1];
+drawpoly(5,new_arr);
+}
+
+
+void trans::scaling()
+{
+cout<<"\nenter the scaling factor sx=";
+cin>>sx;
+cout<<"\nenter the scaling factor sy=";
+cin>>sy;
+p[0][0]=x1;
+p[0][1]=y1;
+p[1][0]=x2;
+p[1][1]=y2;
+p[2][0]=x3;
+p[2][1]=y3;
+p[3][0]=x4;
+p[3][1]=y4;
+
+s[0][0]=sx;
+s[0][1]=0;
+s[1][0]=0;
+s[1][1]=sy;
+
+for(i=0;i<4;i++)
+{
+for(j=0;j<2;j++)
+{
+d[i][j]=0;
+for(k=0;k<2;k++)
+{
+d[i][j]=d[i][j]+p[i][k]*s[k][j];
+}
+}
+}
+new_arr1[0]=d[0][0];
+new_arr1[1]=d[0][1];
+new_arr1[2]=d[1][0];
+new_arr1[3]=d[1][1];
+new_arr1[4]=d[2][0];
+new_arr1[5]=d[2][1];
+new_arr1[6]=d[3][0];
+new_arr1[7]=d[3][1];
+new_arr1[8]=d[0][0];
+new_arr1[9]=d[0][1];
+drawpoly(5,new_arr1);
+}
+void trans::rotation()
+{
+cout<<"enter value of thita";
+cin>>thita;
+rad=0;
+rad=(((3.14)/180)*thita);
+for(int i=0;i<3;i++)
+{
+for(int j=0;j<3;j++)
+{
+rot[i][j]=0;
+}
+}
+rot[0][0]=cos(rad);
+rot[0][1]=-sin(rad);
+rot[1][0]=sin(rad);
+rot[1][1]=cos(rad);
+rot[2][2]=1;
+
+rotate[0][2]=1;
+rotate[1][2]=1;
+rotate[2][2]=1;
+rotate[3][2]=1;
+
+rotate[0][0]=x1;
+rotate[0][1]=y1;
+rotate[1][0]=x2;
+rotate[1][1]=y2;
+rotate[2][0]=x3;
+rotate[2][1]=y3;
+rotate[3][0]=x4;
+rotate[3][1]=y4;
+
+
+for(int i=0;i<4;i++)
+{
+for(int j=0;j<3;j++)
+{
+resultr[i][j]=0;
+for(int k=0;k<3;k++)
+{
+resultr[i][j]=rotate[i][k]*rot[k][j]+resultr[i][j];
+}
+}
+}
+
+resr[0]=resultr[0][0];
+resr[1]=resultr[0][1];
+resr[2]=resultr[1][0];
+resr[3]=resultr[1][1];
+resr[4]=resultr[2][0];
+resr[5]=resultr[2][1];
+resr[6]=resultr[3][0];
+resr[7]=resultr[3][1];
+resr[8]=resultr[0][0];
+resr[9]=resultr[0][1];
+drawpoly(5,resr);
+}
+
+int main()
+{
+trans t;
+int gd=DETECT,gm;
+t.get();
+initgraph(&gd,&gm," ");
+t.draw();
+
+delay(1000);
+t.translate();
+delay(5000);
+t.scaling();
+delay(5000);
+t.rotation();
+delay(5000);
+closegraph();
+return 0;
+}
+</xmp>
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- CODE 5 -->
+
+
+<div id="id05" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>//Bresenhams Line & Cirle Program</h1>
+
+<h3>//ass5.cpp</h3>
+<xmp>
+#include &lt;graphics.h>
+#include &lt;iostream>
+#include &lt;math.h>
+using namespace std;
+int sign(double a){
+if(a>0)
+return 1;
+if(a<0)
+return -1;
+return 0;
+}
+void bresenhams_line(int x1,int y1,int x2,int y2){
+
+        int x = x1;
+        int y = y1;
+        putpixel(x,y,255);
+        int dx = abs(x2-x1);
+        int dy = abs(y2-y1);
+        int s1 = sign(x2-x1);
+        int s2 = sign(y2-y1);
+        int interchange = 0;
+        if(dx < dy){
+        int temp = dx;
+        dx = dy;
+        dy = temp;
+        interchange = 1;
+        }else interchange = 0;
+
+        int e = (2*dx)-dy;
+
+        for(int i=1 ; i<dx;i++){
+            putpixel(x,y,255);
+            while(e>=0){
+                if(interchange == 1)
+                    x +=s1;
+                else
+                    y +=s2;
+                e-=2*dx;
+            }
+
+            if(interchange == 1)
+                y+=s2;
+            else
+                x+=s1;
+            e+=2*dy;
+        }
+}
+
+void bresenhams_circle(int x1,int y1,int radius){
+    int x=0;
+    int y=radius;
+    int e=3-(2*radius);
+    do{
+    putpixel(x+x1,y+y1,255);
+    putpixel(-x+x1,-y+y1,255);
+    putpixel(x+x1,-y+y1,255);
+    putpixel(-x+x1,y+y1,255);
+    putpixel(y+y1,x+x1,255);
+    putpixel(-y+y1,-x+x1,255);
+    putpixel(y+y1,-x+x1,255);
+    putpixel(-y+y1,x+x1,255);
+
+        if(e<0)
+            e=e+(4*x)+6;
+        else{
+            e=e+(4*(x-y))+10;
+            y=y-1;
+        }
+        x=x+1;
+    }while(x<y);
+}
+
+void draw(){
+double x,y,a,r,R,xa,ya,xb,yb,xc,yc;
+cout<<"\n Enter the Centroid of the triangle and the length of the side: \n";
+cin>>x>>y>>a;
+r=tan(30*3.14/180)*a/2;
+R=(a/2)/cos(30*3.14/180);
+xa=x;ya=y-R;
+xb=x-(a/2);yb=y+r;
+xc=x+(a/2);yc=y+r;
+bresenhams_line(xa,ya,xb,yb);
+bresenhams_line(xb,yb,xc,yc);
+bresenhams_line(xc,yc,xa,ya);
+bresenhams_circle(x,y,r);
+bresenhams_circle(x,y,R);
+}
+int main(){
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"");
+draw();
+
+delay(7000);
+closegraph();	
+return 0;
+}
+
+</xmp>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 6th code -->
+
+<div id="id06" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>//DDA Program</h1>
+
+<h3>//ass6.cpp</h3>
+
+#include &lt;iostream>
+#include &lt;graphics.h>
+#include &lt;math.h>
+using namespace std;
+class line1
+{
+int dx,dy,steps,x1,x2,y1,y2;
+float x,y,xinc,yinc;
+public:
+void dda(int,int,int,int);
+};
+
+void line1::dda(int x11,int y11,int x22,int y22)
+{
+x1=x11;
+y1=y11;
+x2=x22;
+y2=y22;
+dx=x2-x1;
+dy=y2-y1;
+if(abs(dx)>abs(dy))
+steps=abs(dx);
+else
+steps=abs(dy);
+
+xinc=(float)dx/steps;
+yinc=(float)dy/steps;
+x=x1;
+y=y1;
+putpixel(trunc(x),trunc(y),7);
+
+
+for(int i=0;i<steps;i++)
+{
+x=x+xinc;
+y=y+yinc;
+putpixel(trunc(x),trunc(y),7);
+}
+
+
+}
+int main()
+{
+line1 l;
+int gd=DETECT,gm;
+initgraph(&gd,&gm," ");
+int x1,y1,x2,y2,x3,y3,x4,y4;
+int m1,n1,m2,n2,m3,n3,m4,n4;
+cout<<"\nenter x1 y1=";
+cin>>x1>>y1;
+cout<<"\nenter x2 y2=";
+cin>>x2>>y2;
+cout<<"\nenter x3 y3=";
+cin>>x3>>y3;
+cout<<"\nenter x4 y4=";
+cin>>x4>>y4;
+l.dda(x1,y1,x2,y2);
+l.dda(x2,y2,x3,y3);
+l.dda(x3,y3,x4,y4);
+l.dda(x4,y4,x1,y1);
+m1=(x1+x2)/2;
+n1=(y1+y2)/2;
+m2=(x2+x3)/2;
+n2=(y2+y3)/2;
+m3=(x3+x4)/2;
+n3=(y3+y4)/2;
+m4=(x4+x1)/2;
+n4=(y4+y1)/2;
+l.dda(m1,n1,m2,n2);
+l.dda(m2,n2,m3,n3);
+l.dda(m3,n3,m4,n4);
+l.dda(m4,n4,m1,n1);
+
+
+l.dda(((m1+m2)/2),((n1+n2)/2),((m2+m3)/2),((n2+n3)/2));
+l.dda(((m2+m3)/2),((n2+n3)/2),((m3+m4)/2),((n3+n4)/2));
+l.dda(((m3+m4)/2),((n3+n4)/2),((m4+m1)/2),((n4+n1)/2));
+l.dda(((m4+m1)/2),((n4+n1)/2),((m1+m2)/2),((n1+n2)/2));
+
+/*l.dda(20,20,120,20,4);
+l.dda(120,20,120,120,4);
+l.dda(120,120,20,120,4);
+l.dda(20,120,20,20,4);
+l.dda(20,70,70,120,2);
+l.dda(70,120,120,70,2);
+l.dda(120,70,70,20,2);
+l.dda(70,20,20,70,2);
+l.dda(45,45,95,45,1);
+l.dda(95,45,95,95,1);
+l.dda(95,95,45,95,1);
+l.dda(45,95,45,45,1);*/
+
+delay(15000);
+closegraph();
+}
+
+/*student@B04L03100:~$ g++ line.cpp -lgraph
+student@B04L03100:~$ ./a.out
+
+enter x1 y1=
+20
+
+enter x2 y2=20
+120
+
+enter x3 y3=120
+120
+
+enter x4 y4=120
+20
+
+*/
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 8th Code-->
+
+
+<div id="id08" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>Matrix Operations Program</h1>
+
+<h3>//assign8.cpp</h3>
+
+#include &lt;graphics.h>
+#include &lt;iostream>
+#include &lt;math.h>
+using namespace std;
+class matrix_operations
+{
+    double** mat;
+    int r,c;
+    
+public:
+  matrix_operations(int r,int c)
+{
+    mat = new double*[r];
+    for(int i=0;i<r;i++)
+      mat[i]=new double[c];
+    this->r=r;
+    this->c=c;
+}
+void enter_data(double data[]){
+    for(int i=0;i<r;i++)
+        for(int j=0;j<c;j++)
+            mat[i][j]=data[i*(c)+j];
+}
+double** give_mat(){
+    return mat;
+}
+
+
+int give_rows(){
+    return r;
+}
+
+int give_columns(){
+    return c;
+}
+matrix_operations add(matrix_operations matObject){
+    double** matB=matObject.give_mat();
+    matrix_operations matCObject(r,c);
+    double** matC = matCObject.give_mat();
+    for(int i=0;i<r;i++)
+        for(int j=0;j<c;j++)
+            matC[i][j]=mat[i][j]+matB[i][j];
+    return matCObject;
+
+}
+
+matrix_operations multiply(matrix_operations matObject){
+    double** matB=matObject.give_mat();
+    matrix_operations matCObject(r,matObject.give_columns());
+    double** matC = matCObject.give_mat();
+    int R=r;
+    int C=matCObject.give_columns();
+    for(int i=0;i<R;i++){
+        for(int j=0;j<C;j++){
+            matC[i][j]=0;
+            for(int k=0;k<c;k++){
+                matC[i][j]+=(mat[i][k]*matB[k][j]);
+            }
+        }
+    }
+    return matCObject;
+
+}
+matrix_operations multiply_scalar(int scalar){
+    matrix_operations matCObject(r,c);
+    double** matC = matCObject.give_mat();
+    for(int i=0;i<r;i++)
+        for(int j=0;j<c;j++)
+            matC[i][j]=mat[i][j]*scalar;
+    return matCObject;
+}
+
+};
+
+
+
+class skeleton 
+{
+    int ox,oy;
+public:
+skeleton(){
+    ox = getmaxx()/2;
+    oy = getmaxy()/2;
+    line(ox,0,ox,2*oy);
+    line(0,oy,2*ox,oy);
+
+}
+
+
+void drawShape(matrix_operations shape,int size){
+    double** mat=shape.give_mat();
+    int r=shape.give_rows();
+    int c=shape.give_columns();
+    int k=0;
+    int arr[r*(c-1)];
+    for(int i=0;i<r;i++){
+        arr[k++]=(int)(mat[i][0]+ox);
+        arr[k++]=(int)(oy-mat[i][1]);
+    }
+    arr[k++]=mat[0][0]+ox;
+    arr[k]=oy-mat[0][1];
+    drawpoly(size+1,arr);
+}
+
+
+void drawSquare(){
+    double x1,y1,x2,y2,x3,y3,x4,y4,tx,ty,sx,sy,o,ox,oy;
+    cout<<"\n Enter the Coordinates of Square in cyclic order: \n";
+    cin>>x1>>y1>>x2>>y2>>x3>>y3>>x4>>y4;
+    double vertices[12] = {x1,y1,1,x2,y2,1,x3,y3,1,x4,y4,1};
+    matrix_operations mat(4,3);
+    
+    mat.enter_data(vertices);
+    matrix_operations mat1=mat;
+    drawShape(mat,4);
+    int choice;
+    while(true){
+
+    cout<<"\n Select the desired transformation :\n";
+    cout<<"\n 1) Reflect about X axis \n ";
+    cout<<"\n 2) Reflect about Y axis \n ";
+    cout<<"\n 3) Reflect about X=Y axis \n ";
+    cout<<"\n 4) Rotate about arbitrary point \n";
+    cout<<"\n 5) Revert back to original state \n";
+    cout<<"\n 6) Exit \n ";
+    cin>>choice; 
+    switch(choice){
+    case 1:
+    mat = reflectXaxis(mat);
+    drawShape(mat,4);
+    continue;
+
+    case 2:
+    mat = reflectYaxis(mat);
+    drawShape(mat,4);
+    continue;
+    case 3:
+    mat = reflectXequalsYaxis(mat);
+    drawShape(mat,4);
+    continue;
+    case 4:
+    cout<<"\n Enter rotation angle and pivot point respectively: \n";
+    cin>>o>>ox>>oy;
+    mat = rotate(mat,ox,oy,o);
+    drawShape(mat,4);
+    continue;
+
+    case 5:mat=mat1;
+    continue;
+
+    case 6:break;
+    }break;
+    }
+}
+
+
+
+matrix_operations translate(matrix_operations mat, int tx, int ty){
+    double data[9]={1,0,0,0,1,0,tx,ty,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+
+}
+
+matrix_operations scale(matrix_operations mat, double sx, double sy){
+    double data[9]={sx,0,0,0,sy,0,0,0,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+}
+
+matrix_operations rotate_wrt_origin(matrix_operations mat,double o){
+    o*=((double)3.14/(double)180);
+    double data[9]={cos(o),sin(o),0,-sin(o),cos(o),0,0,0,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+}
+matrix_operations rotate(matrix_operations mat, int xo, int yo, int o){
+    return translate(rotate_wrt_origin(translate(mat,-xo,-yo),o),xo,yo);
+}
+
+matrix_operations reflectXaxis(matrix_operations mat){
+    double data[9]={1,0,0,0,-1,0,0,0,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+}
+
+matrix_operations reflectYaxis(matrix_operations mat){
+    double data[9]={-1,0,0,0,1,0,0,0,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+}
+
+matrix_operations reflectXequalsYaxis(matrix_operations mat){
+    double data[9]={0,1,0,1,0,0,0,0,1};
+    matrix_operations move(3,3);
+    move.enter_data(data);
+    return mat.multiply(move);
+}
+ 
+};
+
+int main(){
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"");
+
+skeleton square;
+square.drawSquare();
+
+closegraph();	
+return 0;
+}
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id08').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- CODE 9 -->
+<div id="id09" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id09').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>Hilbert Program</h1>
+
+<h3>assign9.cpp</h3>
+
+#include &lt;iostream>
+#include &lt;math.h>
+#include &lt;graphics.h>
+using namespace std;
+class hilbert{
+    int move,x,y;
+  public:
+    hilbert(int order){
+    int side = getmaxy()-(2*getmaxy()/8);
+    move = side / pow(2,order);
+
+    y = (getmaxy()-side)/2 + side;
+    x = (getmaxx() - side ) / 2;
+    hilbert_A(order);
+}
+    void hilbert_A(int n){
+        if(n>0){
+            hilbert_D(n-1);
+            line(x,y,x,y-move);
+            y=y-move;
+
+            hilbert_A(n-1);
+            line(x,y,x+move,y);
+            x=x+move;
+
+            hilbert_A(n-1);
+            line(x,y,x,y+move);
+            y=y+move;
+
+            hilbert_B(n-1);
+        }
+    }
+    void hilbert_B(int n){
+        if(n>0){
+            hilbert_C(n-1);
+            line(x,y,x-move,y);
+            x=x-move;
+
+            hilbert_B(n-1);
+            line(x,y,x,y+move);
+            y=y+move;
+
+            hilbert_B(n-1);
+            line(x,y,x+move,y);
+            x=x+move;
+
+            hilbert_A(n-1);
+        }
+    }
+    void hilbert_C(int n){
+        if(n>0){
+            hilbert_B(n-1);
+            line(x,y,x,y+move);
+            y=y+move;
+
+            hilbert_C(n-1);
+            line(x,y,x-move,y);
+            x=x-move;
+
+            hilbert_C(n-1);
+            line(x,y,x,y-move);
+            y=y-move;
+
+            hilbert_D(n-1);
+        }
+    }
+    void hilbert_D(int n){
+        if(n>0){
+            hilbert_A(n-1);
+            line(x,y,x+move,y);
+            x=x+move;
+
+            hilbert_D(n-1);
+            line(x,y,x,y-move);
+            y=y-move;
+
+            hilbert_D(n-1);
+            line(x,y,x-move,y);
+            x=x-move;
+
+            hilbert_C(n-1);
+        }
+    }
+
+};
+int main(){
+int order;
+int gd = DETECT, gm;
+initgraph(&gd,&gm,"");
+cin>> order;
+hilbert line(order);
+delay(7000);
+
+closegraph();
+return 0;
+
+
+}
+
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id09').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!--CODE 10 -->
+
+<div id="id10" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>Koch Curve Program</h1>
+
+<h3>//assignment10.cpp</h3>
+
+#include &lt;graphics.h>
+#include &lt;iostream>
+#include &lt;math.h>
+using namespace std;
+
+void koch(int x1,int y1, int x2, int y2,int n){
+    int xa,ya,xb,yb,xc,yc;
+    xa = (x2+(2*x1))/3;
+    ya = (y2+(2*y1))/3;
+    xc = (x1+(2*x2))/3;
+    yc = (y1+(2*y2))/3;
+    xb = ((xc-xa)*(cos(1.0472)))+((yc-ya)*(sin(1.0472)))+xa;
+    yb = -((xc-xa)*(sin(1.0472)))+((yc-ya)*(cos(1.0472)))+ya;
+    if(n>0){
+        koch(x1,y1,xa,ya,n-1);
+        koch(xa,ya,xb,yb,n-1);
+        koch(xb,yb,xc,yc,n-1);
+        koch(xc,yc,x2,y2,n-1);
+    }
+    if(n==0){
+        line(x1,y1,xa,ya);
+        line(xa,ya,xb,yb);
+        line(xb,yb,xc,yc);
+        line(xc,yc,x2,y2);
+    }
+}
+
+
+int main(){
+int n;
+int x,y,side;
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"");
+cout<<"\n Enter the order, the x and y coordinates, the length of each side :";
+cin>>n>>x>>y>>side;
+    koch(x,y,x+side,y,n);
+    koch(x+side,y,x+side/2,y+(side*sin(1.0472)),n);
+    koch(x+side/2,y+(side*sin(1.0472)),x,y,n);
+delay(7000);
+closegraph();
+return 0;
+}
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- CODE 11 -->
+
+
+<div id="id11" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id11').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>Koch Curve With Step By Step</h1>
+
+<h3>//assignment11.cpp</h3>
+
+#include &lt;graphics.h>
+#include &lt;iostream>
+#include &lt;math.h>
+using namespace std;
+
+void koch(int x1,int y1, int x2, int y2,int n){
+    int xa,ya,xb,yb,xc,yc;
+    xa = (x2+(2*x1))/3;
+    ya = (y2+(2*y1))/3;
+    xc = (x1+(2*x2))/3;
+    yc = (y1+(2*y2))/3;
+    xb = ((xc-xa)*(cos(1.0472)))+((yc-ya)*(sin(1.0472)))+xa;
+    yb = -((xc-xa)*(sin(1.0472)))+((yc-ya)*(cos(1.0472)))+ya;
+    if(n>0){
+        koch(x1,y1,xa,ya,n-1);
+        koch(xa,ya,xb,yb,n-1);
+        koch(xb,yb,xc,yc,n-1);
+        koch(xc,yc,x2,y2,n-1);
+    }
+    if(n==0){
+        line(x1,y1,xa,ya);
+        line(xa,ya,xb,yb);
+        line(xb,yb,xc,yc);
+        line(xc,yc,x2,y2);
+    }
+}
+
+
+int main(){
+int n;
+int x,y,side;double angle;
+int gd=DETECT,gm;
+initgraph(&gd,&gm,"");
+cout<<"\n Enter the order, the x and y coordinates, the length of the side, and the angle :";
+cin>>n>>x>>y>>side>>angle;
+    angle *= 3.14/180 ;
+    koch(x,y,(side*cos(angle))+x,(-side*sin(angle))+y,n);
+delay(7000);
+closegraph();
+return 0;
+}
+
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id11').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+
+<!-- CODE 12 -->
+
+
+<div id="id12" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id12').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+<h1>Anil Program</h1>
+
+<h3>//as12.cpp</h3>
+
+ #include &lt;graphics.h>
+class ani
+{
+public:
+void ani1()
+{
+int gd=DETECT,gm,i=0,j=0,k=0;
+initgraph(&gd,&gm,NULL);
+
+setbkcolor(15);
+setcolor(1);
+
+
+for(i;i<420;i++)
+{
+line(0,245,650,245);
+line(0+i,200,210+i,200);
+line(50+i,200,70+i,170);
+line(70+i,170,140+i,170);
+line(140+i,170,160+i,200);
+line(85+i,170,85+i,200);
+line(125+i,170,125+i,200);
+line(0+i,200,0+i,230);
+line(210+i,200,210+i,230);
+line(0+i,230,50+i,230);
+circle(65+i,230,15);
+line(80+i,230,130+i,230);
+circle(145+i,230,15);
+line(210+i,230,160+i,230);
+pieslice(65+i,230,359-j,360-j,15);
+pieslice(65+i,230,179-j,180-j,15);
+pieslice(65+i,230,89-j,90-j,15);
+pieslice(65+i,230,269-j,270-j,15);
+pieslice(145+i,230,359-j,360-j,15);
+pieslice(145+i,230,179-j,180-j,15);
+pieslice(145+i,230,89-j,90-j,15);
+pieslice(145+i,230,269-j,270-j,15);
+if(j==179)
+j=0;
+++j;
+delay(30);
+cleardevice();
+}
+closegraph();
+}};
+
+
+int main()
+{
+
+
+ani a;
+a.ani1();
+return 0;
+}
+
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id12').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+
+<!-- CODE 14 -->
+
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
