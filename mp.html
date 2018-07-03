@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url("grey1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    
+    overflow-y: auto;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+   
+<center>
+
+
+<h2 align="center">MICROPROCESSOR CODES</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Accept and display Numbers</button><br>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Accept and Display Number using Macro</button><br>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">Accept and Display Array Elements</button><br>
+<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;">Accept and Display Array Elements using Ascii Conversions</button><br>
+
+
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;">Positive-Negative Numbers</button><br>
+<button onclick="document.getElementById('id06').style.display='block'" style="width:auto;">Block Transfer</button><br>
+<button onclick="document.getElementById('id07').style.display='block'" style="width:auto;">HEX-BCD Conversions</button><br>
+<button onclick="document.getElementById('id08').style.display='block'" style="width:auto;">Multiplication</button><br>
+<button onclick="document.getElementById('id09').style.display='block'" style="width:auto;">File Handling Program</button><br>
+<button onclick="document.getElementById('id10').style.display='block'" style="width:auto;">Switch from real mode to protected mode</button><br>
+<button onclick="document.getElementById('id11').style.display='block'" style="width:auto;">Factorial</button><br>
+<button onclick="document.getElementById('id12').style.display='block'" style="width:auto;">Quadtratic Root</button><br>
+<button onclick="document.getElementById('id13').style.display='block'" style="width:auto;">TSR for Key-Logger</button><br>
+<button onclick="document.getElementById('id14').style.display='block'" style="width:auto;">TSR- Real Time Clock</button><br>
+
+
+
+</center>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php"> 
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Write X86/64 ALP to accept and display Number</b>
+
+section .data                       
+    msg1 db 10,"Enter the number"       
+    msglen1 equ $-msg1
+    msg2 db 10,"Entered number is"          
+    msglen2 equ $-msg2
+    
+section .bss                    
+    num resb 3                               ;variable declartion, reb:reserv byte
+
+section .text                   
+    global _start                 
+     
+    _start:                     
+                        ;print 1st msg
+            mov eax,4           
+            mov ebx,1           
+            mov ecx,msg1        
+            mov edx,msglen1     
+            int 80h
+                        ;accept number
+            mov eax,3                   ;3: functional value for input      
+            mov ebx,0                   ;0: file descriptor for standard input device
+            mov ecx,num                 ;address of variable where input is to be stored(num)
+            mov edx,3                   ;length of input which is to be accepted(size)
+            int 80h                 ;interrupt 80h for input operation/kernel call
+            
+                        ;print 2st msg
+            mov eax,4           
+            mov ebx,1           
+            mov ecx,msg2        
+            mov edx,msglen2     
+            int 80h
+            
+                        ;display accepted number
+                
+            mov eax,4           
+            mov ebx,1           
+            mov ecx,num       
+            mov edx,2     
+            int 80h
+            
+                        ;exit       
+            mov eax,1           
+            mov ebx,0
+            int 80h     
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!-- 2 Number using macro -->
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Write X86/64 ALP to accept and Display Number using Macro</b>
+
+        section .data                       
+    msg1 db 10,"Enter the number"       
+    msglen1 equ $-msg1
+    msg2 db 10,"Entered number is"          
+    msglen2 equ $-msg2
+    
+section .bss                    
+    num resb 3                               ;variable declartion, reb:reserv byte
+    
+    %macro input 2                          ;macro declaration start : no of parameters 2
+        mov eax,3                           ;input operation
+        mov ebx,0
+        mov ecx,%1                  ;parameter 1
+        mov edx,%2                  ;parameter 2
+        int 80h
+    %endmacro                            ;end of macro declartion
+
+    %macro output 2                         ;macro declaration start : no of parameters 2
+        mov eax,4                           ;output operation
+        mov ebx,1
+        mov ecx,%1                  ;parameter 1
+        mov edx,%2                  ;parameter 2
+        int 80h
+    %endmacro                            ;end of macro declartion
+
+
+section .text                   
+    global _start                 
+     
+    _start:                     
+                ;print 1st msg
+            output msg1,msglen1                  ;call to output macro
+            
+            
+                ;accept number
+            input num,3                   ;call to input macro
+            
+            
+                ;print 2st msg
+            output msg2,msglen2                  ;call to output macro
+            
+            
+                ;display accepted number
+            output num,2                     ;call to output macro
+            
+            
+                        ;exit       
+            mov eax,1           
+            mov ebx,0
+            int 80h     
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 3 Array -->
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Write X86/64 ALP to accept and display Array Elements</b>
+
+        section .data
+        msg1 db 10,"Enter elements of array"
+        msglen1 equ $-msg1
+        
+        msg2 db 10,"Array elements are"
+        msglen2 equ $-msg2
+        
+        nwln db 10
+        cnt db 0
+        arr times 80 db 0
+        
+section .bss                    
+    num resb 5                             
+    buff resb 4
+    
+    %macro input 2              ;input macro                    
+        mov eax,3                           
+        mov ebx,0
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro                          
+
+    %macro output 2             ;output macro                    
+        mov eax,4                       
+        mov ebx,1
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro       
+    
+    
+section .text                   
+    global _start                 
+     
+    _start:     
+    
+                                  ;print msg1
+           output msg1,msglen1
+           mov byte[cnt],5          ;counter:5 elements
+           mov edi,arr              ;ESI pointing to array variable
+       l1: input num,3              ;accept element of array
+           mov ax,[num]            ;}   
+           mov [edi],ax           ;} store element to array
+           inc edi                  ;increment index to store next element
+           inc edi
+           dec byte[cnt]            ; decrement counter
+           jnz l1 
+                 
+           
+                                  ;print msg2
+           output msg2,msglen2
+           mov byte[cnt],5          ;dsiplay array elements
+           mov esi,arr
+       l2: mov bx,[esi]
+           mov [num],bx
+           output num,2
+           output nwln,1
+           inc esi
+           inc esi
+           dec byte[cnt]
+           jnz l2    
+           
+           mov eax,1
+           mov ebx,0
+           int 80h
+           
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+
+<!-- 4 Array Conversion -->
+<div id="id04" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p> 
+        <b>Problem statement</b>
+            Write X86/64 ALP to accept and diaplay array elements by using ascii conversions
+
+section .data
+        msg1 db 10,"Enter elements of array"
+        msglen1 equ $-msg1
+        
+        msg2 db 10,"Array elements are"
+        msglen2 equ $-msg2
+        
+        nwln db 10
+        cnt db 0
+        arr times 80 db 0
+        
+section .bss                    
+    num resb 5                             
+    buff resb 4
+    
+    %macro input 2              ;input macro                    
+        mov eax,3                           
+        mov ebx,0
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro                          
+
+    %macro output 2             ;output macro                    
+        mov eax,4                       
+        mov ebx,1
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro       
+    
+    
+section .text                   
+    global _start                 
+     
+    _start:     
+    
+                                  ;print msg1
+           output msg1,msglen1
+           mov byte[cnt],5          ;counter:5 elements
+           mov edi,arr              ;ESI pointing to array variable
+       l1: input num,5              ;accept element of array
+           mov esi,num
+            call ascii_original      ;call to proc
+           mov [edi],bx           ; store converted element to array
+           inc edi                  ;increment index to store next element
+           inc edi
+           dec byte[cnt]            ; decrement counter
+           jnz l1 
+                 
+           
+                                  ;print msg2
+           output msg2,msglen2
+           mov byte[cnt],5          ;dsiplay array elements
+           mov esi,arr
+       l2: mov bx,[esi]
+            call original_ascii
+           output nwln,1
+           inc esi
+           inc esi
+           dec byte[cnt]
+           jnz l2    
+           
+           mov eax,1
+           mov ebx,0
+           int 80h
+           
+           
+           
+   ascii_original:                      ;procedure defination
+            mov eax,0
+            mov ebx,0
+            mov ecx,4               
+         up1:rol bx,4
+             mov al,[esi]             
+             cmp al,39h         
+             jbe down1
+             sub al,07
+        down1:sub al,30h
+              add bx,ax 
+              inc esi
+              loop up1
+   ret
+   
+   original_ascii:                     ;procedure defination      
+             mov edx,0
+             mov ecx,4
+             mov edi,buff        
+         up2:rol bx,4
+             mov dl,bl
+             and dl,0fh            
+             cmp dl,09h              
+             jbe down2
+             add dl,07h
+       down2:add dl,30h
+             mov [edi],dl           
+             inc edi
+             loop up2
+             output buff,4
+   ret                    
+           
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<div id="id05" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write X86/64 ALP to count number of positive and negative numbers from the array
+
+
+        section .data
+        msg1 db 10,"Enter elements of array"
+        msglen1 equ $-msg1
+        
+        msg2 db 10,"elements of array:"
+        msglen2 equ $-msg2
+        
+        msg3 db 10,"No of positive elements are"
+        msglen3 equ $-msg3
+        
+        msg4 db 10,"No of negative elements are"
+        msglen4 equ $-msg4
+        
+        nwln db 10
+        cnt db 0
+        pcnt db 0
+        ncnt db 0
+        arr1 times 80 db 0
+        
+        
+section .bss                    
+    num resb 5                             
+    buff resb 4
+    
+    %macro input 2              ;input macro                    
+        mov eax,3                           
+        mov ebx,0
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro                          
+
+    %macro output 2             ;output macro                    
+        mov eax,4                       
+        mov ebx,1
+        mov ecx,%1                  
+        mov edx,%2                  
+        int 80h
+    %endmacro       
+    
+    
+section .text                   
+    global _start                 
+     
+    _start:     
+    
+                                  ;print msg1
+           output msg1,msglen1
+           mov byte[cnt],5          ;counter:5 elements
+           mov edi,arr1              ;ESI pointing to array variable
+       l1: input num,5              ;accept element of array
+           mov esi,num
+            call ascii_original      ;call to proc
+           mov [edi],bx           ; store converted element to array
+           inc edi                  ;increment index to store next element
+           inc edi
+           dec byte[cnt]            ; decrement counter
+           jnz l1 
+                 
+           
+                                
+                                  ;print msg2
+           output msg2,msglen2
+           mov byte[cnt],5          ;dsiplay array 2 elements
+           mov esi,arr1
+       l2: mov bx,[esi]
+            call original_ascii
+           output nwln,1
+           inc esi
+           inc esi
+           dec byte[cnt]
+           jnz l2
+           
+           
+                        ;check array elements for positive & negative
+           mov esi,arr1
+           mov byte[cnt],5
+           
+       l3: mov ax,[esi]
+           and ax,8000h
+           jz l4  
+           inc byte[ncnt]
+           jmp l5 
+       l4: inc byte[pcnt]
+       l5: inc esi
+           inc esi
+           dec byte[cnt]
+           jnz l3    
+           
+           output msg3,msglen3
+           add byte[pcnt],30h
+           output pcnt,1
+           
+           output msg4,msglen4
+           add byte[ncnt],30h
+           output ncnt,1
+           
+           mov eax,1
+           mov ebx,0
+           int 80h
+           
+           
+           
+   ascii_original:                      ;procedure defination
+            mov eax,0
+            mov ebx,0
+            mov ecx,4               
+         up1:rol bx,4
+             mov al,[esi]             
+             cmp al,39h         
+             jbe down1
+             sub al,07
+        down1:sub al,30h
+              add bx,ax 
+              inc esi
+              loop up1
+   ret
+   
+   original_ascii:                     ;procedure defination      
+             mov edx,0
+             mov ecx,4
+             mov edi,buff        
+         up2:rol bx,4
+             mov dl,bl
+             and dl,0fh            
+             cmp dl,09h              
+             jbe down2
+             add dl,07h
+       down2:add dl,30h
+             mov [edi],dl           
+             inc edi
+             loop up2
+             output buff,4
+   ret                    
+           
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<div id="id06" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write X86/64 ALP to perform non-overlapped and overlapped block transfer (with and without string specific instructions). Block containing data can be defined in the data segment.
+
+
+                 section .data
+            input_msg db "Enter five two-digit numbers : "
+            input_len1 equ $-input_msg
+
+            input_msg2 db "Enter start location : " ;$
+            input_len2 equ $-input_msg2
+            
+            output_msg db "Element are : ",10
+            output_len1 equ $-output_msg
+            
+            output_msg2 db "Copied element are : ",10
+            output_len2 equ $-output_msg2  ;$
+            
+            newline db 10
+            space db " "
+            
+            array times 80 dw 0
+            count  db 0
+            
+        section .bss
+            num resb 3
+            buff resb 5
+            loc resb 2
+            
+        %macro accept 2
+           mov eax,3
+           mov ebx,0
+           mov ecx,%1
+           mov edx,%2
+           int 80h
+        %endmacro
+
+        %macro display 2
+           mov eax,4
+           mov ebx,1
+           mov ecx,%1
+           mov edx,%2
+           int 80h
+        %endmacro
+
+        section .txt
+            global _start
+            _start :
+            
+            display input_msg,input_len1
+            
+             mov byte[count],05     ; Counter value 
+             mov esi,array          ; esi points to start of array
+            
+         l1 : accept num,3          ;loop to accept elements
+              mov ax,[num]
+              mov [esi],ax
+              add esi,2             ; increment esi to next position 
+              dec byte [count]      ;decrement counter
+              jnz l1
+            
+              display output_msg,output_len1
+            
+              mov byte[count],5
+              mov esi,array
+              
+         l2 : mov ax,[esi]
+              mov [buff],ax
+              display buff,2
+              display space,1
+              add esi,2
+              dec byte[count]
+              jnz l2
+
+              display newline,1
+              display input_msg2,input_len2
+              accept loc,2
+
+              mov esi,array
+              mov edi,array
+              mov ecx,5
+         l3 : add esi,2
+              add edi,2
+              loop l3
+              
+              sub byte[loc],30h
+              dec byte[loc]
+              mov al,[loc]
+              
+              mov byte[count],al
+         l4 : add edi,2
+              dec byte[count]
+              jnz l4
+
+              sub esi,2
+              sub edi,2
+           
+              mov byte[count],5
+         l5 : mov ax,[esi]
+              mov [edi],ax
+              sub edi,2
+              sub esi,2
+              dec byte[count]
+              jnz l5
+            
+             display output_msg2,output_len2
+             mov byte[count],0
+             mov al,[loc]
+             mov bl,5
+             add bl,al
+             mov byte[count],bl
+             mov esi,array
+
+         l6 : mov ax,[esi]
+              mov [buff],ax
+              display buff,2
+              display space,1
+              add esi,2
+              dec byte[count]
+              jnz l6
+
+             mov eax,1
+             int 80h
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<div id="id07" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write X86/64 ALP to convert 4-digit Hex number into its equivalent BCD number and 5-digit BCD number into its equivalent HEX number. 
+        Make your program user friendly to accept the choice from user for: (a) HEX to BCD b) BCD to HEX (c) EXIT.
+
+
+section .data
+    
+    msg1 db 10,"Enter the BCD number : "
+    msglen1 equ $-msg1
+    
+    msg2 db 10,"Enter the hex number : "
+    msglen2 equ $-msg2
+    
+    msg3 db 10,"The BCD equivalent is : "
+    msglen3 equ $-msg3
+    
+    msg4 db 10,"The hex equivalent is : "
+    msglen4 equ $-msg4
+    
+    msg5 db 10,"(1) BCD to hex"
+    msglen5 equ $-msg5
+    
+    msg6 db 10,"(2) Hex to BCD"
+    msglen6 equ $-msg6
+    
+    msg7 db 10,"Enter any of the above options : "
+    msglen7 equ $-msg7
+    
+    msg8 db 10,10,"(1) Continue ?"
+    msglen8 equ $-msg8
+    
+    msg9 db 10,"(2) Exit"
+    msglen9 equ $-msg9
+    
+    msg10 db 10,"Enter choice : "
+    msglen10 equ $-msg10
+    
+    nwln db 1
+    cnt db 0
+    
+section .bss
+
+    num1 resb 5
+    num2 resb 6
+    buff resb 4
+    rem resb 1
+    choice resb 2
+    ans resb 2
+    
+    %macro accept 2
+        mov eax,3
+        mov ebx,0
+        mov ecx,%1
+        mov edx,%2
+        int 80h
+    %endmacro
+    
+    %macro display 2
+        mov eax,4
+        mov ebx,1
+        mov ecx,%1
+        mov edx,%2
+        int 80h
+    %endmacro
+    
+section .text
+    global _start
+    
+_start:
+    
+l7:
+    display msg5,msglen5
+    display msg6,msglen6
+    display msg7,msglen7
+    accept choice,2
+    sub byte[choice],30h
+    cmp byte[choice],01h
+    je l1
+    cmp byte[choice],02h
+    je l2
+    jmp l3
+    
+l1:     ;BCD to Hex
+    display msg1,msglen1
+    accept num2,6   ;5 digit BCD input
+    display msg4,msglen4
+    mov eax,0h
+    mov ebx,10      ;store multiplicative factor=10
+    mov esi,num2    ;num2 is input
+    mov ecx,05h     
+l4:
+    mov edx,0
+    mul ebx         ;eax<-ebx*eax where ebx=10
+    mov edx,0       
+    mov dl,[esi]    ;dl will contain digit of number
+    sub dl,30h      ;asci to original
+    add eax,edx     
+    inc esi
+    dec ecx
+    jnz l4
+    mov ebx,eax
+    call original_ascii     ;display output in hex
+
+    jmp l3
+
+
+l2: ;HEX to  BCD
+    display msg2,msglen2
+    accept num1,5   ;4 digit HEX input
+    display msg3,msglen3
+    call ascii_original     ;output in bx
+    mov eax,ebx     
+    mov ebx,10
+    mov byte[cnt],0
+l5:
+    mov edx,0h
+    div ebx
+    push dx
+    inc byte[cnt]
+    cmp ax,0
+    jnz l5
+l6:
+    pop dx
+    add dl,30h
+    mov [rem],dl
+    display rem,1
+    dec byte[cnt]
+    jnz l6
+    
+    jmp l3
+    
+
+l3:
+    display msg8,msglen8
+    display msg9,msglen9
+    display msg10,msglen10
+    accept ans,2
+    sub byte[ans],30h
+    cmp byte[ans],01h
+    je l7
+    
+    mov eax,1
+    int 80h
+    
+    
+    
+ ascii_original:
+            mov ecx,4
+            mov ebx,0
+            mov eax,0
+            mov esi,num1
+    up1:
+            rol bx,4
+            mov al,[esi]
+            cmp al,39h
+            jbe down1
+            sub al,07h
+    down1:
+            sub al,30h
+            add bx,ax
+            inc esi
+            loop up1
+            ret
+            
+            
+     original_ascii:
+            mov esi,buff
+            mov ecx,4
+    up2:
+            rol bx,4
+            mov dl,bl
+            and dl,0fh
+            cmp dl,09h
+            jbe down2
+            add dl,07h
+    down2:
+            add dl,30h
+            mov [esi],dl
+            inc esi
+            loop up2
+            display buff,4
+            ret
+            
+            
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id07').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 8---------->
+<div id="id08" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id08").style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+         Write X86/64 ALP to perform multiplication of two 8-bit hexadecimal numbers. Use successive addition and add and shift method. Accept input from the user.
+
+         section .data
+    
+    msg1 db 10,10,"Enter the first number (4-digit) : "
+    msglen1 equ $-msg1
+    
+    msg2 db "Enter the second number (4-digit) : "
+    msglen2 equ $-msg2
+    
+    msg3 db 10,"The product of the numbers is : "
+    msglen3 equ $-msg3
+    
+    msg4 db 10,"ERROR : Please enter the correct choice ",10
+    msglen4 equ $-msg4
+    
+    msg5 db 10,10,"(1) Multiplication by successive addition"
+    msglen5 equ $-msg5
+    
+    msg6 db 10,"(2) Multiplication by add and shift method"
+    msglen6 equ $-msg6
+    
+    msg7 db 10,"Enter any of the above options : "
+    msglen7 equ $-msg7
+    
+    msg8 db 10,10,"(1) Continue ?"
+    msglen8 equ $-msg8
+    
+    msg9 db 10,"(2) Exit"
+    msglen9 equ $-msg9
+    
+    msg10 db 10,"Enter choice : "
+    msglen10 equ $-msg10
+    
+    nwln db 1
+    cnt db 0
+    
+section .bss
+
+    num1 resb 5     ; 4 for no and 1 for enter so total 5
+    num2 resb 5
+    buff resb 4
+    choice resb 2
+    ans resb 2
+    
+    %macro accept 2
+        mov eax,3
+        mov ebx,0
+        mov ecx,%1
+        mov edx,%2
+        int 80h
+    %endmacro
+    
+    %macro display 2
+        mov eax,4
+        mov ebx,1
+        mov ecx,%1
+        mov edx,%2
+        int 80h
+    %endmacro
+    
+section .text
+    global _start
+    
+_start:
+    
+l7:
+    display msg5,msglen5
+    display msg6,msglen6
+    display msg7,msglen7
+    accept choice,2
+    sub byte[choice],30h
+    cmp byte[choice],01h
+    je l1
+    cmp byte[choice],02h
+    je l2
+    display msg4,msglen4
+    jmp l7
+    
+l1:
+    display msg1,msglen1
+    accept num1,5
+    mov esi,num1
+    call ascii_original
+    mov [num1],bx
+    
+    display msg2,msglen2
+    accept num2,5
+    mov esi,num2
+    call ascii_original
+    mov [num2],bx
+    
+    display msg3,msglen3
+    mov ax,[num1]
+    mov cx,[num2]
+    mov bx,0
+    
+l4:add bx,ax
+    dec cx
+    jnz l4
+    call original_ascii
+    
+
+    jmp l3
+
+
+l2:
+    display msg1,msglen1
+    accept num1,5
+    mov esi,num1
+    call ascii_original
+    mov [num1],bx
+    
+    display msg2,msglen2
+    accept num2,5
+    mov esi,num2
+    call ascii_original
+    mov [num2],bx
+    
+    display msg3,msglen3
+    mov ax,0
+    mov bx,0
+    mov cx,16
+    mov ax,[num1]
+    mov bx,[num2]
+    mov dx,0
+l5:
+    shl dx,1
+    shl ax,1
+    jnc l6
+    add dx,bx
+l6:
+    dec cx
+    jnz l5
+    mov bx,dx
+    call original_ascii
+    
+    jmp l3
+    
+
+l3:
+    display msg8,msglen8
+    display msg9,msglen9
+    display msg10,msglen10
+    accept ans,2
+    sub byte[ans],30h
+    cmp byte[ans],01h
+    je l7
+    cmp byte[ans],02h
+    je l8
+    display msg4,msglen4
+    jmp l3
+    
+l8:
+    
+    mov eax,1
+    int 80h
+    
+    
+    
+ ascii_original:        ;input in esi
+                        ;output in bx
+            mov ecx,4
+            mov ebx,0
+            mov eax,0
+    up1:
+            rol bx,4
+            mov al,[esi]
+            cmp al,39h
+            jbe down1   ; jump if zero or neg i.e jump if decimal
+            sub al,07h
+    down1:
+            sub al,30h
+            add bx,ax
+            inc esi
+            loop up1
+            ret
+            
+            
+     original_ascii:    ;input bx
+                        ;output buff
+            mov esi,buff
+            mov ecx,4
+    up2:
+            rol bx,4
+            mov dl,bl
+            and dl,0fh
+            cmp dl,09h
+            jbe down2   ; decimal
+            add dl,07h
+    down2:
+            add dl,30h
+            mov [esi],dl
+            inc esi
+            loop up2
+            display buff,4
+            ret
+            
+            
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id08').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!-- 5 -->
+<div id="id09" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id09').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write X86 ALP to find, a) Number of Blank spaces b) Number of lines c) Occurrence of a particular character. Accept the data from the text file. The text file has to be accessed during Program_1 execution and write FAR PROCEDURES in Program_2 for the rest of the processing. Use of PUBLIC and EXTERN directives is mandatory.
+
+        <b>macro.asm</b>
+
+            section .bss
+
+            %macro accept 2
+                mov eax,3                   ;read
+                mov ebx,0                   ;stdin/keyboard
+                mov ecx,%1
+                mov edx,%2
+                int 80h
+            %endmacro
+
+            %macro display 2
+                mov eax,4                   ;print
+                mov ebx,1                   ;stdout/screen
+                mov ecx,%1
+                mov edx,%2
+                int 80h
+            %endmacro
+
+            %macro fopen 1
+                mov ebx,%1                  ;filename
+                mov eax,5                   ;function to open
+                mov ecx,0                   ;file access mode 0-R,1-w & 2-r/w
+                int 80h
+            %endmacro
+
+            %macro fread 3
+                mov eax,3                   ;read
+                mov ebx,%1                  ;filehandle
+                mov ecx,%2                  ;buf
+                mov edx,%3                  ;buf_len
+                int 80h
+            %endmacro
+
+            %macro fclose 1
+                mov eax,6                   ;close
+                mov ebx,%1                  ;file handle
+                int 80h
+            %endmacro
+
+            %macro end 0
+                mov eax,1
+                int 80h
+            %endmacro
+
+----------------------------------------------------------------------------------------------------------------------------
+
+    <b>part1.asm</b>
+
+            extern far_proc                                     ;using extern directive to include procedures from other files
+
+            global  filehandle,char,buf,abuf_len                ;declare variables globally
+
+            %include "macro.asm"                                ; include all macros
+
+            section .data
+
+                nline db 10
+                nline_len equ $-nline
+                
+                filemsg db 10,"Enter the filename : "
+                filemsg_len equ $-filemsg
+                
+                charmsg db 10,"Enter the character to search : "
+                charmsg_len equ $-charmsg
+                
+                errmsg db 10,"Error opening the file",10
+                errmsg_len equ $-errmsg
+                
+            section .bss
+                
+                buf resb 1024
+                buf_len equ $-buf                          ;initial buf length
+                
+                filename resb 50
+                char resb 2
+                abuf_len resb 1                            ;actual buf length
+                filehandle resb 1
+                
+            section .text
+                global _start
+                
+            _start:
+
+                display filemsg,filemsg_len
+                accept filename,20
+                dec eax
+                mov byte[filename+eax],0                     ;blankk char to be appended at the end
+                
+                fopen filename                               ;open the file
+                                                    ;return file handle on success
+                test eax,eax                                 ;on failure check sign
+                js Error                                ;if sign is set its error
+                
+                mov [filehandle],eax                         ;save file handle
+                
+                fread [filehandle],buf,buf_len               ;read file contents in buf
+                mov [abuf_len],eax                           ;save actual buf length
+                
+                display charmsg,charmsg_len
+                accept char,2
+                
+                call far_proc                                ;call to far_proc in another file
+                jmp down 
+                    
+            Error: display errmsg,errmsg_len
+
+            down: end                                         ;terminate
+---------------------------------------------------------------------------------------------------------------------------------------
+
+     <b>part2.asm</b>
+
+        extern  filehandle,char,buf,abuf_len                   ;extern directive to include variables from other file
+
+        global far_proc                                        ;declare far_proc globally
+
+        %include "macro.asm"                                   ;include all macros
+
+        section .data
+
+            nline db 10,10
+            nline_len equ $-nline
+            
+            smsg db 10,"Number of spaces are : "
+            smsg_len equ $-smsg
+            
+            nmsg db 10,"Number of new lines are : "
+            nmsg_len equ $-nmsg
+            
+            cmsg db 10,"Number of character occurences are : "
+            cmsg_len equ $-cmsg
+            
+            vmsg db 10,"Number of vowels are : "
+            vmsg_len equ $-vmsg
+            
+        section .bss
+
+            scount resb 1
+            ncount resb 1
+            ccount resb 1
+            vcount resb 1
+            
+        section .text
+            global _main
+            
+        _main:
+
+        far_proc:                             ;define far_proc procedure
+
+            xor eax,eax                      ;clear all bits of eax
+            xor ebx,ebx                      ;reset ebx
+            xor ecx,ecx
+            xor esi,esi
+            
+            mov bl,[char]
+            mov esi,buf                      ;point to first character
+            mov ecx,[abuf_len]               ;initialize counter with actual buf length
+            
+        up:
+            mov al,[esi]                     ;mov one character into al
+            
+        case_s:
+            cmp al,20h                       ;compare for space
+            jne case_n                       ;check next case if not equal
+            inc byte[scount]                 ;increment scount if space present
+            jmp next                         ;jump for next character
+            
+        case_n:
+            cmp al,0Ah                       ;compare for newline
+            jne case_v
+            inc byte[ncount]
+            jmp next
+            
+        case_v:                               ;compare all vowels
+            
+            case_a:
+                cmp al,'a'
+                jne case_e
+                inc byte[vcount]
+                jmp next
+                
+            case_e:
+                cmp al,'e'
+                jne case_i
+                inc byte[vcount]
+                jmp next
+                
+            case_i:
+                cmp al,'i'
+                jne case_o
+                inc byte[vcount]
+                jmp next
+                
+            case_o:
+                cmp al,'o'
+                jne case_u
+                inc byte[vcount]
+                jmp next
+                
+            case_u:
+                cmp al,'u'
+                jne case_A
+                inc byte[vcount]
+                jmp next
+            
+            case_A:
+                cmp al,'A'
+                jne case_E
+                inc byte[vcount]
+                jmp next
+                
+            case_E:
+                cmp al,'E'
+                jne case_I
+                inc byte[vcount]
+                jmp next
+                
+            case_I:
+                cmp al,'I'
+                jne case_O
+                inc byte[vcount]
+                jmp next
+                
+            case_O:
+                cmp al,'O'
+                jne case_U
+                inc byte[vcount]
+                jmp next
+                
+            case_U:
+                cmp al,'U'
+                jne case_c
+                inc byte[vcount]
+                jmp next
+            
+            
+        case_c:                                      ;compare for given character
+            cmp al,bl
+            jne next
+            inc byte[ccount]
+            
+        next:
+            inc esi                                 ;point to next character
+            dec ecx                                 ;decrement counter
+            jnz up                                  ;repeat comparisons
+            
+            display smsg,smsg_len
+            mov eax,[scount]
+            add al,30h                              ;convert original to ascii
+            mov [scount],al
+            display scount,1                        ;display space count
+            
+            display nmsg,nmsg_len
+            mov eax,[ncount]
+            add al,30h
+            mov [ncount],al
+            display ncount,1                        ;display newline count
+            
+            display vmsg,vmsg_len
+            mov eax,[vcount]
+            add al,30h
+            mov [vcount],al
+            display vcount,1                        ;display vowel count
+            
+            display cmsg,cmsg_len
+            mov eax,[ccount]
+            add al,30h
+            mov [ccount],al
+            display ccount,1                        ;display character count
+            display nline,nline_len           
+            
+            fclose [filehandle]                     ;close the file
+            ret                                     ;return from procedure
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id09').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 6 GDTR -->
+<div id="id10" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id10').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Problem Statement</b>
+        Write X86/64 ALP to switch from real mode to protected mode and display the values of GDTR, LDTR, IDTR, TR and MSW Registers.
+
+
+        section .data
+
+            gmsg db 10,10,"The contents of GDTR are : "
+            gmsg_len equ $-gmsg
+            
+            lmsg db 10,10,"The contents of LDTR are : "
+            lmsg_len equ $-lmsg
+            
+            imsg db 10,10,"The contents of IDTR are : "
+            imsg_len equ $-imsg
+            
+            tmsg db 10,10,"The contents of TR are : "
+            tmsg_len equ $-tmsg
+            
+            mmsg db 10,10,"The contents of MSW/CR0 are : "
+            mmsg_len equ $-mmsg
+            
+            pro db 10,10,"The processor is in protected mode "
+            pro_len equ $-pro
+            
+            real db 10,10,"The processor is in real mode "
+            real_len equ $-real
+                        
+            col db " : "
+            col_len equ $-col
+            
+            nline db 10,10
+            nlen equ $-nline
+            
+        section .bss
+
+            buff resb 4
+            gdt1 resb 6
+            idt1 resb 6
+            ldt1 resw 1
+            t1 resb 2
+            msw1 resb 4
+            
+        %macro display 2
+            mov eax,4                   ;print
+            mov ebx,1                   ;stdout/screen
+            mov ecx,%1
+            mov edx,%2
+            int 80h
+        %endmacro
+
+        section .text
+            global _start
+            
+        _start:
+
+            smsw eax
+            mov [msw1],eax
+            bt eax,0
+            jc protected
+            display real,real_len
+            jmp end
+            
+        protected:
+
+            display pro,pro_len
+            sgdt [gdt1]
+            sldt [ldt1]
+            sidt [idt1]
+            str [t1]
+            
+            display gmsg,gmsg_len
+            mov bx,[gdt1+4]
+            call original_ascii
+            mov bx,[gdt1+2]
+            call original_ascii
+            display col,col_len
+            mov bx,[gdt1]
+            call original_ascii
+            
+            display lmsg,lmsg_len
+            mov bx,[ldt1]
+            call original_ascii
+            
+            display imsg,imsg_len
+            mov bx,[idt1+4]
+            call original_ascii
+            mov bx,[idt1+2]
+            call original_ascii
+            display col,col_len
+            mov bx,[idt1]
+            call original_ascii
+            
+            display tmsg,tmsg_len
+            mov bx,[t1]
+            call original_ascii
+            
+            display mmsg,mmsg_len
+            mov bx,[msw1+2]
+            call original_ascii
+            mov bx,[msw1]
+            call original_ascii
+            
+            
+        end:
+
+            display nline,nlen
+            mov eax,1
+            int 80h
+            
+            
+            
+            
+                        
+           original_ascii:                          
+                     mov eax,0
+                     mov ecx,4
+                     mov edi,buff        
+                 up2:rol bx,4
+                     mov dl,bl
+                     and dl,0fh            
+                     cmp dl,09h             
+                     jbe down2
+                     add dl,07h
+               down2:add dl,30h
+                     mov [edi],dl           
+                     inc edi
+                     loop up2
+                     display buff,4
+           ret      
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id10').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!-- 11 -->
+<div id="id12" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id12').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Write 80387 ALP to find the roots of the quadratic equation. All the possible cases must be considered in calculating the roots.</b>
+        ; Assignment to calculate root of quadratic equation
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+section .data
+
+    discrmsg db 10,"Discriminent:" ; displaying discriminent
+    discrmsg_len equ $-discrmsg
+
+
+    root1msg db 10,"Root 1:" ; displaying root1
+    root1msg_len equ $-root1msg
+
+    root2msg db 10,"Root 2:"    
+    root2msg_len equ $-root2msg
+
+
+    dpoint db '.'
+    hdec dq 10000   ; 4 digits after decimal point
+    nline db 10
+
+    a dd 2.0
+    b dd 3.0
+    c dd 4.0
+
+;---------------------------------------------------------------------------
+section .bss                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    dispbuff resb 1
+
+    resbuff rest 1 
+
+    temp_ans resd 1
+    temp_ans1 resd 1
+
+    const resw 1
+
+
+
+%macro display 2
+    mov eax,4       ;print
+    mov ebx,1       ;stdout/screen
+    mov ecx,%1  ;msg
+    mov edx,%2  ;msg_len
+    int 80h
+%endmacro
+
+%macro exit 0
+    mov eax,1
+    int 80h
+%endmacro
+
+;-----------------------------------------------------------------------------
+section .text
+
+global _start
+
+_start: 
+
+    finit       ;initialize the co-processor
+    fldz        ; load 0.0 on the stack
+    fld dword[b]    ; get b on top of stack
+    fst st1     ; store b on st1
+    fmul        ; b^2 result is on st1
+    fst st1     ; store result in st1
+    fld dword[a]    ; get a on top of stack
+    fmul dword[c]   ; multiply a*c
+    mov word[const],4   ; move 4 into const
+    fimul word[const]   ; multiply 4* earlier multiplied(a*c) result on stack
+    fchs            ; make it -ve as -4ac in formula
+    fadd st1        ; add b^2 to it ( we have now result of b^2-4ac )
+    fst dword[temp_ans] ; store it in temp-ans
+    fst dword[temp_ans1]    ; store it in temp-ans1
+    
+    display discrmsg,discrmsg_len
+    call dispres        ; displaying the discriminant
+    
+root1:  fld dword[temp_ans] ;load stack with this value
+    fchs            ; change sign ( make no. positive )
+    fsqrt           ; take square root
+    fst st1         ; store the result in st1 (sq root of b^2-4ad on st1)
+    fld dword[b]        ;load b
+    fchs            ; -b
+    fadd st1        ; -b + ( sq.root result earlir stored in st1)
+    fst st1         ; store this to st1 - numerator
+    fld dword[a]        ; load a
+    mov word[const],2   ; take 2 value in const
+    fimul word[const]   ; multiply 2*a - result on stack
+    fxch st1        ; exchange st0 and st1
+    fdiv st1        ; divide st0 by st1, result on st0 
+    
+    display root1msg,root1msg_len   ; display the result
+    call dispres
+
+
+root2:  fld dword[temp_ans1]    ; load stack with b^2 -4ac  
+    fchs            ; change sign ( make it positive)
+    fsqrt           ; take square root
+    fchs            ; make it -ve (2nd root)
+    fst st1         ; store it to st1
+    fld dword[b]        ; load b
+    fchs            ; -b
+    fadd st1        ; -b - ( sq.root result earlir stored in st1)
+    fst st1         ; store this to st1 - numerator
+    fld dword[a]        ; load a
+    mov word[const],2   ; take 2 value in const
+    fimul word[const]   ; multiply 2*a - result on stack
+    fxch st1        ; exchange st0 and st1
+    fdiv st1        ; divide st0 by st1, result on st0 
+
+    
+    display root2msg,root2msg_len
+    call dispres
+
+
+
+end:    exit
+        
+
+;----------------------------------------------------------------------------------
+disp8_proc: 
+    mov edi,dispbuff    ;form the ascii value to disply in dispbuff
+    mov ecx,02      ; count 2 for 2 digits
+back:   rol bl,04       ; lower nibble
+    mov dl,bl 
+    and dl,0FH 
+    cmp dl,09
+    jbe next1 
+    add dl,07H
+next1:  add dl,30H 
+    mov [edi],dl    ;store the num in ascii 
+    inc edi 
+    loop back 
+    ret
+;-----------------------------------------------------------------------------------
+dispres: 
+    fimul dword[hdec]   ;multiply by multiple of 10 to get decimal places
+    fbstp tword[resbuff]    ; store the result in resbuff
+    xor ecx,ecx         
+    mov ecx,8       ; loop till 8 for the mantissa part as 4 decimal places
+    mov esi,resbuff+9   ; from the 9th byte, display backwards 
+   up2: push ecx        ; push ecx and esi changed in display proc + macro
+    push esi    
+    mov bl,[esi]        ; get first 2 digits
+    call disp8_proc     ; convert to ascii
+    display dispbuff,2  ;display two digits 
+    pop esi         ;get esi
+    dec esi         ; dec to go to next two digits
+    pop ecx         ; loop counter
+    loop up2    
+    display dpoint,1    ; show decimal point
+    mov bl,[esi]        ; get remaining digits after the decimal point
+    push esi 
+    call disp8_proc     
+    display dispbuff,2  
+    pop esi
+    dec esi 
+    mov bl,[esi]
+    call disp8_proc
+    display dispbuff,2 
+    display nline,1
+    ret
+
+
+;-----------------------------------------------------------------------------------------------------
+;prachi@prachi:~/Desktop/MIL-2016-17/NDP$ nasm -f elf ndp-root3.asm
+;prachi@prachi:~/Desktop/MIL-2016-17/NDP$ ld -m elf_i386 -o ndp-root3 ndp-root3.o
+;prachi@prachi:~/Desktop/MIL-2016-17/NDP$ ./ndp-root3
+
+;Discriminent:8000000000000023.0000
+
+;Root 1:0000000000000000.4490
+
+;Root 2:8000000000000001.9490
+;prachi@prachi:~/Desktop/MIL-2016-17/NDP$ 
+
+
+
+
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id12').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 11 -->
+<div id="id11" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id11').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Write x86 ALP to find the factorial of a given integer number on a command line by using recursion. Explicit stack manipulation is expected in the code.</b>
+
+; output: result is 8 digit hex 
+section .data
+   
+   msg1 db 10,"No Arument present"
+   msg1len equ $-msg1
+   
+
+section .bss
+
+num resb 4                  ;to store the num from command line arguments
+disp_buff resb 8              ;to display 8 digit result
+
+
+%macro display 2
+mov eax,4
+mov ebx,0
+mov ecx,%1
+mov edx,%2
+int 80h
+%endmacro
+
+
+%macro exit 0
+mov eax,1
+mov ebx,0
+int 80h
+%endmacro
+
+section .text
+
+global _start
+
+_start:
+
+      push ebp                 ;It stores the previous base pointer (ebp) 
+      mov ebp,esp                 ;and set the base pointer to get the access of stack address.
+
+    ;Do remember:It is establishing a new stack frame within the callee, while preserving the stack frame of the caller.     
+  
+      cmp dword[ebp+4],1 ;count of number of parameters/ arguments is saved , atleast 1 will be present     
+      je no_arg         ;if more than 1 we have to get that argument which is the number
+      
+      mov ebx,3             
+      mov edi,dword[ebp+4*ebx] ;points to the arg, each entry is 4 bytes at 4th place the arg2 is present
+                    
+      xor eax,eax         
+      mov eax,[edi]     ;argument no.2 i.e num is taken 
+      mov [num],eax
+      
+      display num,1     ;display only factorial of 1
+      goto exit         ; exit procedure 
+      
+      sub byte[num],30h ; single digit num taken 
+  
+      xor eax,eax
+      mov al,[num]
+    
+            
+      call facto    
+       
+      mov ebx,eax
+            
+      call convert_to_ascii   
+  
+      exit        
+              
+no_arg:
+    display msg1,msg1len     
+    mov esp,ebp
+    pop ebp
+    exit
+     
+;------------------------------------------------------------------------------
+
+facto:              ;recursive procedure
+    
+        cmp eax,1                 ;if equal to 1, pop and multiply
+                    
+        je pop_element
+            
+        push eax            ;else push and decrement the num
+        dec eax
+        
+        call facto          ; make recursive call till num = 1
+
+    mul_element:
+        pop ebx             ;get prev pushed nos and multiply with the current ans
+        mul ebx
+        jmp ret_proc
+
+    pop_element:            
+        pop ebx     ;this is to pop the address of the prev func call and for poping the contents-esp                                           ;address in subsequent return calls, the ret statement takes care of this   
+        jmp mul_element 
+
+        ret_proc:ret
+
+;-------------------------------------------------------------------------------------
+ 
+convert_to_ascii:
+      xor ecx,ecx
+      mov esi,disp_buff 
+      mov ecx,8     
+    
+up:   rol ebx,4
+      mov dl,bl
+      and dl,0fh
+      cmp dl,09h
+      jbe add_30                
+      add dl,07h
+   
+add_30: add dl,30h
+    mov [esi],dl        
+        inc esi
+    
+    dec ecx
+    jnz up  
+
+    display disp_buff,8
+
+    ret
+;---------------------------------------------------------------------------------
+;exam@ccompl0404:~$ nasm -f elf fact-r.asm
+;exam@ccompl0404:~$ ld -m elf_i386 fact-r.o
+;exam@ccompl0404:~$ ./a.out 4
+;00000018exam@ccompl0404:~$ 
+    
+
+
+
+
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id11').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<div id="id13" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id13').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Write a Terminate but Stay Resident (TSR) program for a key-logger. The key-presses during the stipulated time need to be displayed at 
+        the center of the screen</b>
+
+        ;TITLE TSR FOR BEEP ON KEY PRESS
+;COM FILE TO BE GENERATED AND EXECUTED
+;ORG INSTRUCTION IS USED SO USE EXE2BIN UTILITY FOR THIS CONVERSION
+;DEL .EXE FILE AND RUN THE COM FILE
+; or tlink /t filename, this will directly generate com file
+
+.MODEL TINY
+.CODE
+ ORG 100H                ;START FROM 100H LOCATION
+START:  JMP INIT
+        
+        SAVEINT09 DD ?
+
+MYINT09: ; this section of the code will be entered as soon as any key is pressed
+
+        
+        PUSH AX
+        PUSH BX
+        PUSH CX
+        PUSH DX
+
+        PUSH SI
+        PUSH DI
+        PUSH SP
+        PUSH BP
+        PUSH ES
+        PUSH DS
+        PUSH SS
+
+
+        IN AL,61H ; get current status from 61. this is of 8255.
+        MOV AH,AL ; save it in ah
+
+        MOV CX,0FFFH ;ctr- reason it is included is the sound generated is very fast and hence there is need of delay 
+
+        OR AL,00000011B ; turning on the bits 0 and 1 for beep
+                        ; this is binary no. what we need to do is the
+                        ; it makes use of port B so by turning on the bits, 0 and 1 we are able to hear the sound
+                        ;
+                        ; 
+UP2:    OUT 61H,AL      ; out this to port 61
+
+        LOOP UP2        ; continue till ctr
+
+        MOV AL,AH       ; restore the original contents
+        AND AL,11111100B ; so and with reverse bits 
+        OUT 61H,AL
+
+
+        
+        POP SS
+        POP DS
+        POP ES
+        POP BP
+        POP SP
+        POP DI
+        POP SI
+        POP DX
+        POP CX
+        POP BX
+        POP AX
+
+
+
+        JMP CS:SAVEINT09   ;RETRIVING BACK THE ADDRESS OF THE ORIGINAL INTERRUPT
+ 
+INIT:   CLI
+        MOV AH,35H              ;GET VECTOR
+        MOV AL,09H              ;OF TYPE 09
+        INT 21H                 ;WHICH RETURNS VECTOR ADDRESS IN ES:BX
+
+        MOV WORD PTR SAVEINT09,BX   ;SAVE OLD INT HANDLE ADDRESS
+        MOV WORD PTR SAVEINT09+2,ES  ; ES:SEGMENT + BX:OFFSET
+
+        MOV AH,25H              ;SET VECTOR
+        MOV AL,09H              ;OF TYPE 09
+        LEA DX,MYINT09          ;ADDRESS OF OUR TSR TO BE GIVEN IN DS:DX
+        INT 21H
+
+        MOV AH,31H              ;TERMINATE AND MAKE RESIDENT
+        MOV AL,00H
+        LEA DX,INIT             ;SIZE OF PROGRAM STATING FROM INIT
+        STI                     ;SET IF
+        INT 21H
+END START
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id13').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 14 -->
+<div id="id14" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id14').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write a TSR to generate the pattern of the frequency tones by reading the Real Time Clock (RTC). 
+        The duration of the each tone is solely decided by the programmer.
+
+
+        ;running program of real time clock
+
+
+.model tiny         ;as it is .com pgm 
+.code
+ORG 0100h         ;start address of .com program
+ start:
+    jmp trans
+
+    intvect dd ?
+
+     hr db ?    ; unintialized variable
+     min db ?
+     sec db ?
+resi:
+    
+        push ax ; SAVE CURRENT REGISTER CONTENTS TO STACK
+        push bx
+        push cx
+        push dx
+
+        push si
+        push di
+        push sp
+        push bp
+
+        push es
+        push ds
+        push ss
+
+
+
+        mov ah,02h ;READS TIME FROM CMOS CHIP
+    int 1Ah     
+    ; THE ABOVE RETURNS HRS IN CH, MIN IN CL AND SEC IN DH
+
+    mov [hr],ch 
+    mov [min],cl
+    mov [sec],dh
+
+    mov ax,0B800h ;VIDEO MEM BASE ADDR
+    mov es,ax
+        mov di,0F64h ;DISPLAY LOC
+
+    mov al,[hr]
+    and al,0F0h
+    mov cl,04h
+    shr al,cl
+    add al,30h
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,[hr]
+    and al,0Fh
+    add al,30h
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,':'
+    mov es:[di],al
+
+    inc di
+    inc di
+
+    mov al,[min]
+    and al,0F0h
+    mov cl,04h
+    shr al,cl
+    add al,30h
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,[min]
+    and al,0Fh
+    add al,30h
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,':'
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,[sec]
+    and al,0F0h
+    mov cl,04h
+    shr al,cl
+    add al,30h
+    mov es:[di],al
+    inc di
+    inc di
+
+    mov al,[sec]
+    and al,0Fh
+    add al,30h
+    mov es:[di],al
+
+                 
+        mov     al, 182         ; Prepare the speaker for the
+        out     43h, al         ;  note.
+        mov     ax, 4560        ; Frequency number (in decimal)                                
+        out     42h, al         ; Output low byte.
+        mov     al, ah          ; Output high byte.
+        out     42h, al 
+        in      al, 61h         ; Turn on note (get value from
+                                ;  port 61h).
+        or      al, 00000011b   ; Set bits 1 and 0.- turning on the speaker
+        out     61h, al         ; Send new value.(61h port address where speaker is linked to 8255)
+        mov     bx, 25          ; Pause for duration of note.
+pause1:
+        mov     cx, 65535
+pause2:
+        dec     cx
+        jne     pause2
+        dec     bx
+        jne     pause1
+        in      al, 61h         ; Turn off note (get value from
+                                ;  port 61h).
+        and     al, 11111100b   ; Reset bits 1 and 0.
+        out     61h, al         ; Send new value.   
+       
+
+        pop ss
+    pop ds
+        pop es
+
+    pop bp
+    pop sp
+    pop di
+    pop si
+
+    pop dx
+    pop cx
+    pop bx
+    pop ax
+
+
+
+    jmp dword ptr cs:intvect
+
+
+
+ trans:
+    cli ;clear IF NOT INTERRUPRS SHOULD OCCUR DURING OUR TSR SETTING
+
+    mov ah,35h ;GET VECTOR ADRS
+    mov al,08h  ;TIMER INTERRUPT 
+    int 21h
+
+    mov word ptr intvect,bx     ;OFFSET OF THE ISR
+    mov word ptr intvect+2,es   ; BASE OF ISR   (SAVE IT TO VARIABLE)
+
+    mov ah,25h  ;SET VECTOR ADRS    
+    mov al,08h
+    mov dx,offset resi      ; USER ISR ADDRESS
+    int 21h
+
+    mov ah,31h    ;MAKE PGM TSR ; MAKE OUR CODE RESIDENT
+    mov al,00h
+    mov dx,offset trans
+
+    sti     ;ENABLE INTERRUPT
+
+    int 21h
+
+ end start
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id14').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+

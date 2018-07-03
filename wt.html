@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+background-image: url("grey1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;}
+
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 85%; /* Could be more or less, depending on screen size */
+    
+    overflow-y: auto;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+   
+<center>
+
+
+<h2 align="center">Web Technology CODES</h2><br>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">HTML CSS</button><br>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">XML CSS</button><br>
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">HTML Javascript</button><br>
+<button onclick="document.getElementById('id04').style.display='block'" style="width:auto;">JSP, Servlet and MySQL(Backend)</button><br>
+<button onclick="document.getElementById('id05').style.display='block'" style="width:auto;">Dynamic Web application using PHP, HTML and MySQL</button><br>
+<button onclick="document.getElementById('id06').style.display='block'" style="width:auto;">Dynamic web application using PHP, AJAX and MySQL</button><br>
+<button onclick="document.getElementById('id07').style.display='block'" style="width:auto;">Web application using AngularJS</button><br>
+<button onclick="document.getElementById('id08').style.display='block'" style="width:auto;">Web Application using EJB</button><br>
+
+</center>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Write a program to design registration form for students by using HTML and CSS</b>
+
+        <h2>Registration.html</h2>
+        <xmp>
+
+<html>
+<head>
+<title>regform</title>
+<link href="samp.css" rel="stylesheet"></link>
+</head>
+<body>
+<div class="con">
+<form action="display.html" method="get" align="center">
+<div class="con2">
+<imgsrc="D:/handshake.jpg" width=380px
+height=100px></img>
+</div>
+<div class="main">
+<table align="center">
+<tr>
+<td><b><br>Welcome to Registration
+Page<br><br></td></tr>
+</table>
+<div class="con1">
+<table align="center">
+<tr>
+<td>Full Name:</td>
+<td><input type="text" value=""></input></td>
+</tr>
+<tr>
+<td>Class</td>
+<td><input type="text" value=""></input></td>
+</tr>
+<tr>
+<td>Department</td>
+<td><input type="text" value=""></input></td>
+</tr>
+<tr>
+<td>address:</td>
+<td><textarea row="3"
+column="2"></textarea></td>
+</tr>
+<tr>
+<td>email:</td>
+<td><input type="text" value=""></input></td>
+</tr>
+<tr>
+<td>phone:</td>
+<td><input type="text" value=""></input></td>
+</tr>
+<tr></tr><tr></tr>
+</table>
+<table align="center">
+<tr>
+<td><input type="submit" value="SUBMIT"></td>
+<td><input type="reset" value="CANCEL"></td>
+</tr>
+</table>
+</div>
+</div>
+</form>
+</div>
+</body>
+</html>
+</xmp>
+--------------------------------------------------------------------------------------------------------------------------------
+
+<h2>samp.css</h2>
+<xmp>
+    .con
+{
+width:400px;
+height:400px;
+background-color:blue;
+color:blue;
+padding:0px 10px 0px 10px;
+margin:auto;
+}
+.main
+{
+width:400px;
+height:80px;
+float:left;
+padding:60px 10px 10px10px;
+margin: auto;
+}
+.con1
+{
+width:200px;
+height:30px;
+float:left;
+margin:auto;
+padding:0px 0px 0px0px;
+}
+.con2
+{
+width:150px
+height:30px;
+float:left;
+margin:10px 10px 10px10px;
+padding:0px 0px 0px0px;
+}
+</xmp>
+----------------------------------------------------------------------------------------------------------------------------------
+<h2>Display.css</h2>
+<xmp>
+<html>
+<head>
+<title> display</title>
+</head>
+<body>
+<h1 style="color:blue;margin-left:30px;"> You have submitted the form successfully….</h1>
+</body>
+</html>
+</xmp>
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+<img src="F:/HTML/ss1.png" width="400px" height="300px" align="center">
+
+        
+
+</p>
+    </pre>
+    </div>
+
+    
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 2 ---->
+
+<div id="id02" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Problem Statement</b>
+        Write a program to design book catalog by using XML and CSS to display tile, author, price and
+        year of the book.
+
+        <h2>Book.xml</h2>
+        <xmp>
+            <?xml version="1.0" encoding="UTF-8"?>
+            <?xml-stylesheet type="text/css" href="book_catalog.css"?>
+            <CATALOG>
+            <BOOK>
+            <TITLE>Database Management System</TITLE>
+            <AUTHOR>Korth</AUTHOR>
+            <PRICE>500</PRICE>
+            <YEAR>1985</YEAR>
+            </BOOK>
+            <BOOK>
+            <TITLE>Computer Network</TITLE>
+            <AUTHOR>Tenenbaum</AUTHOR>
+            <PRICE>600</PRICE>
+            <YEAR>1985</YEAR>
+            </BOOK>
+            <BOOK>
+            <TITLE>Software Engineering and project Management</TITLE>
+            <AUTHOR>Roger Pressman</AUTHOR>
+            <PRICE>600</PRICE>
+            <YEAR>1985</YEAR>
+            </BOOK>
+            </CATALOG>
+        </xmp>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+
+     <h2>book_catalog.css</h2>
+     <xmp>
+        BOOK {
+        Display: block;
+        margin-left:0;
+        magin-bottom: 30pt;
+        }
+        CATALOG {
+        Width:100%;
+        background-color: #ffffff;
+        }
+        TITLE {
+        Color: ff0000;
+        display: block;
+        font-size: 20pt;
+        }
+        AUTHOR {
+        display: block;
+        color: #0000ff;
+        font-size: 20pt;
+        }
+        YEAR, PRICE {
+        Color:#00000;
+        Display: block;
+        Margin-left: 20pt;
+        }
+     </xmp>
+------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+<img src="F:/HTML/ss2.png" width="500px" height="300px" align="center">
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 3 -------------->
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Write a program to design registration form for students by using HTML, CSS& Java Script and
+        perform following validations: all fields mandatory, phone number and email address validation
+
+            <h2>Registration.html</h2>
+            <xmp>
+
+                <html>
+                <head>
+                <title>regform</title>
+                <link href="samp.css" rel="stylesheet"></link>
+                <script type="text/javascript">
+                function Validation()
+                {
+                    varemailID = document.myForm.EMail.value;
+                    varnum=document.myForm.ph.value;
+                    atpos = emailID.indexOf("@");
+                    dotpos = emailID.lastIndexOf(".");
+                if (atpos< 1 || ( dotpos - atpos< 2 ))
+                {
+                    alert("Please enter correct email ID")
+                    document.myForm.EMail.focus() ;
+                    return false;
+                }
+                else if (isNaN(num)){
+                    document.getElementById("ph");
+                    alert("Please enter numeric only.")
+                    return false;
+                }else{
+                return true;
+                }
+                }
+                </script>
+                </head>
+                <body>
+                <div class="con">
+                <form name="myForm" action="display.xml" method="get" align="center">
+                <div class="con2">
+                <imgsrc="D:/handshake.jpg" width=380px
+                height=100px></img>
+                </div>
+                <div class="main">
+                <table align="center">
+                <tr><td><b><br>Welcome to Registration Page<br><br></td></tr>
+                </table>
+                <div class="con1">
+                <table align="center">
+                <tr>
+                <td>Full Name:</td>
+                <td><input type="text" id="FirstName" value="" required></input></td>
+                </tr>
+                <tr>
+                <td>Class:</td>
+                <td><input type="text" id="Class" value=""
+                required></input></td>
+                </tr>
+                <tr>
+                <td>Department:</td>
+                <td><input type="text" id="Department" value=""
+                required></input></td>
+                </tr>
+                <tr>
+                    <td>address:</td>
+                <td><textarea row="3" column="2" value=""
+                required></textarea></td>
+                </tr>
+                <tr>
+                <td>email Id:</td>
+                <td><input type="text" value="" id="EMail"
+                required></input></td>
+                </tr>
+                <tr>
+                <td>phone no:</td>
+                <td><input type="text" id="ph" value="" required></input></td>
+                </tr>
+                <tr>
+                <tr></tr><tr></tr></table>
+                <table align="center">
+                <td><input type="submit" value="SUBMIT" onclick="return
+                (Validation());"></td>
+                <td><input type="reset" value="CANCEL"></td>
+                </tr>
+                </table>
+                </div>
+                </div>
+                </form>
+                </div>
+                </body>
+                </html>
+
+            </xmp>
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+<img src="F:/HTML/ss3.png" width="800px" height="300px">            
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 4-------------------------------->
+<div id="id04" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+
+        <b>Problem Statement</b>
+        1. Design and Build Student Login Page using JSP, Servlet and MySQL.
+        2. Design and Build Employee Login Page using JSP, Servlet and MySQL.
+
+        Following pages required to run this application:
+            1. index.jsp
+            2. SignUp.jsp
+            3. User.jsp
+            4. LoginSuccess.jsp
+            5. LoginFailure.jsp
+            6. LoginServlet.jsp
+            7. Login.jsp
+
+         <h4>index.jsp</h4>
+         <xmp>
+            <%@page contentType="text/html" pageEncoding="UTF-8"%>
+            <!DOCTYPE html>
+            <html>
+                <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <title> Login </title>
+                </head>
+                <body>
+                <table>
+                <tr>
+                <td width="300"></td>
+                <td> <font color="#339900" size="3.5">User Login</font>
+                <table>
+                <tr>
+                <td>
+                <form id="user1" method="post" action="User.jsp" name="s" onSubmit="return
+                valid()">
+                <table border="2.0">
+                <tr>
+                <td>
+                User Id</td>
+                <td><input type="text" name="user1"></td>
+                </tr>
+                <tr>
+                <td>
+                Password</td>
+                <td><input type="password" name="pass"></td>
+                </tr>
+                <tr>
+                <td>
+                <center><input type="submit" name="user" value="Login"></center>
+                </td>
+                </tr></table>
+                <center><table>
+                <tr>
+                <td>
+                <a href="SignUp.jsp"><font color="#000000" size="2"><b>New
+                User?</b></font></a></td></tr></table>
+                </td>
+                </tr></table></center>
+                </td>
+                </tr>
+                </table>
+                </form>
+                </body>
+            </html>
+
+         </xmp>   
+---------------------------------------------------------------------------------------------------------------------------------------------------
+         <b>signup.jsp</b>
+         <xmp>
+            <%@ page import="java.sql.*"%>
+            <%@ page import = "java.util.Date,java.text.SimpleDateFormat,java.text.ParseException"%>
+                        <%@page contentType="text/html" pageEncoding="UTF-8"%>
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>JSP Page</title>
+            </head>
+            <body bgcolor="Skyblue">
+            <%
+            java.util.Date now = new java.util.Date();
+            String DATE_FORMAT1 = "dd/MM/yyyy";
+            SimpleDateFormat sdf1 = new SimpleDateFormat(DATE_FORMAT1);
+            String strDateNew1 = sdf1.format(now);
+            %>
+            <table border="black" bgcolor=" black" align ="center" >
+            <tr>
+            <td> <strong><em><font color="#990000" size="+1" face="Times New Roman"
+            style="text-decoration:underline">User Registration</font></em></strong>
+            </td>
+            </tr>
+            </table>
+            <table border="black" align ="center">
+            <tr>
+            <td><form name="s" action="LoginServelt.jsp" method="get" onSubmit="return
+            valid()">
+            <table align="center" cellpadding="6" cellspacing="6" width="400" height="300">
+            <td>
+            <tr>
+            <td><font face="Times New Roman" size="+1"><strong>Name</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="unn" class="b"></td>
+
+            </tr>
+            <tr>
+            <td><font face="Times New Roman" size="+1"><strong>User ID</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="uidd" id="name"></td>
+            </tr>
+            <tr>
+            <td><font face="Times New Roman"
+            size="+1"><strong>Password</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="passs" class="b"></td>
+            </tr>
+            <tr>
+            <td><font face="Times New Roman" size="+1"><strong>Mobile</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="mobb" class="b"></td>
+            </tr>
+            <tr>
+            <td><font face="Times New Roman" size="+1"><strong>Email
+            ID</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="eidd" class="b"></td>
+            </tr>
+            <tr>
+            <td><font face="Times New Roman" size="+1"><strong>Date</strong></font></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="date" class="b"
+            value="<%=strDateNew1%>"></td>
+            </tr>
+            <tr>
+            <td></td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="submit" name="s" value="submit"
+            class="b1" >
+            &nbsp;&nbsp;&nbsp; <input type="reset" name="r" value="clear" class="b1"></td>
+            </tr></td>
+            <td></td>
+            </table>
+            </form></td>
+            </tr></table>
+            <center> <table><tr><td> <a href="index.jsp"><font color="#000000" size="2"><b>Login
+            Here</b></font></a>
+            </td>
+            </tr></table></center>
+            </body>
+            </html>
+
+         </xmp>
+-------------------------------------------------------------------------------------------------------------------------------------------------
+        <h4>LoginSuccess.jsp</h4>
+            <xmp>
+
+
+                <%@page contentType="text/html" pageEncoding="UTF-8"%>
+                <!DOCTYPE html>
+                <html>
+                <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <title>JSP Page</title>
+                </head>
+                <body>
+                <h1> User Logged In Successfully!...</h1>
+                </body>
+                </html>
+            </xmp>
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+         <h4>LoginFailure.jsp</h4>   
+         <xmp>
+            <%@page contentType="text/html" pageEncoding="UTF-8"%>
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>JSP Page</title>
+            </head>
+            <body>
+                <h1> <font color="Red"> Please Provide Correct Username or Password!..Retry Again!..
+            </font> </h1>
+            <table>
+                <tr>
+                <td>
+                <form id="user1" method="post" action="User.jsp" name="s" onSubmit="return
+                valid()">
+                <table>
+                    <tr>
+                        <td>
+                        User Id</td>
+                        <td><input type="text" name="user1"></td>
+                    </tr>
+                        <tr>
+                        <td>
+                             Password</td>
+                             <td><input type="password" name="pass"></td>
+                        </tr>
+                        <tr>
+                        <td>
+                        </td>
+                        <td>
+                        <input type="submit" name="user" value="Login"></td>
+                        </tr></table>
+                        </form>
+                        </td>
+                        </tr></table>
+                        </body>
+                        </html>
+         </xmp>
+ --------------------------------------------------------------------------------------------------------------------------------------------
+        <h4>LoginServlet.jsp</h4>        
+        <xmp>
+
+            <%@page import="java.sql.*"%>
+            <%@ page import="java.io.*"%>
+            <%@ page import = "java.util.Date,java.text.SimpleDateFormat,java.text.ParseException"%>
+            <%
+                String a = request.getParameter("uidd");
+                String x = request.getParameter("unn");
+                String b = request.getParameter("passs");
+                String c = request.getParameter("mobb");
+                String d = request.getParameter("eidd");
+                session.setAttribute("d",d);
+                //String f=request.getParameter("date");
+                //out.print(strDateNew1);
+                //out.print(x);
+                //out.print(b);
+                //out.print(c);
+                //out.print(d);
+                //out.print(f);
+                java.util.Date now = new java.util.Date();
+                String DATE_FORMAT = "yyyy-MM-dd";
+                SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
+                String strDateNew = sdf.format(now) ;
+                //response.sendRedirect("signup.jsp?message=success");
+                //String userid=null;
+                //String m="avl";
+                try
+                {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con =
+                    DriverManager.getConnection("jdbc:mysql://localhost:3306/loginpage","root","root");
+                    PreparedStatement ps=con.prepareStatement("insert into
+                    student(sname,suserid,spass,mobile,email,date) values(?,?,?,?,?,'"+strDateNew+"')");
+                    //ResultSet rs=ps.executeQuery();
+                    ps.setString(1,x);
+                    ps.setString(2,a);
+                    ps.setString(3,b);
+                    ps.setString(4,c);
+                    ps.setString(5,d);
+                    ps.executeUpdate();
+                    response.sendRedirect("SignUp.jsp?success");
+                }
+                    catch(Exception e1)
+                    {
+                    out.println(e1.getMessage());
+                    response.sendRedirect("SignUp.jsp?Failure");%>
+                    }
+                    %>
+
+        </xmp>
+ ----------------------------------------------------------------------------------------------------------------------------------------------
+
+        <h4>User.jsp</h4>
+        <xmp>
+
+            <%@ page import="java.sql.*;"%>
+                <%
+                String a=request.getParameter("user1");
+                String b=request.getParameter("pass");
+                String id=null,name=null,userid=null,email=null;
+                try{
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con =
+                DriverManager.getConnection("jdbc:mysql://localhost:3306/loginpage","root","root");
+                //Connection con = databasecon.getconnection();
+                PreparedStatement ps=con.prepareStatement("select sid,sname,suserid,email from student where
+                suserid='"+a+"' && spass='"+b+"'");
+                ResultSet rs=ps.executeQuery();
+                if(rs.next())
+                {
+                    id=rs.getString("sid");
+                    name=rs.getString("sname");
+                    userid=rs.getString("suserid");
+                    email=rs.getString("email");
+                    session.setAttribute("sid",id);
+                    session.setAttribute("sname",name);
+                    session.setAttribute("suserid",userid);
+                    session.setAttribute("email",email);
+                    //response.sendRedirect("user5.jsp");
+                    response.sendRedirect("LoginSuccess.jsp?Success");
+                    //out.print(name2);
+                }
+                else
+                    {
+                        response.sendRedirect("LoginFailure.jsp?Failure");
+                    }
+                }
+                catch(Exception e2){
+                out.println(e2.getMessage());
+                }
+                %>
+        </xmp>
+----------------------------------------------------------------------------------------------------------------------------------------------        
+      <img src="ss4.png" width="400px" height="400px">
+      <img src="ss5.png" width="400px" height="400px">  
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id04').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!-- 5---------->
+<div id="id05" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+         <b>Problem Statement</b>
+        Design and develop dynamic web application using PHP and MySQL as a back-end for employee
+        data with insert, delete, view and update operations.
+
+         Create “emp” directory in htdocs directory contain following files
+            1. index.php
+            2. add.html
+            3. add.php
+            3. edit.php
+            4.delete.php
+            5. config.php
+            6. database.sql(optional)
+ --------------------------------------------------------------------------------------------------------------------------------
+       <xmp>
+        <h4>index.php</h4>
+        <?php
+        //including the database connection file
+        include_once("config.php");
+        //fetching data in descending order (lastest entry first)
+        //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is
+        deprecated
+        $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // using
+        mysqli_query instead
+        ?>
+        <html>
+        <head>
+        <title>Homepage</title>
+        </head>
+        <body>
+        <a href="add.html">Add New Data</a><br/><br/>
+        <table width='80%' border=0>
+        <tr bgcolor='#CCCCCC'>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Email</td>
+        <td>Update</td>
+        </tr>
+        <?php
+            //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need to
+            use mysqli_fetch_array
+            while($res = mysqli_fetch_array($result)) {
+            echo "<tr>";
+            echo "<td>".$res['name']."</td>";
+            echo "<td>".$res['age']."</td>";
+            echo "<td>".$res['email']."</td>";
+            echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a
+            href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to
+            delete?')\">Delete</a></td>";
+        }
+        ?>
+        </table>
+        </body>
+        </html>
+        
+        </xmp> 
+
+ ------------------------------------------------------------------------------------------------------------------------------
+    <h4>add.html</h4>                  
+    <xmp>
+        <html>
+        <head>
+        <title>Employee Data</title>
+        </head>
+        <body>
+        <a href="index.php">Home</a>
+        <br/><br/>
+        <form action="add.php" method="post" name="form1">
+        <table width="25%" border="0">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="Submit" value="Add"></td>
+        </tr>
+        </table>
+        </form>
+        </body>
+        </html>
+    </xmp>
+  ------------------------------------------------------------------------------------------------------------------------------
+        <h4>add.php</h4>
+        <xmp>
+            <html>
+            <head>
+            <title>Add Data</title>
+            </head>
+            <body>
+            <?php
+            //including the database connection file
+            include_once("config.php");
+            if(isset($_POST['Submit'])) {
+            $name = mysqli_real_escape_string($mysqli, $_POST['name']);
+            $age = mysqli_real_escape_string($mysqli, $_POST['age']);
+            $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+                        // checking empty fields
+            if(empty($name) || empty($age) || empty($email)) {
+            if(empty($name)) {
+            echo "<font color='red'>Name field is empty.</font><br/>";
+            }
+            if(empty($age)) {
+                echo "<font color='red'>Age field is empty.</font><br/>";
+            }
+            if(empty($email)) {
+                echo "<font color='red'>Email field is empty.</font><br/>";
+            }
+            //link to the previous page
+                echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+            } else {
+                // if all the fields are filled (not empty)
+                //insert data to database
+                $result = mysqli_query($mysqli, "INSERT INTO users(name,age,email)
+                 VALUES('$name','$age','$email')");
+                //display success message
+             echo "<font color='green'>Data added successfully.";
+                echo "<br/><a href='index.php'>View Result</a>";
+            }
+            }
+            ?>
+            </body>
+            </html>
+        </xmp>
+------------------------------------------------------------------------------------------------------------------------------
+    <h4>edit.php</h4>
+    <xmp>
+    
+     <?php
+        // including the database connection file
+        include_once("config.php");
+        if(isset($_POST['update']))
+        {
+        $id = mysqli_real_escape_string($mysqli, $_POST['id']);
+        $name = mysqli_real_escape_string($mysqli, $_POST['name']);
+        $age = mysqli_real_escape_string($mysqli, $_POST['age']);
+        $email = mysqli_real_escape_string($mysqli, $_POST['email']);
+        // checking empty fields
+        if(empty($name) || empty($age) || empty($email)) {
+        if(empty($name)) {
+        echo "<font color='red'>Name field is empty.</font><br/>";
+        }
+        if(empty($age)) {
+            echo "<font color='red'>Age field is empty.</font><br/>";
+            }
+            if(empty($email)) {
+            echo "<font color='red'>Email field is empty.</font><br/>";
+            }
+            } else {
+            //updating the table
+            $result = mysqli_query($mysqli, "UPDATE users SET
+            name='$name',age='$age',email='$email' WHERE id=$id");
+            //redirectig to the display page. In our case, it is index.php
+            header("Location: index.php");
+            }
+            }
+            ?>
+            <?php
+            //getting id from url
+            $id = $_GET['id'];
+            //selecting data associated with this particular id
+            $result = mysqli_query($mysqli, "SELECT * FROM users WHERE id=$id");
+            while($res = mysqli_fetch_array($result))
+            {
+                    $name = $res['name'];
+                    $age = $res['age'];
+                    $email = $res['email'];
+                    }
+                    ?>
+                    <html>
+                    <head>
+                    <title>Edit Data</title>
+                    </head>
+                    <body>
+                    <a href="index.php">Home</a>
+                    <br/><br/>
+                    <form name="form1" method="post" action="edit.php">
+                    <table border="0">
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="name" value="<?php echo
+                            $name;?>"></td>
+                        </tr>
+                        <tr>
+                            <td>Age</td>
+                            <td><input type="text" name="age" value="<?php echo
+                        $age;?>"></td>
+                        </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><input type="text" name="email" value="<?php echo
+                                $email;?>"></td>
+                            </tr>
+                        <tr>
+                            <td><input type="hidden" name="id" value=<?php echo
+                            $_GET['id'];?>></td>
+                            <td><input type="submit" name="update" value="Update"></td>
+                        </tr>
+                    </table>
+                    </form>
+                    </body>
+                    </html>
+
+       </xmp>      
+ ------------------------------------------------------------------------------------------------------------------------------
+ 
+    <h4>delete.php</h4>
+    <xmp>
+        <?php
+            include("config.php");
+            $id = $_GET['id'];
+            $result = mysqli_query($mysqli, "DELETE FROM users WHERE id=$id");
+            header("Location:index.php");
+        ?>
+    </xmp>
+------------------------------------------------------------------------------------------------------------------------------
+  <h4>config.php</h4>
+   <xmp>
+    <?php
+        $database = 'localhost';
+        $dbName = 'test';
+        $dbUser = 'root';
+        $dbPass = '';
+        $mysqli = mysqli_connect($database, $dbUser, $dbPass, $dbName);
+    ?>
+   </xmp>
+ ------------------------------------------------------------------------------------------------------------------------------
+    <h4>database.sql</h4>  
+    <xmp>
+        a. create database emp;
+        b. use emp;
+        c. CREATE TABLE `users` (
+        `id` int(11) NOT NULL auto_increment,
+        `name` varchar(100) NOT NULL,
+        `age` int(3) NOT NULL,
+        `email` varchar(100) NOT NULL,
+        PRIMARY KEY (`id`)
+        );
+        OUTPUT
+    </xmp>
+
+</p>
+    </pre>
+    </div>
+
+       
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id05').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+<!--  6---->
+<div id="id06" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id06').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Design and develop dynamic web application using PHP, AJAX and MySQL as a back-end for
+        employee data with insert and view operations.
+
+
+        Create “emp” directory in htdocs directory. It should contain following files
+        1. index.html
+        2. insert.php
+        3. display.php
+        4. config.php
+
+        <h4>index.html</h4>
+        <xmp>
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <title>PHP Databse Example with Ajax </title>
+            <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+            </script>
+            </head>
+            <body>
+                <h1> Enter Employee Details </h1>
+                <form method="post" action="insert.php">
+                <input type="text" id="name" name="name" placeholder="Enter Name" />
+                <input type="text" id="age" name="age" placeholder="Enter Age" />
+                <input type="text" id="city" name="city" placeholder="Enter City" />
+                <button> Save Data </button>
+                </form>
+                <p id="result">
+                </p>
+                <p id="result"></p>
+                <a href="display.php">Display</a>
+                <!--jquery and ajax code-->
+                <script>
+                    $("form").submit(function(e){
+                    e.preventDefault();
+                    $.post(
+                    "insert.php",
+                    {
+                    name: $("#name").val(),
+                    age: $("#age").val(),
+                    city: $("#city").val()
+                    },
+                    function(result)
+                    {
+                    if(result == "success")
+                    {
+                    $("#result").html("Data Inserted Successfully..!");
+                    }
+                    else
+                    {
+                    $("#result").html("Error Occured!");
+                    }
+                    }
+                    );
+                    });
+                </script>
+            
+            </body>
+            </html>
+
+        </xmp>
+        <img src="ss6.png" width="600px" height="300px">
+
+-----------------------------------------------------------------------------------------------------------------------------
+    <h4>insert.php</h4>
+    <xmp>
+        <?php
+            $name = $_POST['name'];
+            $age = $_POST['age'];
+            $city = $_POST['city'];
+            $con = new mysqli('localhost', 'root', '', 'emp');
+            if($con->connect_error)
+                {
+                echo("Error");
+                }
+            $stmt = $con->prepare("insert into users(name,age,city) values (?,?,?)");
+            $stmt->bind_param("sis",$name,$age,$city);
+            if($stmt->execute())
+                {
+                echo("success");
+                }
+            else
+                {
+                echo("fail");
+                }
+        ?>
+            in below image URL you can see that without refreshing whole page only part of page refreshed
+    </xmp>
+        <img src="ss7.png" width="400px" width="300px">
+-----------------------------------------------------------------------------------------------------------------------------
+<h4>display.php</h4>
+    <xmp>
+        <?php
+        include_once("config.php");
+        //$result = mysql_query("SELECT * FROM users ORDER BY id DESC"); // mysql_query is
+        deprecated
+        $result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC"); // using
+        mysqli_query instead
+        ?>
+        <html>
+            <body>
+                <a href="index.html">Add New Data</a><br/><br/>
+                <table width='80%' border=0>
+                    <tr bgcolor='#CCCCCC'>
+                        <td>Name</td>
+                        <td>Age</td>
+                        <td>CIty</td>
+                    </tr>
+                    <?php
+                        //while($res = mysql_fetch_array($result)) { // mysql_fetch_array is deprecated, we need
+                            to use mysqli_fetch_array
+                            while($res = mysqli_fetch_array($result)) {
+                            echo "<tr>";
+                            echo "<td>".$res['name']."</td>";
+                            echo "<td>".$res['age']."</td>";
+                            echo "<td>".$res['city']."</td>";
+                            echo "</tr>";
+                        }
+                    ?>
+                </table>
+            </body>
+</html>
+    </xmp>
+-----------------------------------------------------------------------------------------------------------------------------
+
+    <h4>config.php</h4>
+    <xmp>
+    <?php
+        $host = 'localhost';
+        $dbname = 'emp';
+        $dabUser = 'root';
+        $dbPass = ' ';
+        $mysqli = mysqli_connect($host, $dbUser, $dbPass, $dbname);
+    ?>
+</xmp>
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id06').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+<!-- 7 -->
+
+<div id="id07" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id07').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+
+        <b>Problem Statement</b>
+           Create an application for Bill Payment Record using AngularJS.
+
+        <xmp>
+            <html ng-app="billpayApp">
+                <!-- SCRIPTS TO BE ADDED IN HEAD TAG -->
+                <head>
+                <title>Bill Payment Record using angular and bootstram
+                framework</title>
+                <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+                <!-- ACCESSING ANGULARJS BY CDN METHOD-->
+                <script
+                src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min
+                .js"></script>
+                <!-- ACCESSING STYLESHEET FOR DESIGN [OPTIONAL PART CAN BE SKIP]-->
+                <link rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.mi
+                n.css">
+                <!-- MODEL PART-->
+                <script>
+                var model = {
+                    customer: "Student",
+                    items: [{
+                    bill: "Electricity",
+                    status: false
+                },
+                {
+                    bill: "Internet(Wi/fi)",
+                    status: false
+                },
+                {
+                    bill: "Parking Charges",
+                    status: false
+                },
+                {
+                    bill: "Phone",
+                    status: true
+                },
+                {
+                    bill: "House Tax",
+                    status: true
+                }
+                ]
+                }
+                varbillpayApp = angular.module("billpayApp", []);
+
+                billpayApp.controller("billpayctrl", function($scope) {
+                    $scope.billpay = model;
+                    $scope.dueBills = function() {
+                    var items = $scope.billpay.items;
+                    var counter = 0;
+                    items.forEach((item) => {
+                    if (!item.status) {
+                        counter++;
+                    }
+                    })
+                    return counter;
+                    }
+                    $scope.redFlag = function() {
+                    return $scope.dueBills() <= 2 ? "label-success" : "label-danger";
+                    }
+                    $scope.addBills = function(billName) {
+                        obj = {
+                        bill: billName,
+                        status: false
+                    }
+                    $scope.billpay.items.push(obj);
+                    }
+                    $scope.removeBills = function(rmvBills) {
+                        $scope.billpay.items.splice($scope.billpay.items.indexOf(rmvBills),
+                    1);
+                    }
+                    });
+                    </script>
+                    </head>
+                    <!-- HTML BODY PART-->
+                    <body ng-controller="billpayctrl">
+                        <div class="container">
+                            <div class="page-header">
+                                <h1>{{billpay.customer}}'s Bill's remained to Be Paid -
+                                <span class="lable" ng-class="redFlag()" ng-hide="dueBills()==0">
+                                {{dueBills()}}
+                                </span>
+                            </h1>
+                            </div>
+                            <h3><center><b>Add extra biller fields if any</center></b></h3>
+                            <div class="panel">
+                            <div class="input-group">
+                                <input class="form-control" ng-model="billName" />
+
+                                <span class="input-group-btn">
+                                <button class="btnbtn-danger" ngclick="
+                                addBills(billName)">+ADD+</button>
+                                </span>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Bill Name</th>
+                                    <th>Status</th>
+                                    <th>Status</th>
+                                    <th>Close</th>
+                                </tr>
+                                </thead>
+                                <tbodyng-model="rmvBills">
+                                <trng-repeat="item in billpay.items" ng-model="item">
+                                <td>{{item.bill}}</td>
+                                <td><input type="checkbox" ng-model="item.status" /></td>
+                                <td>{{item.status}}</td>
+                                <td>
+                                <button type="button" ng-click="removeBills(item)">&times;</button>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            </div>
+                        </div>
+                    </body>
+                    </html>
+        </xmp>     
+---------------------------------------------------------------------------------------------------------------------------
+<img src="ss8.png" width="600px" height="700px">        
+
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id07').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
+
+
+
+<!-- 8 -->
+<div id="id08" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id08').style.display='none'" class="close" title="Close Modal">&times;</span>
+      
+    </div>
+
+    <div class="container">
+      <pre>
+    <p>
+        <b>Problem Statement</b>
+        Design, Develop & Deploy web application using EJB.
+
+
+        Create a new EJB Project :
+        Open Eclipse IDE and create a new EJB project which can be done by clicking on, File menu -> New ->
+        EJB Project
+        Step 1:
+        <ul>
+        <li> Create EJB project addition</li>
+        <li> Click File –> New –> Other –> EJB –> EJB Project –> Next  </li>
+        </ul>
+        <img src="ss9.png" width="700px" height="600px">
+        <img src="ss10.png" width="700px" height="600px">
+        <img src="ss11.png" width="700px" height="600px">
+        <img src="ss12.png" width="700px" height="600px">
+        <img src="ss13.png" width="700px" height="600px">
+        <img src="ss14.png" width="700px" height="600px">
+        <img src="ss15.png" width="700px" height="600px">
+        <img src="ss16.png" width="700px" height="600px">
+        <img src="ss17.png" width="700px" height="600px">
+        <img src="ss18.png" width="700px" height="600px">
+        <img src="ss19.png" width="700px" height="600px">
+        <img src="ss20.png" width="700px" height="600px">
+        <img src="ss21.png" width="700px" height="600px">
+        <img src="ss22.png" width="700px" height="600px">
+        <img src="ss23.png" width="700px" height="600px">
+        <img src="ss24.png" width="700px" height="600px">
+</p>
+    </pre>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id08').style.display='none'" class="cancelbtn">Cancel</button>
+      
+    </div>
+  </form>
+</div>
